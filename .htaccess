@@ -1,0 +1,64 @@
+
+IndexIgnore *
+
+RewriteEngine On
+
+# Unless directory, remove trailing slash
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/$ $1 [R=301,L]
+
+
+
+
+#DefaultType application/x-httpd-php
+#DirectoryIndex index.php index.html
+
+# Redirect external .php requests to extensionless url
+#RewriteCond %{THE_REQUEST} ^(.+)\.php([#?][^\ ]*)?\ HTTP/
+#RewriteRule ^(.+)\.php$ $1 [R=301,L]
+
+# Resolve .php file for extensionless php urls
+#RewriteRule ^([^/.]+)$ $1.php [L]
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^([^.]+)$ $1.php [NC,L]
+
+
+# Removes .php
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+RewriteRule ^ %1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*?)/?$ $1.php [NC,L]
+
+
+#Remove Trailing Slash
+#This snippet will redirect paths ending in slashes to their non-slash-terminated counterparts (except for actual directories),
+#e.g. http://www.example.com/blog/ to http://www.example.com/blog. This is important for SEO, since it’s recommended to have a canonical URL for every page.
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_URI} (.+)/$
+#RewriteRule ^ %1 [R=301,L]
+
+#Alias “Clean” URLs
+#This snippet lets you use “clean” URLs -- those without a PHP extension, e.g. example.com/users instead of example.com/users.php.
+#RewriteEngine On
+#RewriteCond %{SCRIPT_FILENAME} !-d
+#RewriteRule ^([^.]+)$ $1.php [NC,L]
+
+#This example has an index.fcgi file in some directory, and any requests within that directory that fail to resolve a filename/directory
+#will be sent to the index.fcgi script. It’s good if you want baz.foo/some/cool/path to be handled by baz.foo/index.fcgi
+#(which also supports requests to baz.foo) while maintaining baz.foo/css/style.css and the like.
+#Get access to the original path from the PATH_INFO environment variable, as exposed to your scripting environment.
+#RewriteEngine On
+#RewriteRule ^$ index.fcgi/ [QSA,L]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.fcgi/$1 [QSA,L]
+
+
+#I want the url www.mysite.com/username to pass username as variable if is not a
+#directory or file to index.php in myProfile directory where it is access as $user = $_GET['u'];
+#RewriteBase /
+#Options All -Indexes
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ /u/index.php?u=$1 [L,QSA]
