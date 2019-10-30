@@ -1,10 +1,15 @@
 <?php
     session_start();
+    include("_debug.php");
+    include("_names.php");
+    include("_init.php");
+    include("_secrets.php");
+
 ?>
 <!doctype html>
 <html lang="en">
 <head>
-    <title><?php require_once("_names.php"); echo getSiteName(); ?> - Account Settings<?php require_once("_names.php"); echo getTitleTagline(); ?></title>
+    <title><?php echo getSiteName(); ?> - Account Settings<?php echo getTitleTagline(); ?></title>
 	<?php include("head.php");?>
 <?php
 

@@ -209,7 +209,7 @@ include("_profileVars.php");
                 ">
                 <br>
                 <div style="font-size:13pt;">
-                    It's important that you <a href="/uploadpics.php">upload pictures.</a><br>
+                    It's important that you <a href="/managepics">upload pictures.</a><br>
                 </div>
                 <div style="font-size:8pt;">
                     <br>

@@ -2,8 +2,10 @@
 
 	session_start(); 
 
-	require_once("_init.php");
-    require_once("_profileVars.php");
+	include("_debug.php");
+	include("_names.php");
+	include("_init.php");
+    include("_profileVars.php");
 
 	goHomeIfCookieNotSet();
 	
@@ -12,7 +14,7 @@
 	//go to edit profile if profile isn't finished
 	if($profileDone==0)
 	{
-		header('Location: '.getSiteURL().'/editprofile.php');
+		header('Location: '.getSiteURL().'/editprofile');
 		exit();
 	}
 
@@ -25,7 +27,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title><?php require_once("_names.php"); echo getSiteName(); ?> - My Profile<?php require_once("_names.php"); echo getTitleTagline(); ?></title>
+    <title><?php echo getSiteName(); ?> - My Profile<?php echo getTitleTagline(); ?></title>
 	<?php include("head.php");?>
 </head>
 <body class="d-flex flex-column h-100">
@@ -44,9 +46,9 @@
 									<div class="outerOutlineContainer" style="margin:0px;padding:0px;">
 									<div class="" style="margin:0px;padding:0px;">
 									<div class="whiteToGray" style="font-size:14pt;margin:0px;padding:8px;padding-left:4px; padding-right:4px;border-radius:8px;color:#666667;text-shadow:#fff 1px 1px 0px;">
-                                        <a href="/uploadpics" id="button-uploadpics" class="headerbutton"></a>
+                                        <a href="/managepics" id="button-uploadpics" class="headerbutton"></a>
                                         <br>
-                                        Upload / Manage Pictures
+                                        Manage Pictures
 									</div>
 									</div>
 									</div>

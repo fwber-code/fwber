@@ -2,7 +2,9 @@
 session_start();
 
 include("_names.php");
+include("_init.php");
 include("_debug.php");
+include("_secrets.php");
 
 ?>
 <!doctype html>
@@ -38,9 +40,6 @@ include("_debug.php");
                         <div id="picsFirstBase">
                         </div>
 <?php
-
-    include("_debug.php");
-    include("_secrets.php");
 
 		//connect to database, find any firstbase pictures for me.
 		$db = mysqli_connect($dburl,$dbuser,$dbpass);

@@ -76,7 +76,7 @@
 		
 		//-------------------------------------------------	
 		
-		//if they don't have any pictures, redirect to uploadpics.php
+		//if they don't have any pictures, redirect to managepics.php
 		
 		//connect to database
 		$db = mysqli_connect($dburl,$dbuser,$dbpass);
@@ -100,7 +100,7 @@
 		if(count($firstBasePics)==1&&$firstBasePics[0]==""&&count($allTheWayPics)==1&&$allTheWayPics[0]=="")
 		{
 
-			echo '<meta http-equiv="refresh" content="1;url='.getSiteURL().'/uploadpics"/>';
+			echo '<meta http-equiv="refresh" content="1;url='.getSiteURL().'/managepics"/>';
 			return;
 		}
 
