@@ -144,6 +144,7 @@
 		</div>
 		</div>
 
+		<?php //TODO: show floating avatar which changes in realtime ?>
 		<?php //TODO: dropdown for country, if not USA change zip code to city with javascript ?>
 
         <table>

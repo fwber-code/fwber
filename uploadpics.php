@@ -19,89 +19,24 @@ include("_debug.php");
         <br>
         <br>
 
-        <style>
-            .bd-placeholder-img {
-                font-size: 1.125rem;
-                text-anchor: middle;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-            }
-
-            @media (min-width: 768px) {
-                .bd-placeholder-img-lg {
-                    font-size: 3.5rem;
-                }
-            }
-            .jumbotron {
-                padding-top: 3rem;
-                padding-bottom: 3rem;
-                margin-bottom: 0;
-                background-color: #fff;
-            }
-            @media (min-width: 768px) {
-                .jumbotron {
-                    padding-top: 6rem;
-                    padding-bottom: 6rem;
-                }
-            }
-
-            .jumbotron p:last-child {
-                margin-bottom: 0;
-            }
-
-            .jumbotron-heading {
-                font-weight: 300;
-            }
-
-            .jumbotron .container {
-                max-width: 40rem;
-            }
-
-            footer {
-                padding-top: 3rem;
-                padding-bottom: 3rem;
-            }
-
-            footer p {
-                margin-bottom: .25rem;
-            }
-
-        </style>
-
-
         <h1 class="h3 mb-3 font-weight-normal text-center"> Manage Pictures</h1>
-
-
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Manage Pictures</h1>
-                <p class="lead text-muted">
-                    Other sites are overridden by bots and fake profiles with photoshopped pictures.<br>
-                    <?php echo getSiteName(); ?> gives everyone an equal chance: By using avatars, it evens the playing field for everyone.<br>
-                </p>
-            </div>
-        </section>
-
+        <br>
         <br>
 
 
+        <div class="card mb-5 shadow-sm" style="display:inline-block; background:#ddddff;">
+            <br>
+            <br>
+            <h1 class="h3 mb-3 font-weight-bold text-center">Your Public Pictures</h1>
+            <div class="smallText">
+                These are public and shown to anyone who matches with you.<br>
+            </div>
+            <br>
             <div class="album py-5 bg-light">
                 <div class="container">
-
                     <div class="row">
-
-                        <div style="border:#000 1px solid; border-radius:8px;margin:0px;">
-                            Your Public Pictures
-                            <div class="smallText" style="color:#222;font-size:11pt">
-                                These are public and shown to anyone who matches with you.<br>
-                                We recommend uploading face pictures here.<br>
-                                That way if you run into someone you know they will only know you signed up, not what you are into.<br>
-                            </div>
-                            <br>
-                            <div id="picsFirstBase">
-                            </div>
+                        <div id="picsFirstBase">
+                        </div>
 <?php
 
     include("_debug.php");
@@ -130,124 +65,88 @@ include("_debug.php");
 		{
 			if($s=="")continue;
 ?>
-            <div class="col-md-4">
+            <div class="col-md-5" id="imgdiv<?php echo $s; ?>">
                 <div class="card mb-4 shadow-sm">
-                       <div class="imageUploadList" align="center" width="100%" height="225" id="imgdiv<?php echo $s; ?>">
-                        <a href="/_getImage?img=<?php echo $s; ?>&id=<?php echo $userid; ?>" target="_blank"><img src="/_getImage?img=<?php echo $s; ?>&id=<?php echo $userid; ?>" id="pic<?php echo $s; ?>" class="imageUploadImage"></a>
+                    <div class="card-body">
+                        <div class="mb-3" align="center" width="100%" height="400">
+                            <a href="/_getImage?img=<?php echo $s; ?>&id=<?php echo $userid; ?>" target="_blank"><img src="/_getImage?img=<?php echo $s; ?>&id=<?php echo $userid; ?>" id="pic<?php echo $s; ?>" style="width:90%;"></a>
                         </div>
-                        <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary buttonDarkRed" name="delete" id="deleteButton<?php echo $s; ?>" onclick="ajaxDelete('<?php echo $s; ?>');">Delete</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" name="delete" id="deleteButton<?php echo $s; ?>" onclick="ajaxDelete('<?php echo $s; ?>');">Delete</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
 <?php 
 		}
 ?>
-
-            <table>
-            <tr>
-            <td>
-                <div style="font-size:14pt;">
-                    Upload File
-                </div>
-            </td>
-            <td>
-            <div>
-
-
-
-
-                <form action="_imageUpload" method="post" name="firstBaseForm" id="firstBaseForm" enctype="multipart/form-data">
-
-                    <input type="file" name="filedata" id="filedata" onchange="ajaxUpload(this.form,'firstBase');return false;"/>
-                    <?php
-                    //<!--[if IE]>
-                    //<button onclick="ajaxUpload(this.form,'firstBase');return false;">
-                    //Upload Image
-                    //</button>
-                    //<![endif]-->
-                    //<noscript>
-                    //<input type="submit" name="submit" value="Upload Image" />
-                    //</noscript>
-                    ?>
-                </form>
-
-                <div style="font-size:8pt;font-style:italic;">
-                File Types: .jpg, .png, 50MB maximum.
-                </div>
             </div>
-            </td>
-            </tr>
-            </table>
-            <br>
         </div>
-
-
-            <br>
-            <br>
-			<div style="border:#000 1px solid; border-radius:8px;margin:0px;">
-				    Your Private Pictures
-					<div class="smallText" style="color:#222;font-size:11pt">
-                        These are private pictures. Only members you have authorized will see them.<br>
-                        We recommend uploading nude pictures here.<br>
-                        Nobody will be able to see your interests or private pictures until you let them.<br>
-					</div>
+            <div class="ml-5 mr-5">
+                <form action="_imageUpload" method="post" name="firstBaseForm" id="firstBaseForm" enctype="multipart/form-data">
+                    <label>Upload Image: <input type="file" name="filedata" id="filedata" onchange="ajaxUpload(this.form,'firstBase');return false;"/></label>
+                </form>
+                <span style="font-size:8pt;font-style:italic;">
+                File Types: .jpg, .png, 50MB maximum.
+                </span>
             </div>
+        </div>
+    </div>
 
-            <table>
-                <tr>
-                    <td>
-                        <div id="picsAllTheWay">
-                        </div>
-                    </td>
+<br>
+<br>
+<div class="card mb-5 shadow-sm" style="display:inline-block; background:#ffdddd;">
+    <br>
+    <br>
+    <h1 class="h3 mb-3 font-weight-bold text-center">Your Private Pictures</h1>
+    <div class="smallText">
+        Only members you have authorized will see these pictures.<br>
+    </div>
+    <br>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div id="picsAllTheWay">
+                </div>
 <?php
 		//output them here with a delete button, with a php get image script.
 		foreach($allTheWayPics as $s)
 		{
 			if($s=="")continue;
 ?>
-			<td>
-			<div class="imageUploadList" align="center" id="imgdiv<?php echo $s; ?>">
-			<a href="/_getImage?img=<?php echo $s; ?>&id=<?php echo $userid; ?>" target="_blank"><img src="/_getImage?img=<?php echo $s; ?>&id=<?php echo $userid; ?>" id="pic<?php echo $s; ?>" class="imageUploadImage"></a>
-			<br>
-			<input type="button" class="buttonDarkRed" name="delete" id="deleteButton<?php echo $s; ?>" value="Delete" style="font-size:8pt;" onclick="ajaxDelete('<?php echo $s; ?>');"/>
-			</div>
-			</td>
+            <div class="col-md-5" id="imgdiv<?php echo $s; ?>">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="mb-3" align="center" width="100%" height="400">
+                            <a href="/_getImage?img=<?php echo $s; ?>&id=<?php echo $userid; ?>" target="_blank"><img src="/_getImage?img=<?php echo $s; ?>&id=<?php echo $userid; ?>" id="pic<?php echo $s; ?>" style="width:90%;"></a>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" name="delete" id="deleteButton<?php echo $s; ?>" onclick="ajaxDelete('<?php echo $s; ?>');">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 <?php
 		}
 		//handle delete button.
 ?>
-                </tr>
-            </table>
-            <table>
-            <tr>
-            <td>
-                <div style="font-size:14pt;font-weight:bold;">
-                    Select A File To Upload:
+                    </div>
                 </div>
-            </td>
-            <td>
-            <div>
-                <form action="_imageUpload" method="post" name="allTheWayForm" id="allTheWayForm" enctype="multipart/form-data">
-                    <input type="hidden" name="filename" value="filename" />
-                    <input type="file" name="filename" id="allTheWayFileName" value="filename" onchange="ajaxUpload(this.form,'allTheWay');return false;"/>
-                </form>
-                <div style="font-size:8pt;font-style:italic;">
-                    File Types: .jpg, .png, 50MB maximum.
+                <div class="ml-5 mr-5">
+                    <form action="_imageUpload" method="post" name="allTheWayForm" id="allTheWayForm" enctype="multipart/form-data">
+                        <label>Upload Image: <input type="file" name="filedata" id="filedata" onchange="ajaxUpload(this.form,'allTheWay');return false;"/></label>
+                    </form>
+                    <span style="font-size:8pt;font-style:italic;">
+                        File Types: .jpg, .png, 50MB maximum.
+                        </span>
                 </div>
             </div>
-            </td>
-            </tr>
-            </table>
-            <br>
-
+        </div>
+    </div>
     <?php include("f.php");?>
 
     <script type="text/javascript" src="js/ajaxupload.js"></script>
