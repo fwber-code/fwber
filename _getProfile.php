@@ -2,7 +2,7 @@
 
 	function getProfile($g, $whichBase)
 	{
-		require_once("_globals.php");
+		include("_globals.php");
 		
 		$genderString = getGenderString($g['gender']);
 		

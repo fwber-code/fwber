@@ -378,8 +378,11 @@
 		if($dbquery)
 		{
 			$result_array=array();
-			while (false!==($row = mysqli_fetch_assoc($dbquery))) 
+			$x=0;
+			while ($x<$numMatches)
 			{
+			    $x--;
+                $row = mysqli_fetch_assoc($dbquery);
 				$result_array[] = $row;
 			}
 			mysqli_free_result($dbquery);

@@ -68,6 +68,7 @@ include("_profileVars.php");
 
     $email = mysqli_escape_string($db,$_SESSION["email"]);
 
+    include("_getMatches.php");
     $result_array = getMatches($email);
 
     if(count($result_array)<6)

@@ -102,6 +102,8 @@
     $g['age'] = getAge($g['birthdayMonth'],$g['birthdayDay'],$g['birthdayYear']);
     $g['calculatedDistance']=getDistanceBetweenPoints($lat,$lon,$g['lat'],$g['lon']);
     $g['commonDesires']="All";
+
+    include("_getProfile.php");
 ?>
 		<br>
 		<div style="border:#000 1px solid; border-radius:8px;margin:0px;">
