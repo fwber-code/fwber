@@ -41,11 +41,8 @@ include("_profileVars.php");
 		<br>
 		<br>
 		<br>
-
         <h1 class="h3 mb-3 font-weight-normal text-center"> Your Matches</h1>
         <br>
-
-
         <div class="" style="display:inline-block;">
 			<span class="blueToWhite" style="font-size:11pt; padding:6px;">
 			Show:&nbsp;
@@ -56,7 +53,6 @@ include("_profileVars.php");
 			<?php if(isset($_GET['show'])&&$_GET['show']=="notmytype")echo '<span class="sortStyle">'; ?><a href="/matches.php?show=notmytype<?php if(isset($_GET['sort']))echo "&sort=".$_GET['sort']; ?>">Not My Type</a><?php if(isset($_GET['show'])&&$_GET['show']=="notmytype")echo '</span>'; ?>&nbsp;
 			</span>
         </div>
-
         <div class="" style="display:inline-block;">
             &nbsp;
             <span class="blueToWhite" style="font-size:11pt; padding:6px;">
@@ -82,9 +78,7 @@ include("_profileVars.php");
     if(count($result_array)<1)
     {
 ?>
-
         <div class="card p-5 m-2 shadow-sm" style="display:inline-block;">
-
             <h4 class="h3 mb-3 font-weight-normal text-center">
                 No matches found yet.
             </h4>
@@ -97,9 +91,6 @@ include("_profileVars.php");
                 Meanwhile, it's important that you <a href="/managepics">upload pictures.</a><br>
             </div>
         </div>
-
-
-
 <?php
     }
 
@@ -183,7 +174,6 @@ include("_profileVars.php");
 ?>
         <br>
 	</div>
-
     <?php include("f.php");?>
 
     <script src="/js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
@@ -196,7 +186,6 @@ include("_profileVars.php");
             $(e).toggle("blind","",1000);
         }
 
-        //AJAX
         function talkToServer(obj, userid)
         {
             var action = obj.name;
