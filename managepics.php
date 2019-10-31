@@ -10,12 +10,12 @@ include("_secrets.php");
 <!doctype html>
 <html lang="en">
 <head>
-    <title><?php echo getSiteName(); ?> - Upload Pictures<?php echo getTitleTagline(); ?></title>
+    <title><?php echo getSiteName(); ?> - Manage Pictures<?php echo getTitleTagline(); ?></title>
 	<?php include("head.php");?>
 </head>
 <body class="d-flex flex-column h-100">
 	<?php include("h.php");?>
-    <div class="col-sm-12 my-auto text-center">
+    <div class="col-sm-12 my-auto" align="center">
         <br>
         <br>
         <br>

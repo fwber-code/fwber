@@ -48,8 +48,8 @@
 			<div class="innerOutlineContainer">
 		<?php } ?>
 
-					<!-- hover over picture should say their profile text -->
-					<!-- clicking picture should drop boxers -->
+					<?php //hover over picture should say their profile text ?>
+					<?php //clicking picture should drop boxers ?>
 				
 					<table width="100%" border="0" cellpadding="0" cellspacing="0">
 					<tr>

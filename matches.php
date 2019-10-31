@@ -35,34 +35,42 @@ include("_profileVars.php");
     <title><?php echo getSiteName(); ?> - Matches<?php echo getTitleTagline(); ?></title>
 	<?php include("head.php");?>
 </head>
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100 matches">
 	<?php include("h.php");?>
-	<div id="mainbody" align="center" class="matches">
+    <div id="" align="center">
 		<br>
 		<br>
-		<div>
+		<br>
+
+        <h1 class="h3 mb-3 font-weight-normal text-center"> Your Matches</h1>
+        <br>
+
+
+        <div class="" style="display:inline-block;">
 			<span class="blueToWhite" style="font-size:11pt; padding:6px;">
 			Show:&nbsp;
 			<?php if(!isset($_GET['show'])||$_GET['show']=="all")echo '<span class="sortStyle">'; ?><a href="/matches.php?show=all<?php if(isset($_GET['sort']))echo "&sort=".$_GET['sort']; ?>">All</a><?php if(!isset($_GET['show'])||$_GET['show']=="all")echo '</span>'; ?>&nbsp;
-			<?php if(isset($_GET['show'])&&$_GET['show']=="fwbs")echo '<span class="sortStyle">'; ?><a href="/matches.php?show=fwbs<?php if(isset($_GET['sort']))echo "&sort=".$_GET['sort']; ?>">My fwbs</a><?php if(isset($_GET['show'])&&$_GET['show']=="fwbs")echo '</span>'; ?>&nbsp;
+			<?php if(isset($_GET['show'])&&$_GET['show']=="fwbs")echo '<span class="sortStyle">'; ?><a href="/matches.php?show=fwbs<?php if(isset($_GET['sort']))echo "&sort=".$_GET['sort']; ?>">My FWBs</a><?php if(isset($_GET['show'])&&$_GET['show']=="fwbs")echo '</span>'; ?>&nbsp;
 			<?php if(isset($_GET['show'])&&$_GET['show']=="waitingforme")echo '<span class="sortStyle">'; ?><a href="/matches.php?show=waitingforme<?php if(isset($_GET['sort']))echo "&sort=".$_GET['sort']; ?>">Waiting For Me</a><?php if(isset($_GET['show'])&&$_GET['show']=="waitingforme")echo '</span>'; ?>&nbsp;
 			<?php if(isset($_GET['show'])&&$_GET['show']=="waitingforthem")echo '<span class="sortStyle">'; ?><a href="/matches.php?show=waitingforthem<?php if(isset($_GET['sort']))echo "&sort=".$_GET['sort']; ?>">Waiting For Them</a><?php if(isset($_GET['show'])&&$_GET['show']=="waitingforthem")echo '</span>'; ?>&nbsp;
 			<?php if(isset($_GET['show'])&&$_GET['show']=="notmytype")echo '<span class="sortStyle">'; ?><a href="/matches.php?show=notmytype<?php if(isset($_GET['sort']))echo "&sort=".$_GET['sort']; ?>">Not My Type</a><?php if(isset($_GET['show'])&&$_GET['show']=="notmytype")echo '</span>'; ?>&nbsp;
 			</span>
-			
-			&nbsp;
-			<span class="blueToWhite" style="font-size:11pt; padding:6px;">
+        </div>
+
+        <div class="" style="display:inline-block;">
+            &nbsp;
+            <span class="blueToWhite" style="font-size:11pt; padding:6px;">
 			Sort:&nbsp;
 			<?php if(!isset($_GET['sort'])||$_GET['sort']=="commondesires")echo '<span class="sortStyle">'; ?><a href="/matches.php?<?php if(isset($_GET['show']))echo "show=".$_GET['show']."&"; ?>sort=commondesires">Desires</a><?php if(!isset($_GET['sort'])||$_GET['sort']=="commondesires")echo '</span>'; ?>&nbsp;
 			<?php if(isset($_GET['sort'])&&$_GET['sort']=="distance")echo '<span class="sortStyle">'; ?><a href="/matches.php?<?php if(isset($_GET['show']))echo "show=".$_GET['show']."&"; ?>sort=distance">Distance</a><?php if(isset($_GET['sort'])&&$_GET['sort']=="distance")echo '</span>'; ?>&nbsp;
 			<?php if(isset($_GET['sort'])&&$_GET['sort']=="lastseen")echo '<span class="sortStyle">'; ?><a href="/matches.php?<?php if(isset($_GET['show']))echo "show=".$_GET['show']."&"; ?>sort=lastseen">Last Seen</a><?php if(isset($_GET['sort'])&&$_GET['sort']=="lastseen")echo '</span>'; ?>&nbsp;
 			<?php if(isset($_GET['sort'])&&$_GET['sort']=="age")echo '<span class="sortStyle">'; ?><a href="/matches.php?<?php if(isset($_GET['show']))echo "show=".$_GET['show']."&"; ?>sort=age">Age</a><?php if(isset($_GET['sort'])&&$_GET['sort']=="age")echo '</span>'; ?>&nbsp;
 			</span>
-		</div>
-		<br>
-		<div style="width:90%;">
-		    <br>
+        </div>
+        <br>
+        <br>
 <?php
+
     $db = mysqli_connect($dburl,$dbuser,$dbpass);
     if(!$db)exit(mysqli_connect_error());
 
@@ -71,45 +79,27 @@ include("_profileVars.php");
     include("_getMatches.php");
     $result_array = getMatches($email);
 
-    if(count($result_array)<6)
+    if(count($result_array)<1)
     {
-?>	
+?>
 
-	<div class="outerOutlineContainer" style="width:80%;">
-	<div class="normalContainer">
-	<div class="innerOutlineContainer whiteToGray" style="
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee'); /* for IE */
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#eeeeee)); /* for webkit browsers */
-	background: -moz-linear-gradient(top,  #ffffff,  #eeeeee); /* for firefox 3.6+ */
-	">
-	<br>
-    <br>
-		<div  style="width:80%;">
-		<div class="innerOutlineContainer whiteToGray" style="
-			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#c6e8ff'); /* for IE */
-			background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#c6e8ff)); /* for webkit browsers */
-			background: -moz-linear-gradient(top,  #ffffff,  #c6e8ff); /* for firefox 3.6+ */
-        ">
-        <br>
-        <div style="font-size:18pt;font-weight:bold;margin:-32px;">
-        <img src="/images/fwber_logo_icon.png" alt="fwber" id="fwber_logo_img" align="middle"/>
-            &nbsp;is different than other match sites.
+        <div class="card p-5 m-2 shadow-sm" style="display:inline-block;">
+
+            <h4 class="h3 mb-3 font-weight-normal text-center">
+                No matches found yet.
+            </h4>
+            <br>
+            <div class="smallText">
+                <img src="/images/fwber_logo_icon.png" alt="fwber" id="fwber_logo_img" align="middle" width="80px" style="vertical-align:bottom;"/> is different than other match sites.<br>
+                We only match you with people into the same things as you.<br>
+                <br>
+                We will email you when you match with someone.<br>
+                Meanwhile, it's important that you <a href="/managepics">upload pictures.</a><br>
+            </div>
         </div>
-		</div>
-		</div>
-		<br>
-		<br>
-		<div style="font-size:13pt; color:#000;">
-            We only match you with people into the same things as you.<br>
-			It may take a while for <?php echo getSiteName();?> to find you the perfect matches.<br>
-			When it does, we'll email you right away to let you know.<br>
-			<br>
-		</div>
-	</div>
-	</div>
-	</div>
-	<br>
-	<br>
+
+
+
 <?php
     }
 
@@ -192,55 +182,6 @@ include("_profileVars.php");
     } // end if($results)
 ?>
         <br>
-        <div class="outerOutlineContainer" style="width:80%;">
-        <div class="normalContainer">
-        <div class="innerOutlineContainer whiteToGray" style="
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff'); /* for IE */
-        background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#ffffff)); /* for webkit browsers */
-        background: -moz-linear-gradient(top,  #eeeeee,  #ffffff); /* for firefox 3.6+ */
-        ">
-            <br>
-            <div  style="width:80%;">
-            <div class="">
-            <div class="innerOutlineContainer whiteToGray" style="
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee'); /* for IE */
-                background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#eeeeee)); /* for webkit browsers */
-                background: -moz-linear-gradient(top,  #ffffff,  #eeeeee); /* for firefox 3.6+ */
-                ">
-                <br>
-                <div style="font-size:13pt;">
-                    It's important that you <a href="/managepics">upload pictures.</a><br>
-                </div>
-                <div style="font-size:8pt;">
-                    <br>
-                    Nobody can see them until you let them. The more pictures you have, the more other people want to unlock them.<br>
-                    <br>
-                </div>
-            </div>
-            </div>
-            </div>
-            <br>
-            <div style="width:80%;">
-            <div class="">
-            <div class="innerOutlineContainer whiteToGray" style="
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee'); /* for IE */
-                background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#eeeeee)); /* for webkit browsers */
-                background: -moz-linear-gradient(top,  #ffffff,  #eeeeee); /* for firefox 3.6+ */
-                ">
-                <br>
-                <br>
-            </div>
-            </div>
-            </div>
-            <br>
-            <br>
-            <br>
-        </div>
-        </div>
-        </div>
-        <br>
-        <br>
-	</div> <!-- 96% -->
 	</div>
 
     <?php include("f.php");?>

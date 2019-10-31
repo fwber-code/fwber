@@ -24,7 +24,7 @@
     <meta name="apple-mobile-web-app-title" content="FWBer">
     <meta name="application-name" content="FWBer">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#59B0FF">
 
     <link href="/bootstrap-4.3.1-dist/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css" type="text/css" media="all"/>
