@@ -110,36 +110,15 @@
 		$mailToAddress=$theirEmail;
 		$mailTextBody = "Check them out here: ".getSiteURL()."/matches";
 		
-		if($action=='askfirstbase')
+
+		if($action=='askprivate')
 		{
-			$mailSubject=getSiteDomain()." - ".$myFirstName." wants to go to \"First Base\"";
+			$mailSubject=getSiteDomain()." - ".$myFirstName." wants to see your private profile";
 			$mailHTMLBody=	
 			"
-			".$myFirstName." has asked to go to \"First Base\" with you on ".getSiteName()."<br>
+			".$myFirstName." wants to see your private profile on ".getSiteName()."<br>
 			<br>
-			This will show them your basic information and face pictures, and you'll be able to see theirs.<br>
-			<br>
-			Check them out here:
-			<a href='".getSiteURL()."/matches?show=waitingforme'>My Matches</a>
-			<br>
-			<br>
-			<br>
-			To immediately unsubscribe from request notifications, please visit this link: <br>
-			<a href='".getSiteURL()."/unsubscribe?type=interested&email=".$theirEmail."&verifyHash=".$verifyHash."'>".getSiteURL()."/unsubscribe?type=interested&email=".$theirEmail."&verifyHash=".$verifyHash."</a><br>
-			<br>
-			To immediately unsubscribe from ALL notifications, please visit this link: <br>
-			<a href='".getSiteURL()."/unsubscribe?type=all&email=".$theirEmail."&verifyHash=".$verifyHash."'>".getSiteURL()."/unsubscribe?type=all&email=".$theirEmail."&verifyHash=".$verifyHash."</a><br>
-			<br>
-			";
-		}
-		if($action=='askalltheway')
-		{
-			$mailSubject=getSiteDomain()." - ".$myFirstName." wants to take it \"All The Way\"";
-			$mailHTMLBody=	
-			"
-			".$myFirstName." wants to go \"All The Way\" with you on ".getSiteName()."<br>
-			<br>
-			This will show them your full profile including contact information and body shots, and you'll be able to see theirs.<br>
+			This will show them your full profile including contact information and private pictures, and you'll be able to see theirs.<br>
 			<br>
 			Check them out here:
 			<a href='".getSiteURL()."/matches?show=waitingforme'>My Matches</a>
@@ -154,36 +133,14 @@
 			<br>
 			";
 		}
+	
 		
-		if($action=='authorizefirstbase')
+		if($action=='authorizeprivate')
 		{
-			$mailSubject=getSiteDomain()." - You've gone to \"First Base\" with ".$myFirstName."";
+			$mailSubject=getSiteDomain()." - You've been approved to see ".$myFirstName."'s private profile!";
 			$mailHTMLBody=	
 			"
-			".$myFirstName." has agreed to take it to \"First Base\" with you on ".getSiteName()."<br>
-			<br>
-			Quick, go check them out and see if you're interested!<br>
-			<br>
-			Check them out here:
-			<a href='".getSiteURL()."/matches'>My Matches</a>
-			<br>
-			<br>
-			<br>
-			To immediately unsubscribe from approval notifications, please visit this link: <br>
-			<a href='".getSiteURL()."/unsubscribe?type=approval&email=".$theirEmail."&verifyHash=".$verifyHash."'>".getSiteURL()."/unsubscribe?type=approval&email=".$theirEmail."&verifyHash=".$verifyHash."</a><br>
-			<br>
-			To immediately unsubscribe from ALL notifications, please visit this link: <br><br>
-			<a href='".getSiteURL()."/unsubscribe?type=all&email=".$theirEmail."&verifyHash=".$verifyHash."'>".getSiteURL()."/unsubscribe?type=all&email=".$theirEmail."&verifyHash=".$verifyHash."</a><br>
-			<br>
-			";
-		}
-		
-		if($action=='authorizealltheway')
-		{
-			$mailSubject=getSiteDomain()." - You've gone \"All The Way\" with ".$myFirstName."";
-			$mailHTMLBody=	
-			"
-			".$myFirstName." has agreed to take it \"All The Way\" with you on ".getSiteName()."<br>
+			".$myFirstName." has agreed to share their private profile with you on ".getSiteName()."<br>
 			<br>
 			Quick, go check them out and take it to the next step!<br>
 			<br>

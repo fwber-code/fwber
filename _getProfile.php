@@ -23,11 +23,11 @@
 
 		<?php if($whichBase=="public"){ ?>
 			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
-		<?php }else if($whichBase=="waitingforalltheway"){ ?>
+		<?php }else if($whichBase=="waitingforprivate"){ ?>
 			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
-		<?php }else if($whichBase=="alltheway"){ ?>
+		<?php }else if($whichBase=="private"){ ?>
 			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
-		<?php }else if($whichBase=="authforalltheway"){ ?>
+		<?php }else if($whichBase=="authforprivate"){ ?>
 			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
 		<?php }else if($whichBase=="notmytype"){ ?>
 			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
@@ -326,13 +326,13 @@
 						<td align="center"
 						<?php if($whichBase=="public"){ ?>
 						class="whiteToBlue"
-						<?php }else if($whichBase=="waitingforalltheway"){ ?>
+						<?php }else if($whichBase=="waitingforprivate"){ ?>
 						class="whiteToGray"
-						<?php }else if($whichBase=="authforalltheway"){ ?>
+						<?php }else if($whichBase=="authforprivate"){ ?>
 						class="whiteToPink"
 						<?php }else if($whichBase=="notmytype"){ ?>
 						class="whiteToGray"
-						<?php }else if($whichBase=="alltheway"){ ?>
+						<?php }else if($whichBase=="private"){ ?>
 						class="whiteToPink"
 						<?php } ?>
 						style="border:0px;border-radius:0px;border-top-right-radius:8px;border-bottom-right-radius:0px;"
@@ -342,19 +342,19 @@
 											<div class="">
 											New Match!
 											</div>
-										<?php }else if($whichBase=="waitingforalltheway"){ ?>
+										<?php }else if($whichBase=="waitingforprivate"){ ?>
 											<div class="">
-												Waiting For Them
+												Waiting For Them To Approve Trading Private Profile
 											</div>
-										<?php }else if($whichBase=="authforalltheway"){ ?>
+										<?php }else if($whichBase=="authforprivate"){ ?>
 											<div class="">
-												Waiting For You
+												Waiting For You To Approve Trading Private Profile
 											</div>
 										<?php }else if($whichBase=="notmytype"){ ?>
 											<div class="">
 												Not My Type
 											</div>
-										<?php }else if($whichBase=="alltheway"){ ?>
+										<?php }else if($whichBase=="private"){ ?>
 											<div class="">
 												Friends With Benefits!
 											</div>
@@ -365,7 +365,7 @@
 										<?php if($whichBase=="public"){ ?>
 										<div id="div<?php echo $g['id']; ?>">
 
-											<input type="button" class="btn btn-primary my-0 px-3 mx-1" name="askalltheway" value='Ask For Private Profile' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
+											<input type="button" class="btn btn-primary my-0 px-3 mx-1" name="askprivate" value='Ask For Private Profile' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
 
 											<br>
 											<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="notmytype" value='Not My Type' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
@@ -373,14 +373,14 @@
 										<span id="status<?php echo $g['id']; ?>" style="font-size:11pt;color:#555;display:none;"></span>
 
 
-										<?php }else if($whichBase=="waitingforalltheway"){ ?>
+										<?php }else if($whichBase=="waitingforprivate"){ ?>
 											<span style="font-size:8pt;color:#555;">Waiting for an answer...</span><br>
 
 
-										<?php }else if($whichBase=="authforalltheway"){ ?>
+										<?php }else if($whichBase=="authforprivate"){ ?>
 										<div id="div<?php echo $g['id']; ?>">
 											<span style="font-size:8pt;color:#555; font-weight:bold;"><?php echo $g['firstName']; ?> wants to trade private profiles!</span><br>
-											<input type="button" class="btn btn-primary my-0 px-3 mx-1" name="authorizealltheway" value='Authorize Private Profile' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
+											<input type="button" class="btn btn-primary my-0 px-3 mx-1" name="authorizeprivate" value='Authorize Private Profile' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
 											<br>
 											<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="notmytype" value='Not My Type...' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
 										</div>
@@ -399,7 +399,7 @@
 										<span id="status<?php echo $g['id']; ?>" style="font-size:11pt;color:#555;display:none;"></span>	
 											
 											
-										<?php }else if($whichBase=="alltheway"){ ?>
+										<?php }else if($whichBase=="private"){ ?>
 												
 													<div id="div<?php echo $g['id']; ?>">
 														<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="rejection" value='Not My Type' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
@@ -418,7 +418,7 @@
 				<div id="<?php echo $whichBase.$g['id']; ?>details" style="">
 				
 <?php
-						if($whichBase=="public"||$whichBase=="alltheway"||$whichBase=="waitingforalltheway"||$whichBase=="authforalltheway")
+						if($whichBase=="public"||$whichBase=="private"||$whichBase=="waitingforprivate"||$whichBase=="authforprivate")
 						{
 ?>
 								<div id="<?php echo $whichBase.$g['id']; ?>pics" style="font-size:8pt; border-top:#aaa 1px dotted;">	
@@ -464,9 +464,9 @@
 											</td>
 
 <?php
-								if($whichBase=="public"||$whichBase=="alltheway"||$whichBase=="waitingforalltheway"||$whichBase=="authforalltheway")
+								if($whichBase=="public"||$whichBase=="private"||$whichBase=="waitingforprivate"||$whichBase=="authforprivate")
 								if(count($privatePics)!=1||$privatePics[0]!="") //skip if no pics
-								if($g['email']!=$_SESSION["email"] || $whichBase=="alltheway") //skip if your own profile
+								if($g['email']!=$_SESSION["email"] || $whichBase=="private") //skip if your own profile
 								{ 
 									
 								
@@ -769,7 +769,7 @@
 																<?php } ?>
 																
 
-																<?php if($whichBase=="alltheway"){ ?>
+																<?php if($whichBase=="private"){ ?>
 																
 																		<tr>
 																			<td align="right" valign="top">
@@ -893,7 +893,7 @@
 										</table>
 									</td>
 
-									<?php if($whichBase=="alltheway"){ ?>
+									<?php if($whichBase=="private"){ ?>
 
 											<td valign="top">
 												
@@ -1083,7 +1083,7 @@
 
 											</td>
 
-									<?php } else { //end "all the way" section ?>
+									<?php } else {  ?>
 
 									<td class="questionMarkBlock" width="30%">
 										<div align="center" style="font-size:48pt;">

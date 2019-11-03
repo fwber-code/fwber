@@ -83,7 +83,7 @@
 				<div class="smallText" style="color:#222;font-size:11pt">
 				    This is how your profile looks fully unlocked after you have agreed to match someone.
 				</div>
-                <?php getProfile($g,"alltheway"); ?>
+                <?php getProfile($g,"private"); ?>
 		</div>
         <br>
 		<?php //TODO: show map here, highlight searched area ?>

@@ -47,7 +47,7 @@
 
     if($message=="")
     {
-        //connect to database, find any firstbase pictures for me.
+        //connect to database, find any pictures for me.
         //delete them in the db too.
         $publicPics=explode(",",trim(trim($dbresults['publicPics']),","));
         $privatePics=explode(",",trim(trim($dbresults['privatePics']),","));

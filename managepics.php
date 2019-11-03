@@ -41,7 +41,7 @@ include("_secrets.php");
                         </div>
 <?php
 
-		//connect to database, find any firstbase pictures for me.
+		//connect to database, find any public pictures for me.
 		$db = mysqli_connect($dburl,$dbuser,$dbpass);
 		if(!$db)exit(mysqli_connect_error());
 
@@ -84,8 +84,8 @@ include("_secrets.php");
             </div>
         </div>
             <div class="ml-5 mr-5">
-                <form action="_imageUpload" method="post" name="firstBaseForm" id="firstBaseForm" enctype="multipart/form-data">
-                    <label>Upload Image: <input type="file" name="filedata" id="filedata" onchange="ajaxUpload(this.form,'firstBase');return false;"/></label>
+                <form action="_imageUpload" method="post" name="publicPicsForm" id="publicPicsForm" enctype="multipart/form-data">
+                    <label>Upload Image: <input type="file" name="filedata" id="filedata" onchange="ajaxUpload(this.form,'public');return false;"/></label>
                 </form>
                 <span style="font-size:8pt;font-style:italic;">
                 File Types: .jpg, .png, 50MB maximum.
@@ -136,8 +136,8 @@ include("_secrets.php");
                     </div>
                 </div>
                 <div class="ml-5 mr-5">
-                    <form action="_imageUpload" method="post" name="allTheWayForm" id="allTheWayForm" enctype="multipart/form-data">
-                        <label>Upload Image: <input type="file" name="filedata" id="filedata" onchange="ajaxUpload(this.form,'allTheWay');return false;"/></label>
+                    <form action="_imageUpload" method="post" name="privatePicForm" id="privatePicForm" enctype="multipart/form-data">
+                        <label>Upload Image: <input type="file" name="filedata" id="filedata" onchange="ajaxUpload(this.form,'private');return false;"/></label>
                     </form>
                     <span style="font-size:8pt;font-style:italic;">
                         File Types: .jpg, .png, 50MB maximum.

@@ -35,7 +35,7 @@ function ajaxUpload(form, type)
 {
 	var url_action = '_imageUpload?type='+type;
 	var id_element = 'picsPublic';
-	if(type=="allTheWay")id_element = 'picsPrivate';
+	if(type=="private")id_element = 'picsPrivate';
 
 	var html_show_loading = "File uploading, please wait...<br><img src='images/loader_light_blue.gif' width='128' height='15' border='0' />";
 	var html_error_http = "<img src='images/error.gif' width='16' height='16' border='0' />; There was an error during the picture upload. Please try again.";

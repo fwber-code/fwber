@@ -21,17 +21,15 @@
 	
 	$email = mysqli_escape_string($db,$_SESSION["email"]);	
 
-	$dbquerystring = sprintf("SELECT id, notMyType, waitingForThemFirstBase, waitingForThemAllTheWay, allTheWay, firstBase FROM ".$dbname.".users WHERE email='%s'",$email);
+	$dbquerystring = sprintf("SELECT id, notMyType, waitingForThemPrivate, private FROM ".$dbname.".users WHERE email='%s'",$email);
 	$dbquery = mysqli_query($db,$dbquerystring);
 	$dbresults = mysqli_fetch_array($dbquery);
 	
 	$myuserid=$dbresults['id'];
 	
 	$myNotMyType=explode(",",trim(trim($dbresults['notMyType']),","));
-	$myWaitingForThemFirstBase=explode(",",trim(trim($dbresults['waitingForThemFirstBase']),","));
-	$myWaitingForThemAllTheWay=explode(",",trim(trim($dbresults['waitingForThemAllTheWay']),","));
-	$myAllTheWay=explode(",",trim(trim($dbresults['allTheWay']),","));
-	$myFirstBase=explode(",",trim(trim($dbresults['firstBase']),","));
+	$myWaitingForThemPrivate=explode(",",trim(trim($dbresults['waitingForThemPrivate']),","));
+	$myPrivate=explode(",",trim(trim($dbresults['private']),","));
 	
 	mysqli_free_result($dbquery);
 
@@ -47,18 +45,14 @@
 	$privatePics=explode(",",trim(trim($dbresults['privatePics']),","));
 	$publicPics=explode(",",trim(trim($dbresults['publicPics']),","));
 	
-	//if($img=="firstbase")$foundWhere=="firstbase";
-	//else
-	//if($img=="alltheway")$foundWhere=="alltheway";
-	//else
-	//{
+
 		//it's a single image.
 	
 		//figure out which database list it's in.
 		$foundWhere="";
-		foreach($publicPics as $s)if($s==$img)$foundWhere="firstbase";
+		foreach($publicPics as $s)if($s==$img)$foundWhere="public";
 		
-		if($foundWhere=="")foreach($privatePics as $s)if($s==$img)$foundWhere="alltheway";
+		if($foundWhere=="")foreach($privatePics as $s)if($s==$img)$foundWhere="private";
 		
 		if($foundWhere=="")exit("Image not found.");
 	//}
@@ -66,43 +60,25 @@
 	//see if i have access to that database list
 	$haveAccess=false;
 		
-	if($foundWhere=="firstbase")
+	if($foundWhere=="public")
 	{
-		//do i have access to their first base?
-		
-		//if they are ME
-		if($theiruserid==$myuserid)$haveAccess=true;
+		$haveAccess=true;
 	
-		//if they are in my alltheway
-		foreach($myAllTheWay as $s)if($s==$theiruserid)$haveAccess=true;
-		
-		//if they are in my firstbase
-		foreach($myFirstBase as $s)if($s==$theiruserid)$haveAccess=true;
-		
-		//if they are in my waitingforthemalltheway
-		foreach($myWaitingForThemAllTheWay as $s)if($s==$theiruserid)$haveAccess=true;
 
-		if($haveAccess==false)
-		{
-			header("Content-type: image/jpeg");
-			readfile("./fwberImageStore/".$img."_b");
-		}
-		else
-		{
-			header("Content-type: image/jpeg");
-			readfile("./fwberImageStore/".$img);
-		}
+		header("Content-type: image/jpeg");
+		readfile("./fwberImageStore/".$img);
+		
 	}
 	
-	if($foundWhere=="alltheway")
+	if($foundWhere=="private")
 	{
-		//do i have access to all the way?
+		//do i have access to private?
 		
 		//if they are ME
 		if($theiruserid==$myuserid)$haveAccess=true;
 		
-		//if they are in my alltheway
-		foreach($myAllTheWay as $s)if($s==$theiruserid)$haveAccess=true;
+		//if they are in my private
+		foreach($myPrivate as $s)if($s==$theiruserid)$haveAccess=true;
 		
 		if($haveAccess==false)
 		{
@@ -118,35 +94,7 @@
 	
 	if($haveAccess==false)exit("Unauthorized");
 
-	//if($img=="firstbase")
-	//{
-		//export all firstbase pics
-	
-	//}
-	//else
-	//if($img=="alltheway")
-	//{
-		//export all alltheway pics
-	
-	//}
-	//else
-	//{
-	
-		//header("Content-type: image/jpeg");
-		//readfile("./fwberImageStore/".$img);
-	
-		/*
-		//return header.
-		$fh = fopen("./fwberImageStore/".$img,"rb");
-		if($fh==NULL)exit("Could not open image.");
-		rewind($fh);
-		header("Content-Type: image/jpeg");
-		header("Content-Length: ".filesize($fh));
-		fpassthru($fh);
-		fclose($fh);
-		exit();*/
-	//}
-	
+
 
 	
 

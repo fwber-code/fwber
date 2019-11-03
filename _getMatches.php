@@ -390,10 +390,9 @@
 		mysqli_close($db);	
 
 		$myNotMyType=explode(",",trim(trim($me['notMyType']),","));
-		$myWaitingForThemFirstBase=explode(",",trim(trim($me['waitingForThemFirstBase']),","));
-		$myWaitingForThemAllTheWay=explode(",",trim(trim($me['waitingForThemAllTheWay']),","));
-		$myAllTheWay=explode(",",trim(trim($me['allTheWay']),","));
-		$myFirstBase=explode(",",trim(trim($me['firstBase']),","));
+		$myWaitingForThemPrivate=explode(",",trim(trim($me['waitingForThemPrivate']),","));
+		$myPrivate=explode(",",trim(trim($me['private']),","));
+
 		
 
 		if(count($result_array)>0)
@@ -402,14 +401,14 @@
 			{
 				$status = "";
 
-				//check their status list for "not my type". if i am in their list, don't show. STATUS = "HIDDEN"
+				//check their status list for "not my type". if i am in their list, don't show. 
 				$theirNotMyType = explode(",",$g['notMyType']);
 				foreach($theirNotMyType as $tnmtID)
 				{
 					if($tnmtID==$me['id'])$status="hidden";
 				}
 
-				//if user is in "not my type" list, don't show. STATUS = "NOTMYTYPE"
+				//if user is in "not my type" list, don't show. 
 				if($status=="")
 				{
 					foreach($myNotMyType as $nmtID)
@@ -418,61 +417,35 @@
 					}
 				}
 				
-				//if i am in their "waiting for them for firstbase" list, show "authorize first base" STATUS = "AUTH1"
+
+				//if i am in their "waiting for them for private" list, show "private, authorize private"" 
 				if($status=="")
 				{
-					$theirWaitingForThemFirstBase = explode(",",$g['waitingForThemFirstBase']);
-					foreach($theirWaitingForThemFirstBase as $twftfbID)
+					$theirWaitingForThemPrivate = explode(",",$g['waitingForThemPrivate']);
+					foreach($theirWaitingForThemPrivate as $twftpID)
 					{
-						if($twftfbID==$me['id'])$status="authforfirstbase";
+						if($twftpID==$me['id'])$status="authforprivate";
 					}
 				}
 				
-				//if they are in my "waiting for them for firstbase" list, show "waiting for them for first base" STATUS = "WAIT1"
+				//if they are in my "waiting for them for private" list, show "waiting for them for private" 
 				if($status=="")
 				{
-					foreach($myWaitingForThemFirstBase as $wftfbID)
+					foreach($myWaitingForThemPrivate as $wftpID)
 					{
-						if($wftfbID==$g['id'])$status="waitingforfirstbase";
+						if($wftpID==$g['id'])$status="waitingforprivate";
 					}
 				}
 
-				//if i am in their "waiting for them for all the way"" list, show "first base, authorize all the way"" STATUS = "AUTH2"
+				//if user is in my "private" list, show private. 
 				if($status=="")
 				{
-					$theirWaitingForThemAllTheWay = explode(",",$g['waitingForThemAllTheWay']);
-					foreach($theirWaitingForThemAllTheWay as $twftatwID)
+					foreach($myPrivate as $pID)
 					{
-						if($twftatwID==$me['id'])$status="authforalltheway";
-					}
-				}
-				
-				//if they are in my "waiting for them for all the way"" list, show "first base, waiting for them for all the way" STATUS = "WAIT2"
-				if($status=="")
-				{
-					foreach($myWaitingForThemAllTheWay as $wftatwID)
-					{
-						if($wftatwID==$g['id'])$status="waitingforalltheway";
+						if($pID==$g['id'])$status="private";
 					}
 				}
 
-				//if user is in my "alltheway" list, show all the way. STATUS = "2 ALL THE WAY"
-				if($status=="")
-				{
-					foreach($myAllTheWay as $atwID)
-					{
-						if($atwID==$g['id'])$status="alltheway";
-					}
-				}
-				
-				//if user is in my "firstbase" list, show first base. STATUS = "1 FIRST BASE"
-				if($status=="")
-				{
-					foreach($myFirstBase as $fbID)
-					{
-						if($fbID==$g['id'])$status="firstbase";
-					}
-				}
 				
 				//if there is no status set, show default profile. STATUS = "0 DEFAULT PUBLIC"
 				if($status=="")

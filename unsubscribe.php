@@ -18,10 +18,10 @@
     //approved - matches that approved my requests
 
     $message = "";
-    if($type=="all")$message="all mail notifications!";
-    else if($type=="matches")$message="any new match notifications!";
-    else if($type=="interested")$message="any \"First Base\" or \"All The Way\" request notifications!";
-    else if($type=="approved")$message="any notifications for approval of your \"First Base\" or \"All The Way\" requests!";
+    if($type=="all")$message="all mail notifications.";
+    else if($type=="matches")$message="any new match notifications.";
+    else if($type=="interested")$message="any private profile request notifications.";
+    else if($type=="approved")$message="any notifications for approval of your private profile requests.";
     else exit("unknown type");
 
     $dbquerystring = sprintf("SELECT id, verifyHash, emailMatches, emailInterested, emailApproved FROM ".$dbname.".users WHERE email='%s'",$email);

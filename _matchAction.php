@@ -13,25 +13,15 @@
 	
 	goHomeIfCookieNotSet();
 	
-	//var statusString = "";
-	//if(action=="askfirstbase")statusString = "Email was sent asking for face pics!";
-	//if(action=="authorizefirstbase")statusString = "You've taken it to first base! Quick, refresh your match list and see if you're interested!";
-	//if(action=="askalltheway")statusString = "Email was sent asking to trade all info!";
-	//if(action=="notmytype")statusString = "They weren't what you were looking for. We'll hide you from their matches to soften the blow. Out of sight, out of mind!";
-	//if(action=="authorizealltheway")statusString = "You've taken it all the way! Quick, refresh your match list and take a look!";
-	//if(action=="undonotmytype")statusString = "You've given them another chance! Refresh your match list to see them in your normal matches.";
-	//if(action=="rejection")statusString = "You've rejected them. We'll hide you from their matches to soften the blow. Out of sight, out of mind!";
 
 	//make sure we've got an action.
 	if(!isset($_GET['action'])||!isset($_GET['d'])||empty($_GET['action'])||empty($_GET['d']))exit('no action');
 	
 	//make sure we've got the right action.
 	if(
-		$_GET['action']!='askfirstbase'&&
-		$_GET['action']!='authorizefirstbase'&&
-		$_GET['action']!='askalltheway'&&
+		$_GET['action']!='askprivate'&&
 		$_GET['action']!='notmytype'&&
-		$_GET['action']!='authorizealltheway'&&
+		$_GET['action']!='authorizeprivate'&&
 		$_GET['action']!='undonotmytype'&&
 		$_GET['action']!='rejection'
 		
@@ -55,12 +45,10 @@
 
     //db entries:
     //notMyType
-    //waitingForThemFirstBase
-    //waitingForThemAllTheWay
-    //allTheWay
-    //firstBase
+    //waitingForThemPrivate
+    //private
 
-    $dbquerystring = sprintf("SELECT id, firstName, notMyType, waitingForThemFirstBase, waitingForThemAllTheWay, allTheWay, firstBase FROM ".$dbname.".users WHERE email='%s'",$email);
+    $dbquerystring = sprintf("SELECT id, firstName, notMyType, waitingForThemPrivate, private FROM ".$dbname.".users WHERE email='%s'",$email);
     $dbquery = mysqli_query($db,$dbquerystring);
     $dbresults = mysqli_fetch_array($dbquery);
 
@@ -68,10 +56,8 @@
     $myFirstName = $dbresults['firstName'];
 
     $myNotMyType=explode(",",trim(trim($dbresults['notMyType']),","));
-    $myWaitingForThemFirstBase=explode(",",trim(trim($dbresults['waitingForThemFirstBase']),","));
-    $myWaitingForThemAllTheWay=explode(",",trim(trim($dbresults['waitingForThemAllTheWay']),","));
-    $myAllTheWay=explode(",",trim(trim($dbresults['allTheWay']),","));
-    $myFirstBase=explode(",",trim(trim($dbresults['firstBase']),","));
+    $myWaitingForThemPrivate=explode(",",trim(trim($dbresults['waitingForThemPrivate']),","));
+    $myPrivate=explode(",",trim(trim($dbresults['private']),","));
 
     mysqli_free_result($dbquery);
 
@@ -154,10 +140,9 @@
         $theirVerifyHash = $dbresults['verifyHash'];
 
         $theirNotMyType=explode(",",trim(trim($dbresults['notMyType']),","));
-        $theirWaitingForThemFirstBase=explode(",",trim(trim($dbresults['waitingForThemFirstBase']),","));
-        $theirWaitingForThemAllTheWay=explode(",",trim(trim($dbresults['waitingForThemAllTheWay']),","));
-        $theirAllTheWay=explode(",",trim(trim($dbresults['allTheWay']),","));
-        $theirFirstBase=explode(",",trim(trim($dbresults['firstBase']),","));
+        $theirWaitingForThemPrivate=explode(",",trim(trim($dbresults['waitingForThemPrivate']),","));
+        $theirPrivate=explode(",",trim(trim($dbresults['private']),","));
+
 
 	//-------------------------------------------------	
 	//make sure we aren't on their "not my type" list.
@@ -167,86 +152,36 @@
 	//-------------------------------------------------	
 	//make sure we've got the appropriate status to perform this action.
 	//-------------------------------------------------
-		//if askfirstbase, they must be public to us, and they must not be in ANY of our db lists.
-			//set them in our waitingForThemFirstBase
+
+		
+		//if askprivate
+			//add them to my private
 			//send email conf
-		if($action=="askfirstbase")
+		if($action=="askprivate")
 		{
-			foreach($myNotMyType as $s)if($s==$theiruserid)exit("They are in your 'Not My Type' list.");
-			foreach($myWaitingForThemFirstBase as $s)if($s==$theiruserid)exit("You are already waiting for them to authorize First Base.");
-			foreach($myWaitingForThemAllTheWay as $s)if($s==$theiruserid)exit("You are already waiting or them to authorize All The Way.");
-			foreach($myAllTheWay as $s)if($s==$theiruserid)exit("They are already in your All The Way list.");
-			foreach($myFirstBase as $s)if($s==$theiruserid)exit("They are already in your First Base list.");
-			
-			foreach($theirWaitingForThemFirstBase as $s)if($s==$myuserid)exit("They are already waiting for you to authorize First Base.");
-			
-			$myWaitingForThemFirstBase[] = $theiruserid;
+			$myWaitingForThemPrivate[] = $theiruserid;
 		}
 		
-		//if authorizefirstbase, we must be listed in their waitingForThemFirstBase, they must NOT be in ours
-			//add them to my firstBase
-			//remove me from their waitingForThemFirstBase and add me to their firstBase
+		//if authorizeprivate
+			//we must be listed in their waitingForThemPrivate
+			//add them to my private
+			//remove me from their waitingForThemPrivate, add me to their private
 			//send email conf
-		if($action=="authorizefirstbase")
+		if($action=="authorizeprivate")
 		{
 
 			$found=false;
-			foreach($theirWaitingForThemFirstBase as $s)if($s==$myuserid)$found=true;
-			if($found==false)exit("You are not in their Waiting For First Base list.");
-			
-			foreach($myWaitingForThemFirstBase as $s)if($s==$theiruserid)exit("You are already waiting for them to authorize First Base.");
-			
-			$myFirstBase[] = $theiruserid;
+			foreach($theirWaitingForThemPrivate as $s)if($s==$myuserid)$found=true;
+			if($found==false)exit("They aren't waiting for us to authorize private.");
 
-			rem_array($theirWaitingForThemFirstBase,$myuserid);
+			$myPrivate[] = $theiruserid;
 			
-			$theirFirstBase[] = $myuserid;
-		}
-		
-		//if askalltheway, they must be in our firstBase list, we must be in theirs.
-			//remove them from my firstbase, add them to my waitingForThemAllTheWay
-			//send email conf
-		if($action=="askalltheway")
-		{
-		
-			$found=false;
-			foreach($myFirstBase as $s)if($s==$theiruserid)$found=true;
-			if($found==false)exit("They are not in your First Base list.");
-			
-			$found=false;
-			foreach($theirFirstBase as $s)if($s==$myuserid)$found=true;
-			if($found==false)exit("You are not in their First Base list.");
-			
-			rem_array($myFirstBase,$theiruserid);
-			
-			$myWaitingForThemAllTheWay[] = $theiruserid;
+			rem_array($theirWaitingForThemPrivate,$myuserid);
+			$theirPrivate[] = $myuserid;
 		
 		}
 		
-		//if authorizealltheway, they must be in our firstBase list
-			//we must be listed in their waitingForThemAllTheWay
-			//remove them from firstBase, add them to allTheWay
-			//remove me from their waitingForThemAllTheWay, add me to their allTheWay
-			//send email conf
-		if($action=="authorizealltheway")
-		{
-			$found=false;
-			foreach($myFirstBase as $s)if($s==$theiruserid)$found=true;
-			if($found==false)exit("They aren't in your 'First Base' list yet. Can't go all the way.");
-			
-			$found=false;
-			foreach($theirWaitingForThemAllTheWay as $s)if($s==$myuserid)$found=true;
-			if($found==false)exit("They aren't waiting for us to authorize All The Way.");
-
-			rem_array($myFirstBase,$theiruserid);
-			$myAllTheWay[] = $theiruserid;
-			
-			rem_array($theirWaitingForThemAllTheWay,$myuserid);
-			$theirAllTheWay[] = $myuserid;
-		
-		}
-		
-		//if notmytype, they must NOT be in our notmytype list.
+		//if private, they must NOT be in our private list.
 		
 			//remove them from all my lists
 			//remove me from all their lists
@@ -256,15 +191,13 @@
 		
 			foreach($myNotMyType as $s)if($s==$theiruserid)exit("Already not your type.");
 
-			rem_array($myFirstBase,$theiruserid);
-			rem_array($myWaitingForThemFirstBase,$theiruserid);
-			rem_array($myWaitingForThemAllTheWay,$theiruserid);
-			rem_array($myAllTheWay,$theiruserid);
+
+			rem_array($myWaitingForThemPrivate,$theiruserid);
+			rem_array($myPrivate,$theiruserid);
 			
-			rem_array($theirFirstBase,$myuserid);
-			rem_array($theirWaitingForThemFirstBase,$myuserid);
-			rem_array($theirWaitingForThemAllTheWay,$myuserid);
-			rem_array($theirAllTheWay,$myuserid);
+
+			rem_array($theirWaitingForThemPrivate,$myuserid);
+			rem_array($theirPrivate,$myuserid);
 			
 			$myNotMyType[] = $theiruserid;
 		
@@ -284,47 +217,40 @@
 			rem_array($myNotMyType,$theiruserid);
 		}
 		
-		//if rejection, we must be in their alltheway lists, and they must be in ours.
-			//remove me from their alltheway list (all lists)
-			//remove them from my alltheway lists (all lists)
+		//if rejection, we must be in their private lists, and they must be in ours.
+			//remove me from their private list (all lists)
+			//remove them from my private lists (all lists)
 			//set them in my notmytype
 		if($action=="rejection")
 		{
-		
-			//$found=false;
-			//foreach($theirAllTheWay as $s)if($s==$myuserid)$found=true;
-			//if($found==false)exit("no");
+	
 			
 			$found=false;
-			foreach($myAllTheWay as $s)if($s==$theiruserid)$found=true;
-			if($found==false)exit("They are not in your 'All The Way' list.");
+			foreach($myPrivate as $s)if($s==$theiruserid)$found=true;
+			if($found==false)exit("They are not in your private list.");
 
-			rem_array($myAllTheWay,$theiruserid);
-			rem_array($theirAllTheWay,$myuserid);
+			rem_array($myPrivate,$theiruserid);
+			rem_array($theirPrivate,$myuserid);
 
 			$myNotMyType[] = $theiruserid;
 		}
 
 	//update me
 	$dbquerystring = 
-	sprintf("UPDATE ".$dbname.".users SET notMyType = '%s',waitingForThemFirstBase = '%s',waitingForThemAllTheWay = '%s',allTheWay = '%s',firstBase = '%s' WHERE id='%s'",
+	sprintf("UPDATE ".$dbname.".users SET notMyType = '%s',waitingForThemPrivate = '%s',private = '%s' WHERE id='%s'",
 	trim(trim(implode(",",$myNotMyType)),","),
-	trim(trim(implode(",",$myWaitingForThemFirstBase)),","),
-	trim(trim(implode(",",$myWaitingForThemAllTheWay)),","),
-	trim(trim(implode(",",$myAllTheWay)),","),
-	trim(trim(implode(",",$myFirstBase)),","),
+	trim(trim(implode(",",$myWaitingForThemPrivate)),","),
+	trim(trim(implode(",",$myPrivate)),","),
 	$myuserid
 	);
 	if(!mysqli_query($db,$dbquerystring))exit("didn't work");
 
 	//update them
 	$dbquerystring = 
-	sprintf("UPDATE ".$dbname.".users SET notMyType = '%s',waitingForThemFirstBase = '%s',waitingForThemAllTheWay = '%s',allTheWay = '%s',firstBase = '%s' WHERE id='%s'",
+	sprintf("UPDATE ".$dbname.".users SET notMyType = '%s',waitingForThemPrivate = '%s',private = '%s' WHERE id='%s'",
 	trim(trim(implode(",",$theirNotMyType)),","),
-	trim(trim(implode(",",$theirWaitingForThemFirstBase)),","),
-	trim(trim(implode(",",$theirWaitingForThemAllTheWay)),","),
-	trim(trim(implode(",",$theirAllTheWay)),","),
-	trim(trim(implode(",",$theirFirstBase)),","),
+	trim(trim(implode(",",$theirWaitingForThemPrivate)),","),
+	trim(trim(implode(",",$theirPrivate)),","),
 	$theiruserid);
 	if(!mysqli_query($db,$dbquerystring))exit("didn't work");
 
@@ -336,10 +262,10 @@
 	//send notification email
 	
 	//only send email if their settings allow for it...
-	if(($action=='askfirstbase'&&$theirEmailInterested==1)||
-		($action=='authorizefirstbase'&&$theirEmailApproved==1)||
-		($action=='askalltheway'&&$theirEmailInterested==1)||
-		($action=='authorizealltheway'&&$theirEmailApproved==1)
+	if(
+
+		($action=='askprivate'&&$theirEmailInterested==1)||
+		($action=='authorizeprivate'&&$theirEmailApproved==1)
 	)
 	{
 		sendMatchActionEmail($myFirstName,$theirEmail,$action, $theirVerifyHash);

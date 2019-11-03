@@ -37,8 +37,8 @@
 	$type = strip_tags($_REQUEST['type']);
 	$filesize_image = $_FILES['filedata']['size'];
 	
-	if($type=="firstBase")if(count($publicPics)>20)exit("Too Many Pics.");
-	if($type=="allTheWay")if(count($privatePics)>20)exit("Too Many Pics.");
+	if($type=="public")if(count($publicPics)>20)exit("Too Many Pics.");
+	if($type=="private")if(count($privatePics)>20)exit("Too Many Pics.");
 
 	//$errorList="";
 	
@@ -77,8 +77,8 @@
 	{
 		//add image filename in type database.
 		
-		if($type=="firstBase")$publicPics[] = $upload_image;
-		if($type=="allTheWay")$privatePics[] = $upload_image;
+		if($type=="public")$publicPics[] = $upload_image;
+		if($type=="private")$privatePics[] = $upload_image;
 		
 		$dbquerystring = 
 		sprintf("UPDATE ".$dbname.".users SET publicPics = '%s',privatePics = '%s' WHERE id='%s'",

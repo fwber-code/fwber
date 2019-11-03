@@ -113,25 +113,21 @@ include("_profileVars.php");
 		if(isset($_GET['show']) && !empty($_GET['show']) && $_GET['show']=="fwbs")
 		{
 			//fwbs
-			foreach($result_array as &$g){if($g['status']=="alltheway")getProfile($g,$g['status']);}unset($g);
+			foreach($result_array as &$g){if($g['status']=="private")getProfile($g,$g['status']);}unset($g);
 		}
 		else
 		if(isset($_GET['show']) && !empty($_GET['show']) && $_GET['show']=="waitingforme")
 		{
-			//all the way they are waiting for me (authorize)
-			foreach($result_array as &$g){if($g['status']=="authforalltheway")getProfile($g,$g['status']);}unset($g);
+			//private they are waiting for me (authorize)
+			foreach($result_array as &$g){if($g['status']=="authforprivate")getProfile($g,$g['status']);}unset($g);
 
-			//first base they are waiting for me
-			foreach($result_array as &$g){if($g['status']=="authforfirstbase")getProfile($g,$g['status']);}unset($g);
 		}
 		else
 		if(isset($_GET['show']) && !empty($_GET['show']) && $_GET['show']=="waitingforthem")
 		{
-			//waiting for them to auth all the way
-			foreach($result_array as &$g){if($g['status']=="waitingforalltheway")getProfile($g,$g['status']);}unset($g);
+			//waiting for them to auth private
+			foreach($result_array as &$g){if($g['status']=="waitingforprivate")getProfile($g,$g['status']);}unset($g);
 			
-			//waiting for them to auth first base
-			foreach($result_array as &$g){if($g['status']=="waitingforfirstbase")getProfile($g,$g['status']);}unset($g);
 		}
 		else
 		if(isset($_GET['show']) && !empty($_GET['show']) && $_GET['show']=="notmytype")
@@ -143,24 +139,15 @@ include("_profileVars.php");
 		{
 			//show all in correct order
 		
-			//all the way they are waiting for me (authorize)
-			foreach($result_array as &$g){if($g['status']=="authforalltheway")getProfile($g,$g['status']);}unset($g);
+			//private they are waiting for me (authorize)
+			foreach($result_array as &$g){if($g['status']=="authforprivate")getProfile($g,$g['status']);}unset($g);
 
-			//first base they are waiting for me
-			foreach($result_array as &$g){if($g['status']=="authforfirstbase")getProfile($g,$g['status']);}unset($g);
-			
 			//fwbs
-			foreach($result_array as &$g){if($g['status']=="alltheway")getProfile($g,$g['status']);}unset($g);
+			foreach($result_array as &$g){if($g['status']=="private")getProfile($g,$g['status']);}unset($g);
 			
-			//waiting for them to auth all the way
-			foreach($result_array as &$g){if($g['status']=="waitingforalltheway")getProfile($g,$g['status']);}unset($g);
-			
-			//first base
-			foreach($result_array as &$g){if($g['status']=="firstbase")getProfile($g,$g['status']);}unset($g);
-			
-			//waiting for them to auth first base
-			foreach($result_array as &$g){if($g['status']=="waitingforfirstbase")getProfile($g,$g['status']);}unset($g);
-			
+			//waiting for them to auth private
+			foreach($result_array as &$g){if($g['status']=="waitingforprivate")getProfile($g,$g['status']);}unset($g);
+
 			//public by join date
 			foreach($result_array as &$g){if($g['status']=="public")getProfile($g,$g['status']);}unset($g);
 			
@@ -214,11 +201,10 @@ include("_profileVars.php");
                             $(document.getElementById("div"+userid)).hide("puff","",1000);
 
                             var statusString = "";
-                            if(action=="askfirstbase")statusString = "Email was sent asking for face pics!";
-                            if(action=="authorizefirstbase")statusString = "You've taken it to first base! Quick, refresh your match list and see if you're interested!";
-                            if(action=="askalltheway")statusString = "An email was sent to them offering to trade private pictures and contact information.";
+
+                            if(action=="askprivate")statusString = "An email was sent to them offering to trade private pictures and contact information.";
                             if(action=="notmytype")statusString = "They weren't what you were looking for. We'll hide you from their matches.";
-                            if(action=="authorizealltheway")statusString = "You've agreed to share your private pictures and contact information with them. You can see theirs now.";
+                            if(action=="authorizeprivate")statusString = "You've agreed to trade your private pictures and contact information with them. You can see theirs now.";
                             if(action=="undonotmytype")statusString = "You've given them another chance. Refresh your match list to see them.";
 
                             document.getElementById("status"+userid).innerHTML=statusString;

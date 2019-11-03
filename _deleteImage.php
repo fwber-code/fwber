@@ -12,15 +12,6 @@
 	
 	goHomeIfCookieNotSet();
 	
-	//var statusString = "";
-	//if(action=="askfirstbase")statusString = "Email was sent asking for face pics!";
-	//if(action=="authorizefirstbase")statusString = "You've taken it to first base! Quick, refresh your match list and see if you're interested!";
-	//if(action=="askalltheway")statusString = "Email was sent asking to trade all info!";
-	//if(action=="notmytype")statusString = "They weren't what you were looking for. We'll hide you from their matches to soften the blow. Out of sight, out of mind!";
-	//if(action=="authorizealltheway")statusString = "You've taken it all the way! Quick, refresh your match list and take a look!";
-	//if(action=="undonotmytype")statusString = "You've given them another chance! Refresh your match list to see them in your normal matches.";
-	//if(action=="rejection")statusString = "You've rejected them. We'll hide you from their matches to soften the blow. Out of sight, out of mind!";
-
 	//make sure we've got an action.
 	if(!isset($_GET['img'])||empty($_GET['img']))exit('no img');
 
@@ -44,15 +35,15 @@
 	
 	//figure out which database list it's in.
 	$foundWhere="";
-	foreach($publicPics as $s)if($s==$img)$foundWhere="firstBase";
+	foreach($publicPics as $s)if($s==$img)$foundWhere="public";
 	
-	if($foundWhere=="")foreach($privatePics as $s)if($s==$img)$foundWhere="allTheWay";
+	if($foundWhere=="")foreach($privatePics as $s)if($s==$img)$foundWhere="private";
 	
 	if($foundWhere=="")exit("Image not found.");
 
 	//remove image filename in type database.
-	if($foundWhere=="firstBase")rem_array($publicPics,$img);
-	if($foundWhere=="allTheWay")rem_array($privatePics,$img);
+	if($foundWhere=="public")rem_array($publicPics,$img);
+	if($foundWhere=="private")rem_array($privatePics,$img);
 	
 	$dbquerystring = 
 	sprintf("UPDATE ".$dbname.".users SET publicPics = '%s',privatePics = '%s' WHERE id='%s'",
