@@ -21,14 +21,14 @@
     $email = mysqli_escape_string($db,$_SESSION["email"]);
 
     //get my userid
-    $dbquerystring = sprintf("SELECT id, firstBasePics, allTheWayPics FROM ".$dbname.".users WHERE email='%s'",$email);
+    $dbquerystring = sprintf("SELECT id, publicPics, privatePics FROM ".$dbname.".users WHERE email='%s'",$email);
     $dbquery = mysqli_query($db,$dbquerystring);
     $dbresults = mysqli_fetch_array($dbquery);
 
     $userid=$dbresults['id'];
 
-    $firstBasePics=explode(",",trim(trim($dbresults['firstBasePics']),","));
-    $allTheWayPics=explode(",",trim(trim($dbresults['allTheWayPics']),","));
+    $publicPics=explode(",",trim(trim($dbresults['publicPics']),","));
+    $privatePics=explode(",",trim(trim($dbresults['privatePics']),","));
 
     mysqli_free_result($dbquery);
 
@@ -37,8 +37,8 @@
 	$type = strip_tags($_REQUEST['type']);
 	$filesize_image = $_FILES['filedata']['size'];
 	
-	if($type=="firstBase")if(count($firstBasePics)>20)exit("Too Many Pics.");
-	if($type=="allTheWay")if(count($allTheWayPics)>20)exit("Too Many Pics.");
+	if($type=="firstBase")if(count($publicPics)>20)exit("Too Many Pics.");
+	if($type=="allTheWay")if(count($privatePics)>20)exit("Too Many Pics.");
 
 	//$errorList="";
 	
@@ -77,13 +77,13 @@
 	{
 		//add image filename in type database.
 		
-		if($type=="firstBase")$firstBasePics[] = $upload_image;
-		if($type=="allTheWay")$allTheWayPics[] = $upload_image;
+		if($type=="firstBase")$publicPics[] = $upload_image;
+		if($type=="allTheWay")$privatePics[] = $upload_image;
 		
 		$dbquerystring = 
-		sprintf("UPDATE ".$dbname.".users SET firstBasePics = '%s',allTheWayPics = '%s' WHERE id='%s'",
-		trim(trim(implode(",",$firstBasePics)),","),
-		trim(trim(implode(",",$allTheWayPics)),","),
+		sprintf("UPDATE ".$dbname.".users SET publicPics = '%s',privatePics = '%s' WHERE id='%s'",
+		trim(trim(implode(",",$publicPics)),","),
+		trim(trim(implode(",",$privatePics)),","),
 		$userid
 		);
 		if(!mysqli_query($db,$dbquerystring))exit("didn't work");

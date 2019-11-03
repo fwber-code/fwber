@@ -232,7 +232,6 @@
             $('#hiddenRecaptcha').valid();
         }
 
-        toggleAll();
 
     </script>
 

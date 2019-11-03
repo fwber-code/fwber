@@ -41,103 +41,110 @@
 </head>
 <body class="d-flex flex-column h-100">
 	<?php include("h.php");?>
-	<div id="mainbody" align="center" class="matches">
-	<table id="body_table">
-		<tr>
-			<td id="middle_column" align="center" valign="top" style="width:70%">
+	<div class="col-sm-12 my-auto text-center">
+
                 <br>
                 <br>
                 <br>
                 <br>
-				<div class="innerOutlineContainer whiteToGray"  style="width:50%;font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
-					<div class="" style="width:50%;font-size:14pt;">
-					Change your email address:<br>
-					</div>
-					<br>
-					<div style="text-align:right;font-size:12pt;margin-right:20%;">
-                        <span style="margin:2px;">Current Email Address: <?php echo $email; ?></span><br><br>
+				<div class="card mb-5 shadow-sm p-5" style="display:inline-block;">
 					    <form action="_changeEmail" method="POST" enctype="multipart/form-data" id="changeEmailForm" >
-							New Email Address:
-                            <input type="text" name="newEmail" id="newEmail" style="margin:4px;"></input><br>
-							Verify New Address:
-                            <input type="text" name="verifyEmail" id="verifyEmail" style="margin:4px;"></input><br>
-							<input type="submit" class="btn btn-outline-secondary my-0 px-3 mx-1" name="submit" value="Save" style="margin:4px;"></input>
+                            <fieldset style="text-align:center;border:none;">
+                                <h1 class="h3 mb-3 font-weight-normal text-center"> Change Email Address</h1>
+                                <?php echo $email; ?>
+                                <br>
+                                <br>
+
+                                <label for="newEmail" class="sr-only">New Email Address:</label>
+                                <input type="text" name="newEmail" id="newEmail" style="margin:4px;" placeholder="New Email Address"><br>
+
+                                <label for="verifyEmail" class="sr-only">Verify New Address:</label>
+                                <input type="text" name="verifyEmail" id="verifyEmail" style="margin:4px;" placeholder="Verify New Address"><br>
+
+                                <br>
+                                <input type="submit" class="btn btn-sm btn-primary my-0 px-3 mx-1" name="submit" value="Save">
+                            </fieldset>
 					    </form>
-					</div>
+
 				</div>
 
 				<br>
-				<br>
 
-				<div class="innerOutlineContainer whiteToGray" style="width:50%;font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
-					<div class="" style="width:50%;font-size:14pt;">
-					Change Email Settings:<br>
-					</div>
-					<br>
-					<div id="emailSettingsStatus"></div>
-					<div style="text-align:right;font-size:12pt;margin-right:20%;">
+
+                <div class="card mb-5 shadow-sm p-5" style="display:inline-block;">
+
 					<form onsubmit="changeEmailSettings();return false;">
-                        Email me when a new member is a match.
-                        <input type="checkbox" id="emailMatches" style="margin:4px;" <?php if($emailMatches==1)echo 'checked="checked";' ?>></input><br>
-							<br>
-                        Email me when someone is interested in me.
-                        <input type="checkbox" id="emailInterested"style="margin:4px;" <?php if($emailInterested==1)echo 'checked="checked";' ?>></input><br>
-                        <br>
-                        Email me when someone has approved my interest.
-                        <input type="checkbox" id="emailApproved"style="margin:4px;" <?php if($emailApproved==1)echo 'checked="checked";' ?>></input><br>
-                        <br>
-                        <input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1"  name="button" value="Save" style="margin:4px;" onclick="changeEmailSettings();return false;"></input>
+                        <fieldset style="text-align:center;border:none;">
+                            <h1 class="h3 mb-3 font-weight-normal text-center"> Change Email Settings</h1>
+                            <table style="width:100%;">
+                                <tbody>
+                                <tr>
+                                    <td style="width:0%;"></td>
+                                    <td style="text-align:left;">
+                            <label class="checkbox text-left d-sm-inline-block mb-0" for="emailMatches"><input type="checkbox" onclick="toggle(this)" id="emailMatches" style="margin:4px;" <?php if($emailMatches==1)echo 'checked="checked";' ?>>Email me when a new member is a match</label>
+                            <br>
+                            <label class="checkbox text-left d-sm-inline-block mb-0" for="emailInterested"><input type="checkbox" onclick="toggle(this)" id="emailInterested"style="margin:4px;" <?php if($emailInterested==1)echo 'checked="checked";' ?>>Email me when someone is interested in me</label>
+                            <br>
+                            <label class="checkbox text-left d-sm-inline-block mb-0" for="emailApproved"><input type="checkbox" onclick="toggle(this)" id="emailApproved"style="margin:4px;" <?php if($emailApproved==1)echo 'checked="checked";' ?>>Email me when someone has approved my interest</label>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <br>
+                            <input type="button" class="btn btn-sm btn-primary my-0 px-3 mx-1" name="button" value="Save" onclick="changeEmailSettings();return false;">
+                        </fieldset>
 					</form>
-					</div>
+
 				</div>
 
 				<br>
-				<br>
 
-				<div class="innerOutlineContainer whiteToGray" style="width:50%;font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
-					<div class="" style="width:50%;font-size:14pt;">
-					Change your password:<br>
-					</div>
-					<br>
-					<div style="text-align:right;font-size:12pt;margin-right:20%;">
+
+                <div class="card mb-5 shadow-sm p-5" style="display:inline-block;">
 					<form action="_changePassword" method="POST" enctype="multipart/form-data" id="changePasswordForm" >
-                        Old Password:
-                        <input type="password" name="oldPass" id="oldPass" style="margin:4px;"></input><br>
-                        <br>
-                        New Password:
-                        <input type="password" name="newPass" id="newPass" style="margin:4px;" ></input><br>
-                        Verify New Password:
-                        <input type="password" name="verifyPass" id="verifyPass" style="margin:4px;"></input><br><br>
-                        <input type="submit" class="btn btn-outline-secondary my-0 px-3 mx-1" name="submit" value="Save" style="margin:4px;"></input>
+                        <fieldset style="text-align:center;border:none;">
+                            <h1 class="h3 mb-3 font-weight-normal text-center"> Change Password</h1>
+
+                            <label for="oldPass" class="sr-only">Old Password:</label>
+                            <input type="password" name="oldPass" id="oldPass" style="margin:4px;" placeholder="Old Password"><br>
+
+                            <label for="newPass" class="sr-only">New Password:</label>
+                            <input type="password" name="newPass" id="newPass" style="margin:4px;" placeholder="New Password"><br>
+
+                            <label for="verifyPass" class="sr-only">Verify New Password:</label>
+                            <input type="password" name="verifyPass" id="verifyPass" style="margin:4px;" placeholder="Verify New Password"><br>
+                            <br>
+                            <input type="submit" class="btn btn-sm btn-primary my-0 px-3 mx-1" name="submit" value="Save">
+                        </fieldset>
 					</form>
-					</div>
+
 				</div>
 
                 <br>
-                <br>
 
-				<div class="innerOutlineContainer whiteToDarkGray" style="width:50%; font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
-					<div class="" style="width:50%;font-size:14pt;">
-					    Delete Account:<br>
-					</div>
-					<br>
-					<div style="width:100%;text-align:right;font-size:12pt;margin-right:20%;color:#000;">
+
+                <div class="card mb-5 shadow-sm p-5" style="display:inline-block;">
+
 					<form action="_deleteAccount" method="POST" enctype="multipart/form-data" id="deleteAccountForm" >
-                        Password:
-                        <input type="password" name="myPass" id="myPass" style="margin:4px;" ></input><br>
-                        Verify Password:
-                        <input type="password" name="myPassAgain" id="myPassAgain" style="margin:4px;"></input><br><br>
-                        Type "goodbye" here:
-                        <input type="text" name="goodbyeCheck" id="goodbyeCheck" style="margin:4px;"></input><br>
-                        <input type="hidden" name="goodbye" id="goodbye" value="goodbye"></input><br>
-                        <input type="submit" class="btn btn-outline-secondary my-0 px-3 mx-1" name="submit"  value="Delete"style="margin:4px;"></input>
+                        <fieldset style="text-align:center;border:none;">
+                            <h1 class="h3 mb-3 font-weight-normal text-center"> Delete Account</h1>
+
+                            <label for="myPass" class="sr-only">Password:</label>
+                            <input type="password" name="myPass" id="myPass" style="margin:4px;" placeholder="Password"><br>
+
+                            <label for="myPassAgain" class="sr-only">Verify Password:</label>
+                            <input type="password" name="myPassAgain" id="myPassAgain" style="margin:4px;" placeholder="Verify Password"><br>
+
+                            <label for="goodbyeCheck" class="sr-only">Type "goodbye" here:</label>
+                            <input type="text" name="goodbyeCheck" id="goodbyeCheck" style="margin:4px;" placeholder="Type 'goodbye' here"><br>
+                            <input type="hidden" name="goodbye" id="goodbye" value="goodbye"><br>
+
+                            <input type="submit" class="btn btn-sm btn-danger my-0 px-3 mx-1" name="submit" value="Delete">
+                        </fieldset>
 					</form>
-					</div>
 				</div>
 
-		</td>
-		</tr>
-		</table>
 	</div>
     <?php include("f.php");?>
 

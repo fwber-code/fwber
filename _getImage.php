@@ -40,12 +40,12 @@
 	$theiruserid=mysqli_escape_string($db,$_GET['id']);
 	
 	//make sure this image id is in their photos
-	$dbquerystring = sprintf("SELECT allTheWayPics, firstBasePics FROM ".$dbname.".users WHERE id='%s'",$theiruserid);
+	$dbquerystring = sprintf("SELECT privatePics, publicPics FROM ".$dbname.".users WHERE id='%s'",$theiruserid);
 	$dbquery = mysqli_query($db,$dbquerystring);
 	$dbresults = mysqli_fetch_array($dbquery);
 	
-	$allTheWayPics=explode(",",trim(trim($dbresults['allTheWayPics']),","));
-	$firstBasePics=explode(",",trim(trim($dbresults['firstBasePics']),","));
+	$privatePics=explode(",",trim(trim($dbresults['privatePics']),","));
+	$publicPics=explode(",",trim(trim($dbresults['publicPics']),","));
 	
 	//if($img=="firstbase")$foundWhere=="firstbase";
 	//else
@@ -56,9 +56,9 @@
 	
 		//figure out which database list it's in.
 		$foundWhere="";
-		foreach($firstBasePics as $s)if($s==$img)$foundWhere="firstbase";
+		foreach($publicPics as $s)if($s==$img)$foundWhere="firstbase";
 		
-		if($foundWhere=="")foreach($allTheWayPics as $s)if($s==$img)$foundWhere="alltheway";
+		if($foundWhere=="")foreach($privatePics as $s)if($s==$img)$foundWhere="alltheway";
 		
 		if($foundWhere=="")exit("Image not found.");
 	//}

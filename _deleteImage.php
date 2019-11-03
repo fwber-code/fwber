@@ -31,33 +31,33 @@
 	$img = mysqli_escape_string($db,$_GET['img']);
 
 	//get my userid
-	$dbquerystring = sprintf("SELECT id, firstBasePics, allTheWayPics FROM ".$dbname.".users WHERE email='%s'",$email);
+	$dbquerystring = sprintf("SELECT id, publicPics, privatePics FROM ".$dbname.".users WHERE email='%s'",$email);
 	$dbquery = mysqli_query($db,$dbquerystring);
 	$dbresults = mysqli_fetch_array($dbquery);
 	
 	$userid=$dbresults['id'];
 	
-	$firstBasePics=explode(",",trim(trim($dbresults['firstBasePics']),","));
-	$allTheWayPics=explode(",",trim(trim($dbresults['allTheWayPics']),","));
+	$publicPics=explode(",",trim(trim($dbresults['publicPics']),","));
+	$privatePics=explode(",",trim(trim($dbresults['privatePics']),","));
 	
 	mysqli_free_result($dbquery);
 	
 	//figure out which database list it's in.
 	$foundWhere="";
-	foreach($firstBasePics as $s)if($s==$img)$foundWhere="firstBase";
+	foreach($publicPics as $s)if($s==$img)$foundWhere="firstBase";
 	
-	if($foundWhere=="")foreach($allTheWayPics as $s)if($s==$img)$foundWhere="allTheWay";
+	if($foundWhere=="")foreach($privatePics as $s)if($s==$img)$foundWhere="allTheWay";
 	
 	if($foundWhere=="")exit("Image not found.");
 
 	//remove image filename in type database.
-	if($foundWhere=="firstBase")rem_array($firstBasePics,$img);
-	if($foundWhere=="allTheWay")rem_array($allTheWayPics,$img);
+	if($foundWhere=="firstBase")rem_array($publicPics,$img);
+	if($foundWhere=="allTheWay")rem_array($privatePics,$img);
 	
 	$dbquerystring = 
-	sprintf("UPDATE ".$dbname.".users SET firstBasePics = '%s',allTheWayPics = '%s' WHERE id='%s'",
-	trim(trim(implode(",",$firstBasePics)),","),
-	trim(trim(implode(",",$allTheWayPics)),","),
+	sprintf("UPDATE ".$dbname.".users SET publicPics = '%s',privatePics = '%s' WHERE id='%s'",
+	trim(trim(implode(",",$publicPics)),","),
+	trim(trim(implode(",",$privatePics)),","),
 	$userid
 	);
 	if(!mysqli_query($db,$dbquerystring))exit("didn't work");

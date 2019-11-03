@@ -85,19 +85,19 @@
 		$email = mysqli_escape_string($db,$_SESSION["email"]);
 	
 		//get my userid
-		$dbquerystring = sprintf("SELECT firstBasePics, allTheWayPics FROM ".$dbname.".users WHERE email='%s'",$email);
+		$dbquerystring = sprintf("SELECT publicPics, privatePics FROM ".$dbname.".users WHERE email='%s'",$email);
 		$dbquery = mysqli_query($db,$dbquerystring);
 		$dbresults = mysqli_fetch_array($dbquery);
 		
-		$firstBasePics=explode(",",trim(trim($dbresults['firstBasePics']),","));
-		$allTheWayPics=explode(",",trim(trim($dbresults['allTheWayPics']),","));
+		$publicPics=explode(",",trim(trim($dbresults['publicPics']),","));
+		$privatePics=explode(",",trim(trim($dbresults['privatePics']),","));
 		
 		mysqli_free_result($dbquery);
 	
 		//done with the db
 		mysqli_close($db);
 		
-		if(count($firstBasePics)==1&&$firstBasePics[0]==""&&count($allTheWayPics)==1&&$allTheWayPics[0]=="")
+		if(count($publicPics)==1&&$publicPics[0]==""&&count($privatePics)==1&&$privatePics[0]=="")
 		{
 
 			echo '<meta http-equiv="refresh" content="1;url='.getSiteURL().'/managepics"/>';
@@ -934,11 +934,6 @@ What You're Looking For
 <script type="text/javascript">
     $.validator.setDefaults({});
 
-    function toggle(obj)
-    {
-        obj.parentNode.style.backgroundColor = obj.checked?"#afa":"#fff";
-    }
-
     function toggleMaleFemale()
     {
         //if user is male, don't ask breast size
@@ -1010,16 +1005,6 @@ What You're Looking For
         else
         {
             document.getElementById("wantBreastSize").style.display = "none";
-        }
-    }
-
-    function toggleAll()
-    {
-        var cb = document.getElementsByTagName("input");
-        for(var i=0;i<cb.length;i++)
-        {
-            if(cb[i].type!="checkbox") continue;
-            toggle(cb[i]);
         }
     }
 

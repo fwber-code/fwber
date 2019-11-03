@@ -52,4 +52,6 @@
             toggle(cb[i]);
         }
     }
+
+    toggleAll();
 </script>

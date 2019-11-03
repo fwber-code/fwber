@@ -162,7 +162,6 @@
     }
 
 
-    toggleAll();
 
 </script>
 

@@ -22,34 +22,17 @@
 ?>
 
 		<?php if($whichBase=="public"){ ?>
-			<div id="<?php echo $whichBase.$g['id']; ?>">
-			<div class="">
-			<div class="" >
-			<div class="innerOutlineContainer">
+			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
 		<?php }else if($whichBase=="waitingforalltheway"){ ?>
-			<div id="<?php echo $whichBase.$g['id']; ?>">
-			<div class="" >
-			<div class="" >
-			<div class="innerOutlineContainer">
+			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
 		<?php }else if($whichBase=="alltheway"){ ?>
-			<div id="<?php echo $whichBase.$g['id']; ?>">
-			<div class="" >
-			<div class="" >
-			<div class="innerOutlineContainer">
+			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
 		<?php }else if($whichBase=="authforalltheway"){ ?>
-			<div id="<?php echo $whichBase.$g['id']; ?>">
-			<div class="" >
-			<div class="" >
-			<div class="innerOutlineContainer">
+			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
 		<?php }else if($whichBase=="notmytype"){ ?>
-			<div id="<?php echo $whichBase.$g['id']; ?>">
-			<div class="" >
-			<div class="" >
-			<div class="innerOutlineContainer">
+			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
 		<?php } ?>
-
-					<?php //TODO:hover over picture should say their profile text ?>
-					<?php //TODO:clicking picture should drop boxers ?>
+        
 				
 					<table width="100%" border="0" cellpadding="0" cellspacing="0">
 					<tr>
@@ -354,9 +337,7 @@
 						<?php } ?>
 						style="border:0px;border-radius:0px;border-top-right-radius:8px;border-bottom-right-radius:0px;"
 						>
-							<table width="90%" >
-								<tr>
-									<td align="center" style="font-size:14pt;">
+
 										<?php if($whichBase=="public"){ ?>
 											<div class="">
 											New Match!
@@ -378,15 +359,13 @@
 												Friends With Benefits!
 											</div>
 										<?php } ?>
-									</td>
-								</tr>
+
 								
-								<tr>
-									<td align="center" style="">
+
 										<?php if($whichBase=="public"){ ?>
 										<div id="div<?php echo $g['id']; ?>">
 
-											<input type="button" class="btn btn-outline-primary my-0 px-3 mx-1" name="askalltheway" value='Ask For Private Profile' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
+											<input type="button" class="btn btn-primary my-0 px-3 mx-1" name="askalltheway" value='Ask For Private Profile' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
 
 											<br>
 											<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="notmytype" value='Not My Type' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
@@ -401,9 +380,9 @@
 										<?php }else if($whichBase=="authforalltheway"){ ?>
 										<div id="div<?php echo $g['id']; ?>">
 											<span style="font-size:8pt;color:#555; font-weight:bold;"><?php echo $g['firstName']; ?> wants to trade private profiles!</span><br>
-											<input type="button" class="btn btn-outline-primary my-0 px-3 mx-1" name="authorizealltheway" value='Authorize Private Profile' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
+											<input type="button" class="btn btn-primary my-0 px-3 mx-1" name="authorizealltheway" value='Authorize Private Profile' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
 											<br>
-											<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="notmytype" value='Not My Type...' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
+											<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="notmytype" value='Not My Type...' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
 										</div>
 										<span id="status<?php echo $g['id']; ?>" style="font-size:11pt;color:#555;display:none;"></span>	
 
@@ -415,7 +394,7 @@
 											You will not show up in their search results.
 											</span>
 											<br>
-											<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="undonotmytype" value='Undo Not My Type' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
+											<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="undonotmytype" value='Undo Not My Type' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
 										</div>	
 										<span id="status<?php echo $g['id']; ?>" style="font-size:11pt;color:#555;display:none;"></span>	
 											
@@ -423,7 +402,7 @@
 										<?php }else if($whichBase=="alltheway"){ ?>
 												
 													<div id="div<?php echo $g['id']; ?>">
-														<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="rejection" value='Not My Type' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
+														<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="rejection" value='Not My Type' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
 													</div>
 													<span id="status<?php echo $g['id']; ?>" style="font-size:11pt;color:#555;display:none;"></span>
 												
@@ -431,9 +410,7 @@
 										<?php } ?>
 										
 										<br>
-									</td>
-								</tr>
-							</table>
+
 						</td>
 					</tr>
 					</table>
@@ -465,11 +442,11 @@
 														
 <?php
 
-										$firstBasePics=explode(",",trim(trim($g['firstBasePics']),","));
-										$allTheWayPics=explode(",",trim(trim($g['allTheWayPics']),","));
+										$publicPics=explode(",",trim(trim($g['publicPics']),","));
+										$privatePics=explode(",",trim(trim($g['privatePics']),","));
 
 										
-										foreach($firstBasePics as $s)
+										foreach($publicPics as $s)
 										{
 											if($s=="")continue;
 ?>
@@ -488,7 +465,7 @@
 
 <?php
 								if($whichBase=="public"||$whichBase=="alltheway"||$whichBase=="waitingforalltheway"||$whichBase=="authforalltheway")
-								if(count($allTheWayPics)!=1||$allTheWayPics[0]!="") //skip if no pics
+								if(count($privatePics)!=1||$privatePics[0]!="") //skip if no pics
 								if($g['email']!=$_SESSION["email"] || $whichBase=="alltheway") //skip if your own profile
 								{ 
 									
@@ -513,7 +490,7 @@
 															
 <?php
 											//output them here
-											foreach($allTheWayPics as $s)
+											foreach($privatePics as $s)
 											{
 												if($s=="")continue;
 ?>
@@ -723,7 +700,7 @@
 																		<div class="profile_container_info_info" style="padding-left:4px;padding:0;">
 																			<?php if($g['tattoos']=="none"		)echo "None"; ?>
 																			<?php if($g['tattoos']=="some"		)echo "Some"; ?>
-																			<?php if($g['tattoos']=="allOver"	)echo "All Over!"; ?>
+																			<?php if($g['tattoos']=="allOver"	)echo "All Over"; ?>
 																		</div>
 																	</td>
 																</tr>					
@@ -761,11 +738,11 @@
 																	
 																	<td align="left">
 																		<div class="profile_container_info_info" style="padding-left:4px;padding:0;">
-																			<?php if($g['intelligence']=="goodHands"		)echo "Good With My Hands!"; ?>
+																			<?php if($g['intelligence']=="goodHands"		)echo "Slower Than Most"; ?>
 																			<?php if($g['intelligence']=="bitSlow"		)echo "A Bit Slow"; ?>
 																			<?php if($g['intelligence']=="average"		)echo "Average"; ?>
-																			<?php if($g['intelligence']=="faster"		)echo "Faster Than Most"; ?>
-																			<?php if($g['intelligence']=="genius"		)echo "Help, It Won't Stop!"; ?>
+																			<?php if($g['intelligence']=="faster"		)echo "A Bit Clever"; ?>
+																			<?php if($g['intelligence']=="genius"		)echo "Faster Than Most"; ?>
 																		</div>
 																	</td>
 																</tr>
@@ -1080,7 +1057,7 @@
 													<tr>
 														<td align="center" colspan="2">
 															<br>
-															<input type="button" class="buttonPink" style="font-size:18px;" name="email<?php echo $g['id']; ?>" value='Email Them Now!' onclick="parent.location='mailto:<?php echo $g['email']; ?>?subject=Hey! It\'s <?php echo $firstName; ?> from <?php echo getSiteName();?>! Wanna hang out? :-) Yeahhhhh!!! '"></input>
+															<input type="button" class="btn btn-lg btn-primary" style="font-size:18px;" name="email<?php echo $g['id']; ?>" value='Email Them Now!' onclick="parent.location='mailto:<?php echo $g['email']; ?>?subject=Hey! It\'s <?php echo $firstName; ?> from <?php echo getSiteName();?>! Wanna hang out? :-) Yeahhhhh!!! '">
 														</td>
 													</tr>
 
@@ -1128,13 +1105,8 @@
 							</table>
 						</div>
 					</div>
+        </div>
 
-			</div>
-			</div>
-			</div>
-			
-
-		</div>
 		<br>
 
 <?php

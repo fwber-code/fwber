@@ -374,7 +374,7 @@ margin:-2px;
 
 }
 
-input, select, textarea
+input[type=text], input[type=password], input[type=email], select, textarea
 {
 
 border-radius:4px;

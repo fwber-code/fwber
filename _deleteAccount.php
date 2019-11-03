@@ -29,7 +29,7 @@
     //authenticate old pass
     $email = mysqli_real_escape_string($db,$_SESSION["email"]);
 
-    $dbquerystring = sprintf("SELECT passwordHash, dateJoined, firstBasePics, allTheWayPics FROM ".$dbname.".users WHERE email='%s'",$email);
+    $dbquerystring = sprintf("SELECT passwordHash, dateJoined, publicPics, privatePics FROM ".$dbname.".users WHERE email='%s'",$email);
     $dbquery = mysqli_query($db, $dbquerystring);
     $dbresults = mysqli_fetch_array($dbquery);
     mysqli_free_result($dbquery);
@@ -49,11 +49,11 @@
     {
         //connect to database, find any firstbase pictures for me.
         //delete them in the db too.
-        $firstBasePics=explode(",",trim(trim($dbresults['firstBasePics']),","));
-        $allTheWayPics=explode(",",trim(trim($dbresults['allTheWayPics']),","));
+        $publicPics=explode(",",trim(trim($dbresults['publicPics']),","));
+        $privatePics=explode(",",trim(trim($dbresults['privatePics']),","));
 
         //delete pics
-        foreach($firstBasePics as &$s)
+        foreach($publicPics as &$s)
         {
             if($s=="")continue;
 
@@ -63,7 +63,7 @@
             $s = "";
         }
 
-        foreach($allTheWayPics as &$s)
+        foreach($privatePics as &$s)
         {
             if($s=="")continue;
 
@@ -75,9 +75,9 @@
 
         //delete pics in database
         $dbquerystring =
-        sprintf("UPDATE ".$dbname.".users SET firstBasePics = '%s',allTheWayPics = '%s' WHERE email='%s'",
-        trim(trim(implode(",",$firstBasePics)),","),
-        trim(trim(implode(",",$allTheWayPics)),","),
+        sprintf("UPDATE ".$dbname.".users SET publicPics = '%s',privatePics = '%s' WHERE email='%s'",
+        trim(trim(implode(",",$publicPics)),","),
+        trim(trim(implode(",",$privatePics)),","),
         $email
         );
         if(!mysqli_query($db,$dbquerystring))exit("didn't work");

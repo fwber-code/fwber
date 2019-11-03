@@ -230,7 +230,6 @@
         }
     );
 
-    toggleAll();
 
 </script>
 </body>

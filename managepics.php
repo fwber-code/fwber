@@ -37,7 +37,7 @@ include("_secrets.php");
             <div class="album py-5 bg-light">
                 <div class="container">
                     <div class="row">
-                        <div id="picsFirstBase">
+                        <div id="picsPublic">
                         </div>
 <?php
 
@@ -48,19 +48,19 @@ include("_secrets.php");
 		$email = mysqli_escape_string($db,$_SESSION["email"]);	
 	
 		//get my userid
-		$dbquerystring = sprintf("SELECT id, firstBasePics, allTheWayPics FROM ".$dbname.".users WHERE email='%s'",$email);
+		$dbquerystring = sprintf("SELECT id, publicPics, privatePics FROM ".$dbname.".users WHERE email='%s'",$email);
 		$dbquery = mysqli_query($db,$dbquerystring);
 		$dbresults = mysqli_fetch_array($dbquery);
 		
 		$userid=$dbresults['id'];
 		
-		$firstBasePics=explode(",",trim(trim($dbresults['firstBasePics']),","));
-		$allTheWayPics=explode(",",trim(trim($dbresults['allTheWayPics']),","));
+		$publicPics=explode(",",trim(trim($dbresults['publicPics']),","));
+		$privatePics=explode(",",trim(trim($dbresults['privatePics']),","));
 		
 		mysqli_free_result($dbquery);
 		
 		//output them here with a delete button, with a php get image script.
-		foreach($firstBasePics as $s)
+		foreach($publicPics as $s)
 		{
 			if($s=="")continue;
 ?>
@@ -107,11 +107,11 @@ include("_secrets.php");
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row">
-                <div id="picsAllTheWay">
+                <div id="picsPrivate">
                 </div>
 <?php
 		//output them here with a delete button, with a php get image script.
-		foreach($allTheWayPics as $s)
+		foreach($privatePics as $s)
 		{
 			if($s=="")continue;
 ?>
