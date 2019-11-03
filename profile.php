@@ -38,19 +38,9 @@
     <br>
     <br>
     <div class="card p-5 m-2 shadow-sm" style="display:inline-block;">
-        <h4 class="h3 mb-3 font-weight-normal text-center">Manage Your Profile</h4>
-
-                                        <a href="/managepics" id="button-uploadpics" class="headerbutton"></a>
-                                        <br>
-                                        Manage Pictures
-
-										<a href="/editprofile" id="button-editprofile" class="headerbutton"></a>
-										<br>
-										Edit Your Profile
-
-                                        <a href="/settings" id="button-settings" class="headerbutton"></a>
-                                        <br>
-                                        Account Settings
+        <a class="btn btn-outline-secondary my-0 px-3 mx-1" href="/managepics">Manage Pictures</a>
+        <a class="btn btn-outline-secondary my-0 px-3 mx-1" href="/editprofile">Edit Profile</a>
+        <a class="btn btn-outline-secondary my-0 px-3 mx-1" href="/settings">Account Settings</a>
     </div>
 
 <?php
@@ -78,7 +68,7 @@
     include("_getProfile.php");
 ?>
 		<br>
-        <div class="card p-5 m-2 shadow-sm blueToWhite" style="display:inline-block;">
+        <div class="card p-5 m-2 shadow-sm blueToWhite" style="display:inline-block; color:#222; text-shadow:#eee 1px 1px 0px;">
             Your Public Profile
             <div class="smallText" style="color:#222;font-size:11pt">
                 This is how others see your profile at first.
@@ -88,23 +78,14 @@
         </div>
 		<br>
 		<br>
-        <div class="card p-5 m-2 shadow-sm greenToWhite" style="display:inline-block;">
-			Your "First Base" Profile
+        <div class="card p-5 m-2 shadow-sm pinkToWhite" style="display:inline-block; color:#222; text-shadow:#eee 1px 1px 0px;">
+			    Your Private Profile
 				<div class="smallText" style="color:#222;font-size:11pt">
-				This is how your profile looks when you've expressed <b>mutual interest</b> with someone and offered to share pics.
-				</div>
-                <?php getProfile($g,"firstbase"); ?>
-		</div>
-		<br>
-		<br>
-        <div class="card p-5 m-2 shadow-sm pinkToWhite" style="display:inline-block;">
-			    Your "All The Way" Profile
-				<div class="smallText" style="color:#222;font-size:11pt">
-				    This is how your profile looks <b>fully unlocked</b>.
+				    This is how your profile looks fully unlocked after you have agreed to match someone.
 				</div>
                 <?php getProfile($g,"alltheway"); ?>
 		</div>
-
+        <br>
 		<?php //TODO: show map here, highlight searched area ?>
 
 </div>
@@ -113,13 +94,7 @@
 <script src="/js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="/js/jquery-ui-1.8.21.custom.min.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-    function toggleExpandProfile(profileBoxID)
-    {
-        var e = document.getElementById(profileBoxID+"details");
-        $(e).toggle("blind","",1000);
-    }
-</script>
+
 
 </body>
 </html>

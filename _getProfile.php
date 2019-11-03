@@ -21,35 +21,35 @@
 
 ?>
 
-		<?php if($whichBase=="public"||$whichBase=="waitingforfirstbase"){ ?>
+		<?php if($whichBase=="public"){ ?>
 			<div id="<?php echo $whichBase.$g['id']; ?>">
-			<div class="outerOutlineContainer">
-			<div class="normalContainer" >
+			<div class="">
+			<div class="" >
 			<div class="innerOutlineContainer">
-		<?php }else if($whichBase=="firstbase"||$whichBase=="waitingforalltheway"){ ?>
+		<?php }else if($whichBase=="waitingforalltheway"){ ?>
 			<div id="<?php echo $whichBase.$g['id']; ?>">
-			<div class="outerOutlineContainer" >
-			<div class="greenContainer" >
+			<div class="" >
+			<div class="" >
 			<div class="innerOutlineContainer">
 		<?php }else if($whichBase=="alltheway"){ ?>
 			<div id="<?php echo $whichBase.$g['id']; ?>">
-			<div class="outerOutlineContainer" >
-			<div class="pinkContainer" >
+			<div class="" >
+			<div class="" >
 			<div class="innerOutlineContainer">
-		<?php }else if($whichBase=="authforfirstbase"||$whichBase=="authforalltheway"){ ?>
+		<?php }else if($whichBase=="authforalltheway"){ ?>
 			<div id="<?php echo $whichBase.$g['id']; ?>">
-			<div class="outerOutlineContainer" >
-			<div class="yellowContainer" >
+			<div class="" >
+			<div class="" >
 			<div class="innerOutlineContainer">
 		<?php }else if($whichBase=="notmytype"){ ?>
 			<div id="<?php echo $whichBase.$g['id']; ?>">
-			<div class="outerOutlineContainer" >
-			<div class="grayContainer" >
+			<div class="" >
+			<div class="" >
 			<div class="innerOutlineContainer">
 		<?php } ?>
 
-					<?php //hover over picture should say their profile text ?>
-					<?php //clicking picture should drop boxers ?>
+					<?php //TODO:hover over picture should say their profile text ?>
+					<?php //TODO:clicking picture should drop boxers ?>
 				
 					<table width="100%" border="0" cellpadding="0" cellspacing="0">
 					<tr>
@@ -259,7 +259,7 @@
 														</div>
 													</td>
 													<td>
-														<div style="font-size:14pt;">
+														<div style="font-size:18pt;">
 															<?php echo printGenderString($g); ?>
 														</div>
 														<div style="font-size:8pt;">
@@ -294,11 +294,11 @@
 
 						<td align="center" style="background:#eee; border-right:#aaa 1px dotted; padding-left:8px;padding-right:8px;">
 						
-							<div style="font-size:18pt;">
+							<div style="font-size:11pt;">
 								Age
 							</div>
 							<br>
-							<div style="font-size:24pt;">
+							<div style="font-size:14pt;">
 								<?php echo $g['age']; ?>
 							</div>
 							
@@ -309,11 +309,11 @@
 
 						<td align="center" style="background:#fff; border-right:#aaa 1px dotted; padding-left:8px;padding-right:8px;">
 						
-							<div style="font-size:18pt;">
+							<div style="font-size:11pt;">
 								Distance
 							</div>
 							<br>
-							<div style="font-size:24pt;">
+							<div style="font-size:14pt;">
 								<?php echo $distanceAmt; ?>
 							</div>
 							
@@ -324,11 +324,11 @@
 						
 						<td align="center" style="background:#eee; border-right:#aaa 1px dotted; padding-left:8px;padding-right:8px;">
 						
-							<div style="font-size:18pt;">
+							<div style="font-size:11pt;">
 								Desires
 							</div>
 							<br>
-							<div style="font-size:24pt;">
+							<div style="font-size:14pt;">
 								<?php echo $g['commonDesires']; ?>
 							</div>
 							
@@ -338,131 +338,11 @@
 
 						</td>
 						
-						<td align="left" style="background:#fff; border-right:#aaa 1px dotted;">
-							<!--
-							<div style="font-size:18pt;">
-								Pictures
-							</div>
-							<br>
-							<div style="font-size:24pt;">
-								1
-							</div>
-							
-							<div style="font-size:11pt;">
-								Private
-							</div>
-							
-							-->
-							<div style="font-size:8pt;">
-							
-								<table border="0" cellpadding="0" cellspacing="1">
-								
-<?php
-/*								
-									<tr>
-										<td align="right" valign="top">
-											<div class="profile_container_info_label" style="margin-left:6px;">
-												Non-Nude Pics:&nbsp;
-											</div>
-										</td>
-										
-										<td align="left">
-											<div class="profile_container_info_info" style="padding-left:4px;">
-												1
-											</div>
-										</td>
-									</tr>
-									
-									<tr>
-										<td align="right" valign="top">
-											<div class="profile_container_info_label" style="margin-left:6px;">
-												Nude Pics:&nbsp;
-											</div>
-										</td>
-										
-										<td align="left">
-											<div class="profile_container_info_info" style="padding-left:4px;">
-												2
-											</div>
-										</td>
-									</tr>
-									
 
-								
-								
-									<tr>
-										<td align="right" valign="top">
-											<div class="profile_container_info_label" style="margin-left:6px;">
-												Join Date:&nbsp;
-											</div>
-										</td>
-										
-										<td align="left">
-											<div class="profile_container_info_info" style="padding-left:4px;">
-												<?php echo date("F j, Y",$dateJoined); ?>
-											</div>
-										</td>
-									</tr>
-									
-
-									
-									<tr>
-										<td align="right" valign="top">
-											<div class="profile_container_info_label" style="margin-left:6px;">
-												Liked By:&nbsp;
-											</div>
-										</td>
-										
-										<td align="left">
-											<div class="profile_container_info_info" style="padding-left:4px;">
-												24
-											</div>
-										</td>
-									</tr>
-									
-									
-									<tr>
-										<td align="right" valign="top">
-											<div class="profile_container_info_label" style="margin-left:6px;">
-												Not Their Type:&nbsp;
-											</div>
-										</td>
-										
-										<td align="left">
-											<div class="profile_container_info_info" style="padding-left:4px;">
-												<?php echo $g['numNotMyType']; ?>
-											</div>
-										</td>
-									</tr>
-									
-									<tr>
-										<td align="right" valign="top">
-											<div class="profile_container_info_label" style="margin-left:6px;">
-												At First Base:&nbsp;
-											</div>
-										</td>
-										
-										<td align="left">
-											<div class="profile_container_info_info" style="padding-left:4px;">
-												<?php echo $g['numFirstBase']; ?>
-											</div>
-										</td>
-									</tr>
-*/ ?>									
-
-								</table>
-							</div>
-						</td>
 
 						<td align="center"
 						<?php if($whichBase=="public"){ ?>
 						class="whiteToBlue"
-						<?php }else if($whichBase=="waitingforfirstbase"){ ?>
-						class="whiteToGray"
-						<?php }else if($whichBase=="authforfirstbase"){ ?>
-						class="whiteToGreen"
-						<?php }else if($whichBase=="firstbase"){ ?>
-						class="whiteToGreen"
 						<?php }else if($whichBase=="waitingforalltheway"){ ?>
 						class="whiteToGray"
 						<?php }else if($whichBase=="authforalltheway"){ ?>
@@ -472,170 +352,70 @@
 						<?php }else if($whichBase=="alltheway"){ ?>
 						class="whiteToPink"
 						<?php } ?>
-						style="border:0px;border-radius:0px;border-top-right-radius:8px;border-bottom-right-radius:8px;"
+						style="border:0px;border-radius:0px;border-top-right-radius:8px;border-bottom-right-radius:0px;"
 						>
-						
 							<table width="90%" >
-
 								<tr>
-									<!-- <td align="center" style="background:#aff; border-radius:8px;border:#9b9 2px solid;"> -->
-									<!-- <td align="center" style="background:#ffd; border-radius:8px;border:#bb4 2px solid;"> -->
-									<td align="center" >
-
-										<!--<div style="font-size:16pt;color:#888;">
-											Status:
-										</div>-->
-
-										<!-- <div style="font-size:20pt; font-weight:bold; color:#aa4;text-shadow:#ffe 1px 1px 0px; padding:6px;"> -->
-										<!-- <div style="background:#bef; border-radius:8px;font-size:20pt; font-weight:bold; color:#7ab;text-shadow:#eff 1px 1px 0px; padding-top:8px;padding-bottom:8px;margin:4px;"> -->
-										<!--<div style="background:#eee; border-radius:8px;font-size:20pt; font-weight:bold; color:#888;text-shadow:#fff 1px 1px 0px; padding-top:8px;padding-bottom:8px;margin:4px;"> 
-											It's You!
-										</div> -->
-										
+									<td align="center" style="font-size:14pt;">
 										<?php if($whichBase=="public"){ ?>
-											<div class="blueToWhite"> 
-											<!--<div style="background:#bef; border-radius:8px;font-size:20pt; font-weight:bold; color:#7ab;text-shadow:#eff 1px 1px 0px; padding-top:8px;padding-bottom:8px;margin:4px;"> -->
-												New Match!
+											<div class="">
+											New Match!
 											</div>
-											
-										<?php }else if($whichBase=="waitingforfirstbase"){ ?>
-											<div class="greenToWhite"> 
-												Waiting For Them!
-											</div>
-											
-										<?php }else if($whichBase=="authforfirstbase"){ ?>
-											<div class="yellowToWhite"> 
-												Waiting For You!
-											</div>
-										<?php }else if($whichBase=="firstbase"){ ?>
-											<div class="greenToWhite"> 
-												Pics Traded!
-											</div>
-											
 										<?php }else if($whichBase=="waitingforalltheway"){ ?>
-											<div class="pinkToWhite"> 
-												Waiting For Them!
+											<div class="">
+												Waiting For Them
 											</div>
 										<?php }else if($whichBase=="authforalltheway"){ ?>
-											<div class="yellowToWhite"> 
-												Waiting For You!
+											<div class="">
+												Waiting For You
 											</div>
 										<?php }else if($whichBase=="notmytype"){ ?>
-											<div class="grayToWhite"> 
-												Not My Type!
+											<div class="">
+												Not My Type
 											</div>
-											
 										<?php }else if($whichBase=="alltheway"){ ?>
-										
-											<div class="pinkToWhite"> 
-											<!-- <div style="background:#fde; border-radius:8px;font-size:20pt; font-weight:bold; color:#f9c;text-shadow:#fff 1px 1px 0px; padding-top:8px;padding-bottom:8px;margin:4px;"> -->
-												&lt;3 Friends<br>With Benefits!
+											<div class="">
+												Friends With Benefits!
 											</div>
 										<?php } ?>
-
 									</td>
 								</tr>
 								
 								<tr>
-								
 									<td align="center" style="">
-									
-									<br>
-										
 										<?php if($whichBase=="public"){ ?>
 										<div id="div<?php echo $g['id']; ?>">
-											<span style="font-size:8pt;color:#555; font-weight:bold;">I'm interested!</span><br>
-											<input type="button" class="buttonGreen" name="askfirstbase" value='Ask To Trade Face Pics!' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
+
+											<input type="button" class="btn btn-outline-primary my-0 px-3 mx-1" name="askalltheway" value='Ask For Private Profile' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
+
 											<br>
-											<span style="font-size:7pt;color:#888;">
-											This will send an email notifying them of a "Blind Date."<br>
-											<?php /*If they agree, we will email you each other's face pictures to be fair to both fwbers.<br>*/ ?>
-											</span>
-										</div>
-										<span id="status<?php echo $g['id']; ?>" style="font-size:11pt;color:#555;display:none;"></span>
-
-
-										<?php }else if($whichBase=="waitingforfirstbase"){ ?>
-											<span style="font-size:8pt;color:#555; font-weight:bold;">Waiting for an answer.<br>
-											Give it a few days, they might be busy!<br>
-											Not <i>everyone</i> checks their email every 30 seconds yet.</span><br>
-
-
-										<?php }else if($whichBase=="authforfirstbase"){ ?>
-										<div id="div<?php echo $g['id']; ?>">
-											<span style="font-size:8pt;color:#555; font-weight:bold;"><?php echo $g['firstName']; ?> wants to trade pics!</span><br>
-											<input type="button" class="buttonYellow" name="authorizefirstbase" value='Authorize Face Pics!' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
-											<br>
-											<?php /*<span style="font-size:7pt;color:#888;">
-												If you agree, we will email you each other's face pictures to be fair to both fwbers.<br>
-											</span>*/ ?>
-										</div>
-										<span id="status<?php echo $g['id']; ?>" style="font-size:11pt;color:#555;display:none;"></span>
-
-
-										<?php }else if($whichBase=="firstbase"){ ?>
-										<div id="div<?php echo $g['id']; ?>">
-											<span style="font-size:8pt;color:#555; font-weight:bold;">
-											I'm in, let's take it to the next level!<br>
-											</span>
-											<span style="font-size:7pt;color:#888;">(Ask to trade all info, including contact info.)<br>
-												If they agree, we will unlock everything for both of you, including body pics and contact info.<br>
-												<?php /*Your profiles will be emailed to each other to be fair to both fwbers. (No takebacks!)<br>
-												Please be sure that you are willing to permanently share your information with this person.<br>*/ ?>
-											</span>
-											<input type="button" class="buttonPink" name="askalltheway" value='Go All The Way!' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>										
-											<br>
-											
-											
-											<br>
-											<span style="font-size:8pt;color:#888;">Oops, sorry!</span><br>
-											<input type="button" class="buttonGray" name="notmytype" value='Not My Type...' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
-											<br>
-											<span style="font-size:7pt;color:#888;">
-											If either of you choose "Not My Type" we<br>
-											will remove you from each other's matches.
-											</span>
+											<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="notmytype" value='Not My Type' onclick="talkToServer(this,'<?php echo $g['id']; ?>');">
 										</div>
 										<span id="status<?php echo $g['id']; ?>" style="font-size:11pt;color:#555;display:none;"></span>
 
 
 										<?php }else if($whichBase=="waitingforalltheway"){ ?>
-											<span style="font-size:8pt;color:#555; font-weight:bold;">Waiting for an answer...<br>
-											Give it some time, they are probably worried that you won't like them!</span><br>
+											<span style="font-size:8pt;color:#555;">Waiting for an answer...</span><br>
 
 
 										<?php }else if($whichBase=="authforalltheway"){ ?>
 										<div id="div<?php echo $g['id']; ?>">
-											<span style="font-size:8pt;color:#555; font-weight:bold;"><?php echo $g['firstName']; ?> wants to trade everything!</span><br>
-											<input type="button" class="buttonYellow" name="authorizealltheway" value='Authorize Everything!' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
+											<span style="font-size:8pt;color:#555; font-weight:bold;"><?php echo $g['firstName']; ?> wants to trade private profiles!</span><br>
+											<input type="button" class="btn btn-outline-primary my-0 px-3 mx-1" name="authorizealltheway" value='Authorize Private Profile' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
 											<br>
-											<span style="font-size:7pt;color:#888;">
-												If you agree, we will unlock everything for both of you, including body pics and contact info.<br>
-												<?php /*Your profiles will be emailed to each other to be fair to both fwbers. (No takebacks!)<br>
-												Please be sure that you are willing to permanently share your information with this person.<br>*/ ?>
-											</span>
-											<br>
-											<span style="font-size:8pt;color:#888;">Oops, sorry!</span><br>
-											<input type="button" class="buttonGray" name="notmytype" value='Not My Type...' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
-											<br>
-											<span style="font-size:7pt;color:#888;">
-											If either of you choose "Not My Type" we<br>
-											will remove you from each other's matches.
-											</span>
+											<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="notmytype" value='Not My Type...' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
 										</div>
 										<span id="status<?php echo $g['id']; ?>" style="font-size:11pt;color:#555;display:none;"></span>	
 
 
 										<?php }else if($whichBase=="notmytype"){ ?>
 										<div id="div<?php echo $g['id']; ?>">
-											<span style="font-size:8pt;color:#555; font-weight:bold;">
+											<span style="font-size:8pt;color:#555;">
 											You've marked this person as "not your type."<br>
 											You will not show up in their search results.
 											</span>
 											<br>
-											<span style="font-size:8pt;color:#888;">Maybe one more chance?</span><br>
-											<input type="button" class="buttonGray" name="undonotmytype" value='Set Back To Neutral' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
-											<br>
+											<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="undonotmytype" value='Undo Not My Type' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
 										</div>	
 										<span id="status<?php echo $g['id']; ?>" style="font-size:11pt;color:#555;display:none;"></span>	
 											
@@ -643,11 +423,7 @@
 										<?php }else if($whichBase=="alltheway"){ ?>
 												
 													<div id="div<?php echo $g['id']; ?>">
-														<span style="font-size:8pt;color:#555;font-weight:bold;">I changed my mind!</span><br>
-														<input type="button" class="buttonDarkRed" name="rejection" value='Reject Them :(' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
-														<br>
-														<span style="font-size:7pt;color:#888;">
-														This will revoke access to your information and remove you from each other's matches.</span>
+														<input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1" name="rejection" value='Not My Type' onclick="talkToServer(this,'<?php echo $g['id']; ?>');"></input>
 													</div>
 													<span id="status<?php echo $g['id']; ?>" style="font-size:11pt;color:#555;display:none;"></span>
 												
@@ -662,10 +438,10 @@
 					</tr>
 					</table>
 
-				<div id="<?php echo $whichBase.$g['id']; ?>details" style="display:none;">	
+				<div id="<?php echo $whichBase.$g['id']; ?>details" style="">
 				
 <?php
-						if($whichBase=="firstbase"||$whichBase=="waitingforfirstbase"||$whichBase=="authforfirstbase"||$whichBase=="alltheway"||$whichBase=="waitingforalltheway"||$whichBase=="authforalltheway")
+						if($whichBase=="public"||$whichBase=="alltheway"||$whichBase=="waitingforalltheway"||$whichBase=="authforalltheway")
 						{
 ?>
 								<div id="<?php echo $whichBase.$g['id']; ?>pics" style="font-size:8pt; border-top:#aaa 1px dotted;">	
@@ -676,8 +452,8 @@
 												<table width="100%" align="center">
 													<tr>
 														<td>
-															<div class="tableHeader tableOutlinedColorGreen">
-															Face Pics
+															<div class="tableHeader tableOutlinedColorBlue">
+															Public Pics
 															</div>
 															
 														</td>
@@ -711,7 +487,7 @@
 											</td>
 
 <?php
-								if($whichBase=="firstbase"||$whichBase=="alltheway"||$whichBase=="waitingforalltheway"||$whichBase=="authforalltheway")
+								if($whichBase=="public"||$whichBase=="alltheway"||$whichBase=="waitingforalltheway"||$whichBase=="authforalltheway")
 								if(count($allTheWayPics)!=1||$allTheWayPics[0]!="") //skip if no pics
 								if($g['email']!=$_SESSION["email"] || $whichBase=="alltheway") //skip if your own profile
 								{ 
@@ -724,7 +500,7 @@
 														<tr>
 															<td>
 																<div class="tableHeader tableOutlinedColorPink">
-																Body Pics
+																Private Pics
 																</div>
 																
 															</td>
@@ -792,7 +568,7 @@
 												
 																<tr>
 																	<td align="right" valign="top" >
-																		<div class="profile_container_info_label tableOutlinedColorYellow" style="padding:0; margin:0;">
+																		<div class="profile_container_info_label tableOutlinedColorBlue" style="padding:0; margin:0;">
 																			Last Seen:&nbsp;
 																		</div>
 																	</td>
@@ -810,7 +586,7 @@
 												
 																<tr>
 																	<td align="right" valign="top" >
-																		<div class="profile_container_info_label tableOutlinedColorYellow" style="padding:0; margin:0;">
+																		<div class="profile_container_info_label tableOutlinedColorBlue" style="padding:0; margin:0;">
 																			Join Date:&nbsp;
 																		</div>
 																	</td>
@@ -1099,7 +875,7 @@
 																
 																<tr>
 																	<td align="right" valign="top">
-																		<div class="profile_container_info_label tableOutlinedColorYellow" style="padding:0; margin:0;">
+																		<div class="profile_container_info_label tableOutlinedColorBlue" style="padding:0; margin:0;">
 																			Other:&nbsp;
 																		</div>
 																	</td>
@@ -1252,7 +1028,7 @@
 														</td>
 														
 														<td align="left">
-															<div class="profile_container_info_info profile_wants" style="padding-left:4px;padding:0; font-weight:bold; color:#a00;">
+															<div class="profile_container_info_info profile_wants" style="padding-left:4px;padding:0; ">
 																
 																<?php if($g['b_noCigs']==1)echo "No Cigarette Smokers<br>"; ?>
 																<?php if($g['b_noLightDrink']==1)echo "No Light Drinking<br>"; ?>
@@ -1280,28 +1056,14 @@
 
 											<td valign="top">
 												
-												<div class="tableHeader tableOutlinedColorGreen">
+												<div class="tableHeader tableOutlinedColorPink">
 												Contact Info
 												</div>
 												<table>
 
-													<!-- <tr>
-														<td align="right" valign="top">
-															<div class="profile_container_info_label tableOutlinedColorGreen" style="padding:0; margin:0;">
-																Cell / GVoice Number:&nbsp;
-															</div>
-														</td>
-														
-														<td align="left">
-															<div class="profile_container_info_info " style="padding-left:4px;padding:0; font-weight:bold; color:#000;">
-																415-633-6676
-															</div>
-														</td>
-													</tr> -->
-
 													<tr>
 														<td align="right" valign="top">
-															<div class="profile_container_info_label tableOutlinedColorGreen" style="padding:0; margin:0;">
+															<div class="profile_container_info_label tableOutlinedColorPink" style="padding:0; margin:0;">
 																Email Address:&nbsp;
 															</div>
 														</td>
@@ -1318,7 +1080,7 @@
 													<tr>
 														<td align="center" colspan="2">
 															<br>
-															<input type="button" class="buttonGreen" style="font-size:18px;" name="email<?php echo $g['id']; ?>" value='Email Them Now!' onclick="parent.location='mailto:<?php echo $g['email']; ?>?subject=Hey! It\'s <?php echo $firstName; ?> from <?php echo getSiteName();?>! Wanna hang out? :-) Yeahhhhh!!! '"></input>
+															<input type="button" class="buttonPink" style="font-size:18px;" name="email<?php echo $g['id']; ?>" value='Email Them Now!' onclick="parent.location='mailto:<?php echo $g['email']; ?>?subject=Hey! It\'s <?php echo $firstName; ?> from <?php echo getSiteName();?>! Wanna hang out? :-) Yeahhhhh!!! '"></input>
 														</td>
 													</tr>
 
@@ -1364,46 +1126,15 @@
 
 								</tr>
 							</table>
-						</div> <!-- info -->
-					</div> <!-- details -->			
+						</div>
+					</div>
 
-			</div><!-- black outline -->
-			</div><!-- color outline -->
-			</div><!-- black outline -->
+			</div>
+			</div>
+			</div>
 			
-			<?php
-			//if($whichBase!="public")
-			{
-			?>
-				
-				<div style="width:206px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;border:#000 1px solid;border-top:0px;">
-				<div
-                        style=
-                        "
-                                width:200px;
-                                border-bottom-left-radius:8px;
-                                border-bottom-right-radius:8px;
-                                border:#000 3px solid;
-                                border-top:0px;
-                                border-color:#fff #0397ff #0397ff #0397ff;
-                                background:#c6e8ff;
-                                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6e8ff', endColorstr='#ffffff');
-                                background: -webkit-gradient(linear, left top, left bottom, from(#c6e8ff), to(#ffffff));
-                                background: -moz-linear-gradient(top,  #c6e8ff,  #ffffff);
-                                font-size:8pt;
-                                font-weight:bold;
-                                color:#ff66cb;
-                                text-shadow:#ddd 1px 1px 0px;
-                        "
-				        onclick="toggleExpandProfile('<?php echo $whichBase.$g['id']; ?>')"
-				>
-				
-				<button>Show / hide details.</button>
 
-				</div>
-				</div>
-			<?php }  ?>
-		</div><!-- main container -->
+		</div>
 		<br>
 
 <?php

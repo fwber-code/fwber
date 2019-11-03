@@ -1060,11 +1060,11 @@ background: -moz-linear-gradient(top,  #aaaaaa,  #000000); /* for firefox 3.6+ *
 {
 
 text-align:center;
-font-size:18px;
+font-size:16px;
 font-weight:bold;
 
-border-radius:8px;
-margin:4px;
+border-radius:0px;
+margin:0px;
 
 }
 
@@ -1072,8 +1072,8 @@ margin:4px;
 {
 
 
-background:#ff9;
-border:#dd4 1px solid;
+background: rgba(255, 255, 153, 0.24);
+
 
 
 
@@ -1085,8 +1085,8 @@ border:#dd4 1px solid;
 {
 
 
-background:#c6e8ff;
-border:#0397ff 1px solid;
+background: rgba(153, 219, 255, 0.24);
+
 
 
 
@@ -1096,8 +1096,8 @@ border:#0397ff 1px solid;
 {
 
 
-background:#afa;
-border:#6d6 1px solid;
+background: rgba(170, 255, 170, 0.24);
+
 
 
 
@@ -1106,16 +1106,16 @@ border:#6d6 1px solid;
 .tableOutlinedColorPink
 {
 
-background:#fce;
-border:#ff66cb 1px solid;
+background: rgba(255, 204, 238, 0.25);
+
 
 }
 .tableOutlinedColorGray
 {
 
 
-	background:#ddd;
-	border:#999 1px solid;
+	background: rgba(221, 221, 221, 0.26);
+
 
 	
 }

@@ -45,10 +45,12 @@
 	<table id="body_table">
 		<tr>
 			<td id="middle_column" align="center" valign="top" style="width:70%">
-				<div class="outerOutlineContainer" style="margin:0px;padding:0px;width:600px;">
-				<div class="normalContainer" style="margin:0px;padding:0px;">
-				<div class="whiteToGray"  style="font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
-					<div class="outerOutlineContainer grayToWhite" style="width:50%;font-size:14pt;color:#555;border-color:#999;">
+                <br>
+                <br>
+                <br>
+                <br>
+				<div class="innerOutlineContainer whiteToGray"  style="width:50%;font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
+					<div class="" style="width:50%;font-size:14pt;">
 					Change your email address:<br>
 					</div>
 					<br>
@@ -59,18 +61,16 @@
                             <input type="text" name="newEmail" id="newEmail" style="margin:4px;"></input><br>
 							Verify New Address:
                             <input type="text" name="verifyEmail" id="verifyEmail" style="margin:4px;"></input><br>
-							<input type="submit" class="buttonGray" name="submit" value="Change it!" style="margin:4px;"></input>
+							<input type="submit" class="btn btn-outline-secondary my-0 px-3 mx-1" name="submit" value="Save" style="margin:4px;"></input>
 					    </form>
 					</div>
 				</div>
-				</div>
-				</div>
+
 				<br>
 				<br>
-				<div class="outerOutlineContainer" style="margin:0px;padding:0px;width:600px;">
-				<div class="normalContainer" style="margin:0px;padding:0px;">
-				<div class="whiteToGray" style="font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
-					<div class="outerOutlineContainer grayToWhite" style="width:50%;font-size:14pt;color:#555;border-color:#999;">
+
+				<div class="innerOutlineContainer whiteToGray" style="width:50%;font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
+					<div class="" style="width:50%;font-size:14pt;">
 					Change Email Settings:<br>
 					</div>
 					<br>
@@ -86,18 +86,16 @@
                         Email me when someone has approved my interest.
                         <input type="checkbox" id="emailApproved"style="margin:4px;" <?php if($emailApproved==1)echo 'checked="checked";' ?>></input><br>
                         <br>
-                        <input type="button" class="buttonGray"  name="button" value="Change it!" style="margin:4px;" onclick="changeEmailSettings();return false;"></input>
+                        <input type="button" class="btn btn-outline-secondary my-0 px-3 mx-1"  name="button" value="Save" style="margin:4px;" onclick="changeEmailSettings();return false;"></input>
 					</form>
 					</div>
 				</div>
-				</div>
-				</div>
+
 				<br>
 				<br>
-				<div class="outerOutlineContainer" style="margin:0px;padding:0px;width:600px;">
-				<div class="normalContainer" style="margin:0px;padding:0px;">
-				<div class="whiteToGray" style="font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
-					<div class="outerOutlineContainer grayToWhite" style="width:50%;font-size:14pt;color:#555;border-color:#999;">
+
+				<div class="innerOutlineContainer whiteToGray" style="width:50%;font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
+					<div class="" style="width:50%;font-size:14pt;">
 					Change your password:<br>
 					</div>
 					<br>
@@ -110,22 +108,20 @@
                         <input type="password" name="newPass" id="newPass" style="margin:4px;" ></input><br>
                         Verify New Password:
                         <input type="password" name="verifyPass" id="verifyPass" style="margin:4px;"></input><br><br>
-                        <input type="submit" class="buttonGray" name="submit" value="Change it!" style="margin:4px;"></input>
+                        <input type="submit" class="btn btn-outline-secondary my-0 px-3 mx-1" name="submit" value="Save" style="margin:4px;"></input>
 					</form>
 					</div>
 				</div>
-				</div>
-				</div>
+
                 <br>
                 <br>
-				<div class="outerOutlineContainer" style="margin:0px;padding:0px;width:600px;">
-				<div class="normalContainer" style="margin:0px;padding:0px;">
-				<div class="whiteToDarkGray" style="font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
-					<div class="outerOutlineContainer grayToWhite" style="width:50%;font-size:14pt;color:#000;border-color:#999;">
+
+				<div class="innerOutlineContainer whiteToDarkGray" style="width:50%; font-size:14pt;margin:0px;padding:8px;border-radius:8px;">
+					<div class="" style="width:50%;font-size:14pt;">
 					    Delete Account:<br>
 					</div>
 					<br>
-					<div style="width:100%;text-align:right;font-size:12pt;margin-right:20%;color:#f99;">
+					<div style="width:100%;text-align:right;font-size:12pt;margin-right:20%;color:#000;">
 					<form action="_deleteAccount" method="POST" enctype="multipart/form-data" id="deleteAccountForm" >
                         Password:
                         <input type="password" name="myPass" id="myPass" style="margin:4px;" ></input><br>
@@ -134,12 +130,11 @@
                         Type "goodbye" here:
                         <input type="text" name="goodbyeCheck" id="goodbyeCheck" style="margin:4px;"></input><br>
                         <input type="hidden" name="goodbye" id="goodbye" value="goodbye"></input><br>
-                        <input type="submit" class="buttonDarkRed" name="submit"  value="Delete It :("style="margin:4px;"></input>
+                        <input type="submit" class="btn btn-outline-secondary my-0 px-3 mx-1" name="submit"  value="Delete"style="margin:4px;"></input>
 					</form>
 					</div>
 				</div>
-				</div>
-				</div>
+
 		</td>
 		</tr>
 		</table>
