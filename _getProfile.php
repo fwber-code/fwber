@@ -919,7 +919,7 @@
 															<div class="profile_container_info_info profile_wants" style="padding-left:4px;padding:0; font-weight:bold; color:#ff66cb;">
 																
 																<?php if($b_wantSafeSex==1				&&$g['b_wantSafeSex']==1)echo "Safe Sex<br>"; ?>
-																<?php if($b_wantBarebackSex==1			&&$g['b_wantBarebackSex']==1)echo "Natural Sex After Mutual Testing<br>"; ?>
+																<?php if($b_wantBarebackSex==1			&&$g['b_wantBarebackSex']==1)echo "Bareback Sex<br>"; ?>
 																
 																<?php if($b_wantOralGive==1				&&$g['b_wantOralReceive']==1)echo "Oral (I Like Giving)<br>"; ?>
 																<?php if($b_wantOralReceive==1			&&$g['b_wantOralGive']==1)echo "Oral (I Like Receiving)<br>"; ?>

@@ -765,7 +765,7 @@ What You're Looking For
         <td style="width:30%;"></td>
         <td style="text-align:left;">
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_wantSafeSex" 		value="b_wantSafeSex" 		<?php if($profileDone==0 || ($profileDone==1&&$b_wantSafeSex==1		))echo 'checked="checked"'; ?>> Safe Sex</input></label><br>
-<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_wantBarebackSex" 	value="b_wantBarebackSex" 	<?php if($profileDone==1&&$b_wantBarebackSex==1			)echo 'checked="checked"'; ?>> Natural Sex After Mutual Testing</input></label><br>
+<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_wantBarebackSex" 	value="b_wantBarebackSex" 	<?php if($profileDone==1&&$b_wantBarebackSex==1			)echo 'checked="checked"'; ?>> Bareback Sex</input></label><br>
 <br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_wantOralGive" 		value="b_wantOralGive" 		<?php if($profileDone==1&&$b_wantOralGive==1			)echo 'checked="checked"'; ?>> Oral (I Like Giving)</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_wantOralReceive" 	value="b_wantOralReceive" 	<?php if($profileDone==1&&$b_wantOralReceive==1			)echo 'checked="checked"'; ?>> Oral (I Like Receiving)</input></label><br>
