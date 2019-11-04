@@ -29,43 +29,14 @@
     <div class="position-relative overflow-hidden p-3 p-md-5 py-5 mr-md-3 mt-md-5 ml-md-3 mb-md-3 text-center bg-light" style="margin-top: 3.5rem !important;">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
             <h1 class="display-4 font-weight-normal"><?php echo getSiteName();?> is a <b>completely new</b> kind of Adult Match site.</h1>
-            <p class="lead font-weight-normal"><br>No fees, <b>totally free</b> forever!<br><a href="https://github.com/fwber-code/fwber">Open source</a> and fully transparent.<br>No bots, spam, or popups.</p>
+            <p class="lead font-weight-normal">
+                <br>
+                <a href="https://github.com/fwber-code/fwber">Open source</a> and <b>fully transparent</b>.<br>
+                For the people, by the people!<br>
+                No fees, <b>totally free</b> forever.<br>
+                No bots, spam, ads, or popups.<br>
+            </p>
             <a class="btn btn-outline-secondary" href="/#joinNow">Join Now</a>
-        </div>
-    </div>
-
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-        <div class="site-header mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 py-3">
-                <h2 class="display-5">You don't need a public picture.</h2>
-                <p class="lead">Create your <?php echo getSiteName();?> avatar by filling out your profile.</p>
-                <img src="/images/avatars.png" border="0" style="height:100px; vertical-align:middle;"/>
-            </div>
-
-        </div>
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 p-3">
-                <h2 class="display-5">Automatic matches based on mutual interests.</h2>
-                <p class="lead">We notify you both and send you to each other.</p>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 p-3">
-                <h2 class="display-5">We only show your profile to your matches.</h2>
-                <p class="lead">Your pictures always remain private until you're comfortable showing them.</p>
-            </div>
-
-        </div>
-        <div class="site-header mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 py-3">
-                <h2 class="display-5">Open source and fully transparent.</h2>
-                <p class="lead">Verify your data is stored properly and your secrets are safe.</p>
-            </div>
-
         </div>
     </div>
 
@@ -86,12 +57,48 @@
         </div>
         <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
             <div class="my-3 py-3">
-                <h2 class="display-5">Match by dozens of interests and fetishes.</h2>
+                <h2 class="display-5">Match by dozens of specific sexual interests and fetishes.</h2>
                 <p class="lead">Find exactly who you are looking for, no matter how kinky.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">You don't need a public picture. We make one for you.</h2>
+                <p class="lead">Create your <?php echo getSiteName();?> avatar by filling out your profile.</p>
+                <img src="/images/avatars.png" border="0" style="height:100px; vertical-align:middle;"/>
+            </div>
+
+        </div>
+        <div class="site-header mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 p-3">
+                <h2 class="display-5">No searching. Automatic matches based on sexual interests.</h2>
+                <p class="lead">No digging through hundreds of profiles. We find you and send you to each other.</p>
             </div>
 
         </div>
     </div>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="site-header mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 p-3">
+                <h2 class="display-5">Privacy comes first. We only show your profile to your matches.</h2>
+                <p class="lead">Your pictures always remain private until you agree to show them.</p>
+            </div>
+
+        </div>
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">Open source and fully transparent.</h2>
+                <p class="lead">Verify your data is stored properly and your secrets are safe. Suggest new features or add them yourself.</p>
+            </div>
+
+        </div>
+    </div>
+
+
     <br>
     <br>
     <br>
