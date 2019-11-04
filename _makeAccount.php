@@ -1,6 +1,9 @@
 <?php
 
-    require_once("_init.php");
+    include("_init.php");
+    include("_secrets.php");
+    include("_names.php");
+    include("_debug.php");
 
     if($_SERVER["REQUEST_METHOD"] != "POST") {header("Location: ".getSiteURL()."/join");exit();}
 
@@ -104,6 +107,7 @@
 
     mysqli_close($db);
 
+    include("_emailFunctions.php");
     sendJoinVerificationEmail($email,$verifyHash,$emailExists);
 
 ?>

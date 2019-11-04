@@ -1,3 +1,10 @@
+<?php
+
+include("_init.php");
+include("_secrets.php");
+include("_names.php");
+include("_debug.php");
+?>
 <!doctype html>
 <html lang="en">
 <head>

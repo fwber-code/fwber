@@ -33,6 +33,7 @@
                 <br>
                 <a href="https://github.com/fwber-code/fwber">Open source</a> and <b>fully transparent</b>.<br>
                 For the people, by the people!<br>
+                <br>
                 No fees, <b>totally free</b> forever.<br>
                 No bots, spam, ads, or popups.<br>
             </p>
