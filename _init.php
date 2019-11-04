@@ -230,6 +230,8 @@ function getGenderString($gender)
     if($gender=='female')return "Woman";
     if($gender=='mtf')return "TS Woman";
     if($gender=='ftm')return "TS Man";
+    if($gender=='cdmtf')return "CD Woman";
+    if($gender=='cdftm')return "CD Man";
     if($gender=='mf')return "Man And Woman Couple";
     if($gender=='mm')return "Man And Man Couple";
     if($gender=='ff')return "Woman And Woman Couple";
@@ -294,6 +296,8 @@ function printGenderChar($g)
     if($g['gender']=="female")	echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640; </span>';
     if($g['gender']=="mtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
     if($g['gender']=="ftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
+    if($g['gender']=="cdmtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
+    if($g['gender']=="cdftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
     if($g['gender']=="mf")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">&#x2642;</span><span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640;</span>';
     if($g['gender']=="mm")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">&#x2642;&#x2642;</span>';
     if($g['gender']=="ff")		echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640;&#x2640;</span>';
@@ -310,6 +314,8 @@ function printGenderString($g)
     if($g['gender']=="female")	echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">'.$genderString.'</span>';
     if($g['gender']=="mtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
     if($g['gender']=="ftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
+    if($g['gender']=="cdmtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
+    if($g['gender']=="cdftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
     if($g['gender']=="mf")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">'.$genderString.'</span>';
     if($g['gender']=="mm")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">'.$genderString.'</span>';
     if($g['gender']=="ff")		echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">'.$genderString.'</span>';
@@ -323,6 +329,7 @@ function hasPenis($g)
     if(
         $g['gender']=='male'||
         $g['gender']=='mtf'||
+        $g['gender']=='cdmtf'||
         $g['gender']=='male'||
         $g['gender']=='mf'||
         $g['gender']=='mm'
@@ -353,6 +360,7 @@ function hasBodyHair($g)
         $g['gender']=='male'||
         $g['gender']=='ftm'||
         $g['gender']=='mtf'||
+        $g['gender']=='cdmtf'||
         $g['gender']=='mf'||
         $g['gender']=='mm'
     )
@@ -369,6 +377,7 @@ function wantsPenis($g)
     if(
         $g['b_wantGenderMan']==1||
         $g['b_wantGenderTSWoman']==1||
+        $g['b_wantGenderCDWoman']==1||
         $g['b_wantGenderCoupleMF']==1||
         $g['b_wantGenderCoupleMM']==1
 
@@ -398,6 +407,7 @@ function wantsBodyHair($g)
     if(
         $g['b_wantGenderMan']==1||
         $g['b_wantGenderTSMan']==1||
+        $g['b_wantGenderCDMan']==1||
         $g['b_wantGenderCoupleMF']==1||
         $g['b_wantGenderCoupleMM']==1
 

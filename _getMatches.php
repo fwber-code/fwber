@@ -46,6 +46,8 @@
 		if($me['gender']=='female')$dbquerystring.=" AND b_wantGenderWoman='1'";
 		if($me['gender']=='mtf')$dbquerystring.=" AND b_wantGenderTSWoman='1'";
 		if($me['gender']=='ftm')$dbquerystring.=" AND b_wantGenderTSMan='1'";
+		if($me['gender']=='cdmtf')$dbquerystring.=" AND b_wantGenderCDWoman='1'";
+		if($me['gender']=='cdftm')$dbquerystring.=" AND b_wantGenderCDMan='1'";
 		if($me['gender']=='mf')$dbquerystring.=" AND b_wantGenderCoupleMF='1'";
 		if($me['gender']=='mm')$dbquerystring.=" AND b_wantGenderCoupleMM='1'";
 		if($me['gender']=='ff')$dbquerystring.=" AND b_wantGenderCoupleFF='1'";
@@ -56,6 +58,8 @@
 		if($me['b_wantGenderWoman']==0)$dbquerystring.=" AND gender!='female'";
 		if($me['b_wantGenderTSWoman']==0)$dbquerystring.=" AND gender!='mtf'";
 		if($me['b_wantGenderTSMan']==0)$dbquerystring.=" AND gender!='ftm'";
+		if($me['b_wantGenderCDWoman']==0)$dbquerystring.=" AND gender!='cdmtf'";
+		if($me['b_wantGenderCDMan']==0)$dbquerystring.=" AND gender!='cdftm'";
 		if($me['b_wantGenderCoupleMF']==0)$dbquerystring.=" AND gender!='mf'";
 		if($me['b_wantGenderCoupleMM']==0)$dbquerystring.=" AND gender!='mm'";
 		if($me['b_wantGenderCoupleFF']==0)$dbquerystring.=" AND gender!='ff'";
@@ -215,7 +219,7 @@
 		
 
 		//if i'm a man, if we got this far they still want me, and therefore my penis
-		if($me['gender']=='male'||$me['gender']=='mtf'||$me['gender']=='mf'||$me['gender']=='mm')
+		if($me['gender']=='male'||$me['gender']=='mtf'||$me['gender']=='cdmtf'||$me['gender']=='mf'||$me['gender']=='mm')
 		{	
 			//do they want MY penisSize?
 			if($me['penisSize']=='tiny')$dbquerystring.=" AND b_wantPenisSizeTiny='1'";
@@ -226,7 +230,7 @@
 		}
 		
 		//if i'm a man, if we got this far they still want me, and therefore my body hair
-		if($me['gender']=='male'||$me['gender']=='ftm'||$me['gender']=='mf'||$me['gender']=='mm')
+		if($me['gender']=='male'||$me['gender']=='ftm'||$me['gender']=='ftm'||$me['gender']=='mf'||$me['gender']=='mm')
 		{	
 			//do they want MY bodyHair?
 			if($me['bodyHair']=='smooth')$dbquerystring.=" AND b_wantBodyHairSmooth='1'";
@@ -235,7 +239,7 @@
 		}
 
 		//if i'm a woman, if we got this far they still want me, and therefore my breasts
-		if($me['gender']=='female'||$me['gender']=='mtf'||$me['gender']=='ftm'||$me['gender']=='mf'||$me['gender']=='ff')
+		if($me['gender']=='female'||$me['gender']=='mtf'||$me['gender']=='cdmtf'||$me['gender']=='cdftm'||$me['gender']=='ftm'||$me['gender']=='mf'||$me['gender']=='ff')
 		{	
 			//do they want MY breastSize?
 			if($me['breastSize']=='tiny')$dbquerystring.=" AND b_wantBreastSizeTiny='1'";
@@ -275,6 +279,9 @@
 		if($me['b_smokeMarijuana']==1)$dbquerystring.=" AND b_noMarijuana='0'";
 		if($me['b_noMarijuana']==1)$dbquerystring.=" AND b_smokeMarijuana='0'";
 
+		if($me['b_psychedelics']==1)$dbquerystring.=" AND b_noPsychedelics='0'";
+		if($me['b_noPsychedelics']==1)$dbquerystring.=" AND b_psychedelics='0'";
+		
 		if($me['b_otherDrugs']==1)$dbquerystring.=" AND b_noDrugs='0'";
 		if($me['b_noDrugs']==1)$dbquerystring.=" AND b_otherDrugs='0'";
 		

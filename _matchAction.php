@@ -93,6 +93,8 @@
         if($gender=='female')$dbquerystring.=" AND b_wantGenderWoman='1'";
         if($gender=='mtf')$dbquerystring.=" AND b_wantGenderTSWoman='1'";
         if($gender=='ftm')$dbquerystring.=" AND b_wantGenderTSMan='1'";
+        if($gender=='cdmtf')$dbquerystring.=" AND b_wantGenderCDWoman='1'";
+        if($gender=='cdftm')$dbquerystring.=" AND b_wantGenderCDMan='1'";
         if($gender=='mf')$dbquerystring.=" AND b_wantGenderCoupleMF='1'";
         if($gender=='mm')$dbquerystring.=" AND b_wantGenderCoupleMM='1'";
         if($gender=='ff')$dbquerystring.=" AND b_wantGenderCoupleFF='1'";
@@ -103,6 +105,8 @@
         if($b_wantGenderWoman==0)$dbquerystring.=" AND gender!='female'";
         if($b_wantGenderTSWoman==0)$dbquerystring.=" AND gender!='mtf'";
         if($b_wantGenderTSMan==0)$dbquerystring.=" AND gender!='ftm'";
+        if($b_wantGenderCDWoman==0)$dbquerystring.=" AND gender!='cdmtf'";
+        if($b_wantGenderCDMan==0)$dbquerystring.=" AND gender!='cdftm'";
         if($b_wantGenderCoupleMF==0)$dbquerystring.=" AND gender!='mf'";
         if($b_wantGenderCoupleMM==0)$dbquerystring.=" AND gender!='mm'";
         if($b_wantGenderCoupleFF==0)$dbquerystring.=" AND gender!='ff'";

@@ -236,9 +236,11 @@
                         <option id="mf" 		value="mf" 			<?php if($profileDone==1&&$gender=="mf"				)echo 'selected="selected"'; ?>>Couple Man + Woman (MF)</option>
                         <option id="mm" 		value="mm" 			<?php if($profileDone==1&&$gender=="mm"				)echo 'selected="selected"'; ?>>Couple Man + Man (MM)</option>
                         <option id="ff" 		value="ff" 			<?php if($profileDone==1&&$gender=="ff"				)echo 'selected="selected"'; ?>>Couple Woman + Woman (FF)</option>
+						<option id="group" 	value="group" 		<?php if($profileDone==1&&$gender=="group"			)echo 'selected="selected"'; ?>>Group</option>
                         <option id="mtf" 	value="mtf" 		<?php if($profileDone==1&&$gender=="mtf"			)echo 'selected="selected"'; ?>>TS Woman (MTF)</option>
                         <option id="ftm" 	value="ftm" 		<?php if($profileDone==1&&$gender=="ftm"			)echo 'selected="selected"'; ?>>TS Man (FTM)</option>
-                        <option id="group" 	value="group" 		<?php if($profileDone==1&&$gender=="group"			)echo 'selected="selected"'; ?>>Group</option>
+                        <option id="cdmtf" 	value="cdmtf" 		<?php if($profileDone==1&&$gender=="cdmtf"			)echo 'selected="selected"'; ?>>CD Woman (MTF)</option>
+                        <option id="cdftm" 	value="cdftm" 		<?php if($profileDone==1&&$gender=="cdftm"			)echo 'selected="selected"'; ?>>CD Man (FTM)</option>
                     </select>
                 </td>
             </tr>
@@ -451,7 +453,8 @@ Other About You
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_lightDrinker" 		value="b_lightDrinker" 		<?php if($profileDone==1&&$b_lightDrinker==1		)echo 'checked="checked"'; ?>> I'm A Light Drinker</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_heavyDrinker" 		value="b_heavyDrinker" 		<?php if($profileDone==1&&$b_heavyDrinker==1		)echo 'checked="checked"'; ?>> I'm A Heavy Drinker</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_smokeMarijuana" 	value="b_smokeMarijuana" 		<?php if($profileDone==1&&$b_smokeMarijuana==1		)echo 'checked="checked"'; ?>> I Smoke Marijuana</input></label><br>
-<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_otherDrugs" 		value="b_otherDrugs" 			<?php if($profileDone==1&&$b_otherDrugs==1			)echo 'checked="checked"'; ?>> I Do Other Drugs/Partying</input></label><br>
+<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_psychedelics" 		value="b_psychedelics" 			<?php if($profileDone==1&&$b_psychedelics==1			)echo 'checked="checked"'; ?>> I Use Psychedelics</input></label><br>
+<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_otherDrugs" 		value="b_otherDrugs" 			<?php if($profileDone==1&&$b_otherDrugs==1			)echo 'checked="checked"'; ?>> I Use Other Drugs</input></label><br>
 <br>                                               
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_marriedTheyKnow" 	value="b_marriedTheyKnow" 	<?php if($profileDone==1&&$b_marriedTheyKnow==1		)echo 'checked="checked"'; ?>> I Am Married And They Know</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_marriedSecret" 	value="b_marriedSecret" 		<?php if($profileDone==1&&$b_marriedSecret==1		)echo 'checked="checked"'; ?>> I Am Married And They Don't Know</input></label><br>
@@ -480,12 +483,14 @@ What You're Looking For
         <td style="text-align:left;">
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderMan" 			name="b_wantGenderMan" 			value="b_wantGenderMan" 			<?php if($profileDone==1&&$b_wantGenderMan==1				)echo 'checked="checked"'; ?>> Man</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderWoman" 			name="b_wantGenderWoman" 			value="b_wantGenderWoman" 		<?php if($profileDone==1&&$b_wantGenderWoman==1				)echo 'checked="checked"'; ?>> Woman</input></label><br>
-<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderTSWoman" 		name="b_wantGenderTSWoman" 		value="b_wantGenderTSWoman" 		<?php if($profileDone==1&&$b_wantGenderTSWoman==1			)echo 'checked="checked"'; ?>> TS Woman (MTF)</input></label><br>
-<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderTSMan" 			name="b_wantGenderTSMan" 			value="b_wantGenderTSMan" 		<?php if($profileDone==1&&$b_wantGenderTSMan==1				)echo 'checked="checked"'; ?>> TS Man (FTM)</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderCoupleMF" 		name="b_wantGenderCoupleMF" 		value="b_wantGenderCoupleMF" 	<?php if($profileDone==1&&$b_wantGenderCoupleMF==1			)echo 'checked="checked"'; ?>> Couple Man + Woman (MF)</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderCoupleMM" 		name="b_wantGenderCoupleMM" 		value="b_wantGenderCoupleMM" 	<?php if($profileDone==1&&$b_wantGenderCoupleMM==1			)echo 'checked="checked"'; ?>> Couple Man + Man (MM)</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderCoupleFF" 		name="b_wantGenderCoupleFF" 		value="b_wantGenderCoupleFF" 	<?php if($profileDone==1&&$b_wantGenderCoupleFF==1			)echo 'checked="checked"'; ?>> Couple Woman + Woman (FF)</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderGroup" 			name="b_wantGenderGroup" 			value="b_wantGenderGroup" 		<?php if($profileDone==1&&$b_wantGenderGroup==1				)echo 'checked="checked"'; ?>> Group</input></label><br>
+<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderTSWoman" 		name="b_wantGenderTSWoman" 		value="b_wantGenderTSWoman" 		<?php if($profileDone==1&&$b_wantGenderTSWoman==1			)echo 'checked="checked"'; ?>> TS Woman (MTF)</input></label><br>
+<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderTSMan" 			name="b_wantGenderTSMan" 			value="b_wantGenderTSMan" 		<?php if($profileDone==1&&$b_wantGenderTSMan==1				)echo 'checked="checked"'; ?>> TS Man (FTM)</input></label><br>
+<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderCDWoman" 		name="b_wantGenderCDWoman" 		value="b_wantGenderCDWoman" 		<?php if($profileDone==1&&$b_wantGenderCDWoman==1			)echo 'checked="checked"'; ?>> CD Woman (MTF)</input></label><br>
+<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this);toggleMaleFemale();" id="b_wantGenderCDMan" 			name="b_wantGenderCDMan" 			value="b_wantGenderCDMan" 		<?php if($profileDone==1&&$b_wantGenderCDMan==1				)echo 'checked="checked"'; ?>> CD Man (FTM)</input></label><br>
     </td>
     </tr>
     </tbody>
@@ -870,7 +875,8 @@ What You're Looking For
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_noLightDrink" 		value="b_noLightDrink"	<?php if($profileDone==1&&$b_noLightDrink==1		)echo 'checked="checked"'; ?>> No Light Drinking</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_noHeavyDrink" 		value="b_noHeavyDrink"	<?php if($profileDone==1&&$b_noHeavyDrink==1		)echo 'checked="checked"'; ?>> No Heavy Drinking</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_noMarijuana" 			value="b_noMarijuana"		<?php if($profileDone==1&&$b_noMarijuana==1			)echo 'checked="checked"'; ?>> No Marijuana</input></label><br>
-<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_noDrugs" 				value="b_noDrugs" 			<?php if($profileDone==0 || ($profileDone==1&&$b_noDrugs==1				))echo 'checked="checked"'; ?>> No Other Drugs/Partying</input></label><br>
+<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_noPsychedelics" 				value="b_noPsychedelics" 			<?php if($profileDone==0 || ($profileDone==1&&$b_noPsychedelics==1				))echo 'checked="checked"'; ?>> No Psychedelics</input></label><br>
+<label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_noDrugs" 				value="b_noDrugs" 			<?php if($profileDone==0 || ($profileDone==1&&$b_noDrugs==1				))echo 'checked="checked"'; ?>> No Other Drugs</input></label><br>
 <br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_noHerpes" 				value="b_noHerpes" 		<?php if($profileDone==0 || ($profileDone==1&&$b_noHerpes==1			))echo 'checked="checked"'; ?>> Match Must Not Have Genital Herpes (HSV)</input></label><br>
 <label class="checkbox text-left d-sm-inline-block mb-0"><input type="checkbox" onclick="toggle(this)" name="b_noWarts" 				value="b_noWarts" 		<?php if($profileDone==0 || ($profileDone==1&&$b_noWarts==1			))echo 'checked="checked"'; ?>> Match Must Not Have Genital Warts (HPV)</input></label><br>
@@ -959,22 +965,23 @@ What You're Looking For
             document.getElementById("myBodyHair").style.display = "";
         }
 
-        if(e.options[e.selectedIndex].id=="mtf")
+        if(e.options[e.selectedIndex].id=="mtf" || e.options[e.selectedIndex].id=="cdmtf")
         {
             document.getElementById("myBodyHair").style.display = "none";
         }
 
 
-        if(e.options[e.selectedIndex].id=="ftm")
+        if(e.options[e.selectedIndex].id=="ftm" || e.options[e.selectedIndex].id=="cdftm")
         {
             document.getElementById("myPenisSize").style.display = "none";
         }
 
         var b_wantGenderMan = document.getElementById("b_wantGenderMan");
         var b_wantGenderTSWoman = document.getElementById("b_wantGenderTSWoman");
+        var b_wantGenderCDWoman = document.getElementById("b_wantGenderCDWoman");
         var b_wantGenderCoupleMF = document.getElementById("b_wantGenderCoupleMF");
         var b_wantGenderCoupleMM = document.getElementById("b_wantGenderCoupleMM");
-        if(b_wantGenderMan.checked||b_wantGenderTSWoman.checked||b_wantGenderCoupleMF.checked||b_wantGenderCoupleMM.checked)
+        if(b_wantGenderMan.checked||b_wantGenderTSWoman.checked||b_wantGenderCDWoman.checked||b_wantGenderCoupleMF.checked||b_wantGenderCoupleMM.checked)
         {
             document.getElementById("wantPenisSize").style.display = "";
         }
@@ -983,7 +990,7 @@ What You're Looking For
             document.getElementById("wantPenisSize").style.display = "none";
         }
 
-        if(b_wantGenderMan.checked||b_wantGenderCoupleMF.checked||b_wantGenderCoupleMM.checked)
+        if(b_wantGenderMan.checked||b_wantGenderCoupleMF.checked||b_wantGenderTSWoman.checked||b_wantGenderTSMan.checked||b_wantGenderCDWoman.checked||b_wantGenderCDMan.checked||b_wantGenderCoupleMM.checked)
         {
             document.getElementById("wantBodyHair").style.display = "";
         }
@@ -995,9 +1002,11 @@ What You're Looking For
         var b_wantGenderWoman = document.getElementById("b_wantGenderWoman");
         var b_wantGenderTSWoman = document.getElementById("b_wantGenderTSWoman");
         var b_wantGenderTSMan = document.getElementById("b_wantGenderTSMan");
+        var b_wantGenderCDWoman = document.getElementById("b_wantGenderCDWoman");
+        var b_wantGenderCDMan = document.getElementById("b_wantGenderCDMan");
         var b_wantGenderCoupleMF = document.getElementById("b_wantGenderCoupleMF");
         var b_wantGenderCoupleFF = document.getElementById("b_wantGenderCoupleFF");
-        if(b_wantGenderWoman.checked||b_wantGenderTSWoman.checked||b_wantGenderTSMan.checked||b_wantGenderCoupleMF.checked||b_wantGenderCoupleFF.checked)
+        if(b_wantGenderWoman.checked||b_wantGenderTSWoman.checked||b_wantGenderTSMan.checked||b_wantGenderCDWoman.checked||b_wantGenderCDMan.checked||b_wantGenderCoupleMF.checked||b_wantGenderCoupleFF.checked)
         {
             document.getElementById("wantBreastSize").style.display = "";
 

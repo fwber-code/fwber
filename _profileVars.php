@@ -39,6 +39,7 @@
     $b_lightDrinker = 0;
     $b_heavyDrinker = 0;
     $b_smokeMarijuana = 0;
+    $b_psychedelics = 0;
     $b_otherDrugs = 0;
 
     $b_haveWarts = 0;
@@ -56,6 +57,8 @@
     $b_wantGenderWoman = 0;
     $b_wantGenderTSWoman = 0;
     $b_wantGenderTSMan = 0;
+    $b_wantGenderCDWoman = 0;
+    $b_wantGenderCDMan = 0;
     $b_wantGenderCoupleMF = 0;
     $b_wantGenderCoupleMM = 0;
     $b_wantGenderCoupleFF = 0;
@@ -162,6 +165,7 @@
     $b_noLightDrink = 0;
     $b_noHeavyDrink = 0;
     $b_noMarijuana = 0;
+    $b_noPsychedelics = 0;
     $b_noDrugs = 0;
     $b_noHerpes = 0;
     $b_noWarts = 0;
@@ -227,6 +231,7 @@
 		", "."b_lightDrinker".
 		", "."b_heavyDrinker".
 		", "."b_smokeMarijuana".
+		", "."b_psychedelics".
 		", "."b_otherDrugs".
 
 		", "."b_haveWarts".
@@ -244,6 +249,8 @@
 		", "."b_wantGenderWoman".
 		", "."b_wantGenderTSWoman".
 		", "."b_wantGenderTSMan".
+		", "."b_wantGenderCDWoman".
+		", "."b_wantGenderCDMan".
 		", "."b_wantGenderCoupleMF".
 		", "."b_wantGenderCoupleMM".
 		", "."b_wantGenderCoupleFF".
@@ -371,6 +378,7 @@
 		", "."b_noHeavyDrink".
 		", "."b_noMarijuana".
 
+		", "."b_noPsychedelics".
 		", "."b_noDrugs".
 
 		", "."b_noHerpes".
@@ -434,6 +442,7 @@
 			$b_lightDrinker								 = $dbresults['b_lightDrinker'				];
 			$b_heavyDrinker								 = $dbresults['b_heavyDrinker'				];
 			$b_smokeMarijuana								 = $dbresults['b_smokeMarijuana'				];
+			$b_psychedelics									 = $dbresults['b_psychedelics'					];
 			$b_otherDrugs									 = $dbresults['b_otherDrugs'					];
 
 			$b_haveWarts									 = $dbresults['b_haveWarts'					];
@@ -451,6 +460,8 @@
 			$b_wantGenderWoman							 = $dbresults['b_wantGenderWoman'				];
 			$b_wantGenderTSWoman							 = $dbresults['b_wantGenderTSWoman'			];
 			$b_wantGenderTSMan							 = $dbresults['b_wantGenderTSMan'				];
+			$b_wantGenderCDWoman							 = $dbresults['b_wantGenderCDWoman'			];
+			$b_wantGenderCDMan							 = $dbresults['b_wantGenderCDMan'				];
 			$b_wantGenderCoupleMF							 = $dbresults['b_wantGenderCoupleMF'			];
 			$b_wantGenderCoupleMM							 = $dbresults['b_wantGenderCoupleMM'			];
 			$b_wantGenderCoupleFF							 = $dbresults['b_wantGenderCoupleFF'			];
@@ -577,6 +588,7 @@
 			$b_noLightDrink								 = $dbresults['b_noLightDrink'					];
 			$b_noHeavyDrink								 = $dbresults['b_noHeavyDrink'					];
 			$b_noMarijuana								 = $dbresults['b_noMarijuana'						];
+			$b_noPsychedelics									 = $dbresults['b_noPsychedelics'							];
 			$b_noDrugs									 = $dbresults['b_noDrugs'							];
 
 			$b_noHerpes									 = $dbresults['b_noHerpes'						];
@@ -655,6 +667,7 @@
 		", `b_lightDrinker` = '".$b_lightDrinker."'".
 		", `b_heavyDrinker` = '".$b_heavyDrinker."'".
 		", `b_smokeMarijuana` = '".$b_smokeMarijuana."'".
+		", `b_psychedelics` = '".$b_psychedelics."'".
 		", `b_otherDrugs` = '".$b_otherDrugs."'".
 		", `b_haveWarts` = '".$b_haveWarts."'".
 		", `b_haveHerpes` = '".$b_haveHerpes."'".
@@ -669,6 +682,8 @@
 		", `b_wantGenderWoman` = '".$b_wantGenderWoman."'".
 		", `b_wantGenderTSWoman` = '".$b_wantGenderTSWoman."'".
 		", `b_wantGenderTSMan` = '".$b_wantGenderTSMan."'".
+		", `b_wantGenderCDWoman` = '".$b_wantGenderCDWoman."'".
+		", `b_wantGenderCDMan` = '".$b_wantGenderCDMan."'".
 		", `b_wantGenderCoupleMF` = '".$b_wantGenderCoupleMF."'".
 		", `b_wantGenderCoupleMM` = '".$b_wantGenderCoupleMM."'".
 		", `b_wantGenderCoupleFF` = '".$b_wantGenderCoupleFF."'".
@@ -769,6 +784,7 @@
 		", `b_noLightDrink` = '".$b_noLightDrink."'".
 		", `b_noHeavyDrink` = '".$b_noHeavyDrink."'".
 		", `b_noMarijuana` = '".$b_noMarijuana."'".
+		", `b_noPsychedelics` = '".$b_noPsychedelics."'".
 		", `b_noDrugs` = '".$b_noDrugs."'".
 		", `b_noHerpes` = '".$b_noHerpes."'".
 		", `b_noWarts` = '".$b_noWarts."'".
@@ -980,6 +996,7 @@
 		if(isset($_POST['b_lightDrinker'                    ]))$b_lightDrinker                    = 1;
 		if(isset($_POST['b_heavyDrinker'                    ]))$b_heavyDrinker                    = 1;
 		if(isset($_POST['b_smokeMarijuana'                  ]))$b_smokeMarijuana                  = 1;
+		if(isset($_POST['b_psychedelics'                      ]))$b_psychedelics                      = 1;
 		if(isset($_POST['b_otherDrugs'                      ]))$b_otherDrugs                      = 1;
 
 		if(isset($_POST['b_haveWarts'                       ]))$b_haveWarts                       = 1;
@@ -997,6 +1014,8 @@
 		if(isset($_POST['b_wantGenderWoman'                 ]))$b_wantGenderWoman                 = 1;
 		if(isset($_POST['b_wantGenderTSWoman'               ]))$b_wantGenderTSWoman               = 1;
 		if(isset($_POST['b_wantGenderTSMan'                 ]))$b_wantGenderTSMan                 = 1;
+		if(isset($_POST['b_wantGenderCDWoman'               ]))$b_wantGenderCDWoman               = 1;
+		if(isset($_POST['b_wantGenderCDMan'                 ]))$b_wantGenderCDMan                 = 1;
 		if(isset($_POST['b_wantGenderCoupleMF'              ]))$b_wantGenderCoupleMF              = 1;
 		if(isset($_POST['b_wantGenderCoupleMM'              ]))$b_wantGenderCoupleMM              = 1;
 		if(isset($_POST['b_wantGenderCoupleFF'              ]))$b_wantGenderCoupleFF              = 1;
@@ -1121,6 +1140,7 @@
 		if(isset($_POST['b_noHeavyDrink'                    ]))$b_noHeavyDrink                    = 1;
 		if(isset($_POST['b_noMarijuana'                     ]))$b_noMarijuana                     = 1;
 
+		if(isset($_POST['b_noPsychedelics'                         ]))$b_noPsychedelics                         = 1;
 		if(isset($_POST['b_noDrugs'                         ]))$b_noDrugs                         = 1;
 
 		if(isset($_POST['b_noHerpes'                        ]))$b_noHerpes                        = 1;

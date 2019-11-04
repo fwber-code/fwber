@@ -77,6 +77,7 @@
         else if($g['ethnicity']=="other")$avatarName.="skin_asianDark.";
 
         if($g['gender']=="male")$avatarName.="breastSize_none.";
+        if($g['gender']=="cdmtf")$avatarName.="breastSize_none.";
         else if($g['gender']=="mm")$avatarName.="breastSize_none.";
         else if($g['breastSize']=="tiny")$avatarName.="breastSize_none.";
         else if($g['breastSize']=="small")$avatarName.="breastSize_small.";
@@ -86,8 +87,8 @@
 
 
         if($g['gender']=="female")$avatarName.="penisSize_none.";
-        else if($g['gender']=="mtf")$avatarName.="penisSize_none.";
-        else if($g['gender']=="ftm")$avatarName.="penisSize_none.";
+        //else if($g['gender']=="mtf")$avatarName.="penisSize_none.";
+        //else if($g['gender']=="ftm")$avatarName.="penisSize_none.";
         else if($g['gender']=="ff")$avatarName.="penisSize_none.";
         else if($g['penisSize']=="tiny")$avatarName.="penisSize_small.";
         else if($g['penisSize']=="skinny")$avatarName.="penisSize_skinny.";
@@ -158,14 +159,14 @@
             echo '<img src="/avatars/female/'.$bodyFolder.'/female.'.$avatarName.'"  border="0" class="avatar" />';
             echo '</div>';
         }
-        else if($g['gender']=="mtf")
+        else if($g['gender']=="mtf" || $g['gender']=="cdmtf")
         {
             echo '<div align="center" class="purpleToWhite" style="padding:0px;margin:6px;">';
             echo '<img src="/avatars/mtf/'.$bodyFolder.'/mtf.'.$avatarName.'"  border="0" class="avatar" />';
             echo '</div>';
 
         }
-        else if($g['gender']=="ftm")
+        else if($g['gender']=="ftm" || $g['gender']=="cdftm")
         {
             echo '<div align="center" class="purpleToWhite" style="padding:0px;margin:6px;">';
             echo '<img src="/avatars/male/'.$bodyFolder.'/male.'.$avatarName.'"  border="0" class="avatar" />';
@@ -589,12 +590,15 @@
 																		<div class="profile_container_info_info" style="padding-left:4px;padding:0;">
 																			<?php if($g['gender']=="male"		)echo "Man"; ?>
 																			<?php if($g['gender']=="female"		)echo "Woman"; ?>
-																			<?php if($g['gender']=="mtf"		)echo "TS Woman (MTF)"; ?>
-																			<?php if($g['gender']=="ftm"		)echo "TS Man (FTM)"; ?>
+
 																			<?php if($g['gender']=="mf"			)echo "Couple Man + Woman (MF)"; ?>
 																			<?php if($g['gender']=="mm"			)echo "Couple Man + Man (MM)"; ?>
 																			<?php if($g['gender']=="ff"			)echo "Couple Woman + Woman (FF)"; ?>
 																			<?php if($g['gender']=="group"		)echo "Group"; ?>
+																			<?php if($g['gender']=="mtf"		)echo "TS Woman (MTF)"; ?>
+																			<?php if($g['gender']=="ftm"		)echo "TS Man (FTM)"; ?>
+																			<?php if($g['gender']=="cdmtf"		)echo "CD Woman (MTF)"; ?>
+																			<?php if($g['gender']=="cdftm"		)echo "CD Man (FTM)"; ?>
 																		</div>
 																	</td>
 																</tr>
@@ -866,7 +870,8 @@
 																			<?php if($g['b_lightDrinker']==1			)echo "I'm A Light Drinker<br>"; ?>
 																			<?php if($g['b_heavyDrinker']==1			)echo "I'm A Heavy Drinker<br>"; ?>
 																			<?php if($g['b_smokeMarijuana']==1		)echo "I Smoke Marijuana<br>"; ?>
-																			<?php if($g['b_otherDrugs']==1			)echo "I Do Other Drugs/Partying<br>"; ?>
+																			<?php if($g['b_psychedelics']==1			)echo "I Use Psychedelics<br>"; ?>
+																			<?php if($g['b_otherDrugs']==1			)echo "I Use Other Drugs<br>"; ?>
 
 
 																			<?php if($g['b_marriedTheyKnow']==1		)echo "I Am Married And They Know<br>"; ?>
@@ -1011,7 +1016,8 @@
 																<?php if($g['b_noLightDrink']==1)echo "No Light Drinking<br>"; ?>
 																<?php if($g['b_noHeavyDrink']==1)echo "No Heavy Drinking<br>"; ?>
 																<?php if($g['b_noMarijuana']==1)echo "No Marijuana<br>"; ?>
-																<?php if($g['b_noDrugs']==1)echo "No Other Drugs/Partying<br>"; ?>
+																<?php if($g['b_noPsychedelics']==1)echo "No Psychedelics<br>"; ?>
+																<?php if($g['b_noDrugs']==1)echo "No Other Drugs<br>"; ?>
 																		   
 																<?php if($g['b_noHerpes']==1)echo "Match Must Not Have Genital Herpes (HSV)<br>"; ?>
 																<?php if($g['b_noWarts']==1)echo "Match Must Not Have Genital Warts (HPV)<br>"; ?>
