@@ -28,7 +28,7 @@
 
     <div class="position-relative overflow-hidden p-3 p-md-5 py-5 mr-md-3 mt-md-5 ml-md-3 mb-md-3 text-center bg-light" style="margin-top: 3.5rem !important;">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 font-weight-normal"><?php echo getSiteName();?> is a <b>completely new</b> kind of Adult Match site.</h1>
+            <h1 class="display-4 font-weight-normal"><img src="/images/fwber_logo_icon.png" alt="fwber" id="fwber_logo_img" align="middle" width="180px" style="vertical-align:bottom; margin-bottom:5px; margin-right:-4px;"/> is a <b>completely new</b> kind of Adult Match site.</h1>
             <p class="lead font-weight-normal">
                 <br>
                 <a href="https://github.com/fwber-code/fwber">Open source</a> and <b>fully transparent</b>.<br>
