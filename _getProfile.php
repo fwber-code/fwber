@@ -19,18 +19,19 @@
 			$distanceUnit="Kilometers";
 		}
 
+		
 ?>
 
 		<?php if($whichBase=="public"){ ?>
-			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
+			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer" width="90%" style="width:90%">
 		<?php }else if($whichBase=="waitingforprivate"){ ?>
-			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
+			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer" width="90%" style="width:90%">
 		<?php }else if($whichBase=="private"){ ?>
-			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
+			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer" width="90%" style="width:90%">
 		<?php }else if($whichBase=="authforprivate"){ ?>
-			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
+			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer" width="90%" style="width:90%">
 		<?php }else if($whichBase=="notmytype"){ ?>
-			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer">
+			<div id="<?php echo $whichBase.$g['id']; ?>" class="innerOutlineContainer" width="90%" style="width:90%">
 		<?php } ?>
         
 				
@@ -77,7 +78,7 @@
         else if($g['ethnicity']=="other")$avatarName.="skin_asianDark.";
 
         if($g['gender']=="male")$avatarName.="breastSize_none.";
-        if($g['gender']=="cdmtf")$avatarName.="breastSize_none.";
+        else if($g['gender']=="cdmtf")$avatarName.="breastSize_none.";
         else if($g['gender']=="mm")$avatarName.="breastSize_none.";
         else if($g['breastSize']=="tiny")$avatarName.="breastSize_none.";
         else if($g['breastSize']=="small")$avatarName.="breastSize_small.";
@@ -1113,6 +1114,7 @@
 					</div>
         </div>
 
+		<br>
 		<br>
 
 <?php

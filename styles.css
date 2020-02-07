@@ -1198,7 +1198,7 @@ background: rgba(255, 204, 238, 0.25);
 	border-radius:6px; 
 	border:1px solid; 
 
-	border-color: #ccc; 
+	border-color: #ccc;
 	
 	background:#fff;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f7f7ff'); /* for IE */

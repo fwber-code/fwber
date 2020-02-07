@@ -1,7 +1,7 @@
 <?php
 
 //global $debug;
-$debug = false;
+$debug = true;
 
 if($debug)
 {

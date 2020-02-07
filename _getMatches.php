@@ -388,7 +388,7 @@
 			$x=0;
 			while ($x<$numMatches)
 			{
-			    $x--;
+			    $x++;
                 $row = mysqli_fetch_assoc($dbquery);
 				$result_array[] = $row;
 			}

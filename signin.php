@@ -7,7 +7,6 @@
 	include("_secrets.php");
 	include("_names.php");
 
-
     $show_html=false;
     $error_string = "";
 
