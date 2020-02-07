@@ -29,7 +29,13 @@
     $password = mysqli_real_escape_string($db,$_POST['namePassword']);
     $verify = mysqli_real_escape_string($db,$_POST['nameVerify']);
 
-    if(strlen($password)<5 || strcmp($password,$verify)!=0 || $_POST['nameAgreeLegalAge']!=true || $_POST['nameAgreeTOS']!=true || !filter_var($email,FILTER_VALIDATE_EMAIL))
+    if(
+            strlen($password)<5 ||
+            strcmp($password,$verify)!=0 ||
+            $_POST['nameAgreeLegalAge']!=true ||
+            $_POST['nameAgreeTOS']!=true ||
+            !filter_var($email,FILTER_VALIDATE_EMAIL)
+    )
     {
         header("Location: ".getSiteURL()."/join");
         exit();
