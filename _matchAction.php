@@ -2,12 +2,15 @@
 
 	session_start(); 
 
-	require_once("_init.php");
+	include("_init.php");
+	include("_names.php");
+	include("_debug.php");
 
-	require_once("_profileVars.php");
-	require_once("_secrets.php");
-	require_once("_globals.php");
-	
+    include("_profileVars.php");
+    include("_secrets.php");
+    include("_globals.php");
+    include("_emailFunctions.php");
+
 	//first make sure we are a legit user.
 	if(deleteCookiesIfInvalid()==false){header('Location: '.getSiteURL());return;}//full auth for actions
 	

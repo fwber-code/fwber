@@ -2,13 +2,16 @@
 
     session_start();
 
-    require_once("_init.php");
+include("_init.php");
+include("_debug.php");
+include("_names.php");
 
     if($_SERVER["REQUEST_METHOD"] != "POST"){header('Location: '.getSiteURL());exit();}
 
-    require_once("_profileVars.php");
-    require_once("_secrets.php");
-    require_once("_globals.php");
+include("_profileVars.php");
+include("_secrets.php");
+include("_globals.php");
+include("_emailFunctions.php");
 
     if(deleteCookiesIfInvalid()==false){header('Location: '.getSiteURL());return;}//full auth for actions
 

@@ -62,7 +62,8 @@
             {
                 $show_html=true;
 
-                if($dbresults['email']==$email
+                if($dbresults!=null
+                    &&$dbresults['email']==$email
                     &&$dbresults['passwordHash']==getSaltedPassword($password,$dbresults['dateJoined'])
                     &&$dbresults['verified']==0)
                 {
