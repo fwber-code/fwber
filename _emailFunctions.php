@@ -39,7 +39,7 @@
         */
 
         //phpmailer
-        require_once('js/phpmailer/class.phpmailer.php');
+        include('js/PHPMailer-6.1.4/src/PHPMailer.php');
         $mail             = new PHPMailer();
         //$mailHTMLBody   = file_get_contents('contents.html');
         //$mailHTMLBody   = eregi_replace("[\]",'',$mailHTMLBody);

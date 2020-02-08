@@ -182,7 +182,7 @@ include("_getProfile.php");
 	</div>
     <?php include("f.php");?>
 
-    <script src="/js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="/js/jquery-3.4.1.min.js" type="text/javascript"></script>
     <script src="/js/jquery-ui-1.8.21.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript">
 

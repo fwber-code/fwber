@@ -186,8 +186,8 @@ include("_secrets.php");
         }
     </style>
 
-    <script src="/js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
-    <script src="/js/jquery-ui-1.8.21.custom.min.js" type="text/javascript"></script>
+    <script src="/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="/js/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
 
     <script type="text/javascript">
 
