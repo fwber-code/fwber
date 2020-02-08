@@ -47,15 +47,16 @@ function deleteCookiesIfInvalid()
 {//=========================================================================================
 
     include("_secrets.php");
+    include("_debug.php");
 
     $loggedIn = false;
 
     //first we'll handle validating the session
-    if(!isset($_SESSION["token"])){}//{if($debug)echo "<!-- DEBUG: No session token -->\n";}
-    else if($_SESSION["token"]==null){}//if($debug)echo "<!-- DEBUG: Session token null -->\n";}
-    else if(!isset($_SESSION["email"])){}//if($debug)echo "<!-- DEBUG: No session email -->\n";}
-    else if($_SESSION["email"]==null){}//if($debug)echo "<!-- DEBUG: Session email null -->\n";}
-    else if(strlen($_SESSION["email"])==0){}//if($debug)echo "<!-- DEBUG: Session email zero length -->\n";}
+    if(!isset($_SESSION["token"])){if($debug)echo "<!-- DEBUG: No session token -->\n";}
+    else if($_SESSION["token"]==null){if($debug)echo "<!-- DEBUG: Session token null -->\n";}
+    else if(!isset($_SESSION["email"])){if($debug)echo "<!-- DEBUG: No session email -->\n";}
+    else if($_SESSION["email"]==null){if($debug)echo "<!-- DEBUG: Session email null -->\n";}
+    else if(strlen($_SESSION["email"])==0){if($debug)echo "<!-- DEBUG: Session email zero length -->\n";}
     else {
 
             //check salt, if doesn't match, delete cookies.
@@ -78,7 +79,7 @@ function deleteCookiesIfInvalid()
                 ||getSaltedPassword($dbresults['passwordHash'],$dbresults['dateLastSignedIn'])!=$_SESSION["token"]
             )
             {
-                //if($debug)echo "<!-- DEBUG: No email, no password, or password didn't match. Destroying session. -->\n";
+                if($debug)echo "<!-- DEBUG: No email, no password, or password didn't match. Destroying session. -->\n";
                 session_destroy();
                 $loggedIn = false;
             }
