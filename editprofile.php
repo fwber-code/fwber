@@ -18,7 +18,7 @@
 
 
 	//first make sure we are a legit user.
-	if(deleteCookiesIfInvalid()==false){echo '<meta http-equiv="refresh" content="1;url='.getSiteURL().'"/>';return;}//full auth for actions
+	if(validateSessionOrCookiesReturnLoggedIn()==false){echo '<meta http-equiv="refresh" content="1;url='.getSiteURL().'"/>';return;}//full auth for actions
 
 	goHomeIfCookieNotSet();
 

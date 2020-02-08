@@ -8,7 +8,7 @@
 	require_once("_globals.php");
 	
 	//first make sure we are a legit user.
-	if(deleteCookiesIfInvalid()==false){header('Location: '.getSiteURL());return;}//full auth for actions
+	if(validateSessionOrCookiesReturnLoggedIn()==false){header('Location: '.getSiteURL());return;}//full auth for actions
 	
 	goHomeIfCookieNotSet();
 	

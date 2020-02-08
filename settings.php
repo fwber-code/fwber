@@ -14,7 +14,7 @@
 <?php
 
 	//first make sure we are a legit user.
-	deleteCookiesIfInvalid();
+	validateSessionOrCookiesReturnLoggedIn();
 	
 	goHomeIfCookieNotSet();
 

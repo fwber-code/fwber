@@ -1,7 +1,7 @@
 <?php
     require_once("_init.php");
 
-	deleteCookiesIfInvalid();
+	validateSessionOrCookiesReturnLoggedIn();
 	$logged_in=false;
 	if(isCookieSet())$logged_in=true;
 

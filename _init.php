@@ -43,7 +43,7 @@ function currentPageURL()
 }
 
 //=========================================================================================
-function deleteCookiesIfInvalid()
+function validateSessionOrCookiesReturnLoggedIn()
 {//=========================================================================================
 
     include("_secrets.php");

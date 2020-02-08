@@ -10,7 +10,7 @@ include("_names.php");
 include("_profileVars.php");
 include("_getProfile.php");
 
-	if(deleteCookiesIfInvalid()==false){header('Location: '.getSiteURL());exit();}//full auth for actions
+	if(validateSessionOrCookiesReturnLoggedIn()==false){header('Location: '.getSiteURL());exit();}//full auth for actions
 	
 	goHomeIfCookieNotSet();
 	

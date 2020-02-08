@@ -9,7 +9,7 @@
 	
 	//first make sure we are a legit user.
 	//full auth for actions
-	if(deleteCookiesIfInvalid()==false){header('Location: '.getSiteURL());return;}
+	if(validateSessionOrCookiesReturnLoggedIn()==false){header('Location: '.getSiteURL());return;}
 	
 	goHomeIfCookieNotSet();
 	
