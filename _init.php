@@ -98,15 +98,16 @@ function deleteCookiesIfInvalid()
 
             //done with the db
             mysqli_close($db);
+
     }
 
 
     //then we'll handle the cookies
-    if(!isset($_COOKIE["token"])){}//if($debug)echo "<!-- DEBUG: No cookie token -->\n";}
-    else if($_COOKIE["token"]==null){}//if($debug)echo "<!-- DEBUG: Cookie token null -->\n";}
-    else if(!isset($_COOKIE["email"])){}//if($debug)echo "<!-- DEBUG: No cookie email -->\n";}
-    else if($_COOKIE["email"]==null){}//if($debug)echo "<!-- DEBUG: Cookie email null -->\n";}
-    else if(strlen($_COOKIE["email"])==0){}//if($debug)echo "<!-- DEBUG: Cookie email zero length -->\n";}
+    if(!isset($_COOKIE["token"])){if($debug)echo "<!-- DEBUG: No cookie token -->\n";}
+    else if($_COOKIE["token"]==null){if($debug)echo "<!-- DEBUG: Cookie token null -->\n";}
+    else if(!isset($_COOKIE["email"])){if($debug)echo "<!-- DEBUG: No cookie email -->\n";}
+    else if($_COOKIE["email"]==null){if($debug)echo "<!-- DEBUG: Cookie email null -->\n";}
+    else if(strlen($_COOKIE["email"])==0){if($debug)echo "<!-- DEBUG: Cookie email zero length -->\n";}
     else
     {
             //check salt, if doesn't match, delete cookies.
@@ -126,7 +127,7 @@ function deleteCookiesIfInvalid()
                 ||md5(getSaltedPassword($dbresults['passwordHash'],$dbresults['dateLastSignedIn']))!=$_COOKIE["token"]
             )
             {
-                //if($debug)echo "<!-- DEBUG: Cookie email not found in db, no passwordHash, or passwordHash didn't match cookie. Destroying cookie. -->\n";
+                if($debug)echo "<!-- DEBUG: Cookie email not found in db, no passwordHash, or passwordHash didn't match cookie. Destroying cookie. -->\n";
                 setcookie("email","",time()-1000,'/',".".getSiteDomain());
                 setcookie("token","",time()-1000,'/',".".getSiteDomain());
             }
