@@ -84,6 +84,8 @@
     $g['commonDesires']="All";
 
     include("_getProfile.php");
+
+    //print_r($g);
 ?>
 		<br>
         <div class="card p-5 m-2 shadow-sm blueToWhite" style="display:inline-block; color:#222; text-shadow:#eee 1px 1px 0px;">

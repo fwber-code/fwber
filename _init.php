@@ -69,11 +69,11 @@ function validateSessionOrCookiesReturnLoggedIn()
     $loggedIn = false;
 
     //first we'll handle validating the session
-    if(!isset($_SESSION["token"])){if($debug)echo "<!-- DEBUG: No session token -->\n";}
-    else if($_SESSION["token"]==null){if($debug)echo "<!-- DEBUG: Session token null -->\n";}
-    else if(!isset($_SESSION["email"])){if($debug)echo "<!-- DEBUG: No session email -->\n";}
-    else if($_SESSION["email"]==null){if($debug)echo "<!-- DEBUG: Session email null -->\n";}
-    else if(strlen($_SESSION["email"])==0){if($debug)echo "<!-- DEBUG: Session email zero length -->\n";}
+    if(!isset($_SESSION["token"])){}//if($debug)echo "<!-- DEBUG: No session token -->\n";}
+    else if($_SESSION["token"]==null){}//if($debug)echo "<!-- DEBUG: Session token null -->\n";}
+    else if(!isset($_SESSION["email"])){}//if($debug)echo "<!-- DEBUG: No session email -->\n";}
+    else if($_SESSION["email"]==null){}//if($debug)echo "<!-- DEBUG: Session email null -->\n";}
+    else if(strlen($_SESSION["email"])==0){}//if($debug)echo "<!-- DEBUG: Session email zero length -->\n";}
     else {
 
             //check salt, if doesn't match, delete cookies.
@@ -96,7 +96,7 @@ function validateSessionOrCookiesReturnLoggedIn()
                 ||getSaltedPassword($dbresults['passwordHash'],$dbresults['dateLastSignedIn'])!=$_SESSION["token"]
             )
             {
-                if($debug)echo "<!-- DEBUG: No email, no password, or password didn't match. Destroying session. -->\n";
+                //if($debug)echo "<!-- DEBUG: No email, no password, or password didn't match. Destroying session. -->\n";
                 session_destroy();
                 $loggedIn = false;
             }
@@ -120,11 +120,11 @@ function validateSessionOrCookiesReturnLoggedIn()
 
 
     //then we'll handle the cookies
-    if(!isset($_COOKIE["token"])){if($debug)echo "<!-- DEBUG: No cookie token -->\n";}
-    else if($_COOKIE["token"]==null){if($debug)echo "<!-- DEBUG: Cookie token null -->\n";}
-    else if(!isset($_COOKIE["email"])){if($debug)echo "<!-- DEBUG: No cookie email -->\n";}
-    else if($_COOKIE["email"]==null){if($debug)echo "<!-- DEBUG: Cookie email null -->\n";}
-    else if(strlen($_COOKIE["email"])==0){if($debug)echo "<!-- DEBUG: Cookie email zero length -->\n";}
+    if(!isset($_COOKIE["token"])){}//if($debug)echo "<!-- DEBUG: No cookie token -->\n";}
+    else if($_COOKIE["token"]==null){}//if($debug)echo "<!-- DEBUG: Cookie token null -->\n";}
+    else if(!isset($_COOKIE["email"])){}//if($debug)echo "<!-- DEBUG: No cookie email -->\n";}
+    else if($_COOKIE["email"]==null){}//if($debug)echo "<!-- DEBUG: Cookie email null -->\n";}
+    else if(strlen($_COOKIE["email"])==0){}//if($debug)echo "<!-- DEBUG: Cookie email zero length -->\n";}
     else
     {
             //check salt, if doesn't match, delete cookies.
@@ -144,7 +144,7 @@ function validateSessionOrCookiesReturnLoggedIn()
                 ||md5(getSaltedPassword($dbresults['passwordHash'],$dbresults['dateLastSignedIn']))!=$_COOKIE["token"]
             )
             {
-                if($debug)echo "<!-- DEBUG: Cookie email not found in db, no passwordHash, or passwordHash didn't match cookie. Destroying cookie. -->\n";
+                //if($debug)echo "<!-- DEBUG: Cookie email not found in db, no passwordHash, or passwordHash didn't match cookie. Destroying cookie. -->\n";
                 setcookie("email","",time()-1000,'/',".".getSiteDomain());
                 setcookie("token","",time()-1000,'/',".".getSiteDomain());
             }
@@ -246,15 +246,16 @@ function getDistanceBetweenPoints($lat1,$lon1,$lat2,$lon2)
 function getGenderString($gender)
 {//=========================================================================================
     if($gender=='male')return "Man";
-    if($gender=='female')return "Woman";
-    if($gender=='mtf')return "TS Woman";
-    if($gender=='ftm')return "TS Man";
-    if($gender=='cdmtf')return "CD Woman";
-    if($gender=='cdftm')return "CD Man";
-    if($gender=='mf')return "Man And Woman Couple";
-    if($gender=='mm')return "Man And Man Couple";
-    if($gender=='ff')return "Woman And Woman Couple";
-    if($gender=='group')return "Group Of People";
+    else if($gender=='female')return "Woman";
+    else if($gender=='mtf')return "TS Woman";
+    else if($gender=='ftm')return "TS Man";
+    else if($gender=='cdmtf')return "CD Woman";
+    else if($gender=='cdftm')return "CD Man";
+    else if($gender=='mf')return "Man And Woman Couple";
+    else if($gender=='mm')return "Man And Man Couple";
+    else if($gender=='ff')return "Woman And Woman Couple";
+    else if($gender=='group')return "Group Of People";
+    else return $gender;
 }
 
 //=========================================================================================
@@ -312,16 +313,16 @@ function printGenderChar($g)
 
 
     if($g['gender']=="male")	echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">&#x2642; </span>';
-    if($g['gender']=="female")	echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640; </span>';
-    if($g['gender']=="mtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
-    if($g['gender']=="ftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
-    if($g['gender']=="cdmtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
-    if($g['gender']=="cdftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
-    if($g['gender']=="mf")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">&#x2642;</span><span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640;</span>';
-    if($g['gender']=="mm")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">&#x2642;&#x2642;</span>';
-    if($g['gender']=="ff")		echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640;&#x2640;</span>';
-    if($g['gender']=="group")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">&#x2642;</span><span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640;</span><span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">&#x2642;</span><span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640;</span>';
-
+    else if($g['gender']=="female")	echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640; </span>';
+    else if($g['gender']=="mtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
+    else if($g['gender']=="ftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
+    else if($g['gender']=="cdmtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
+    else if($g['gender']=="cdftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">&#x26A5; </span>';
+    else if($g['gender']=="mf")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">&#x2642;</span><span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640;</span>';
+    else if($g['gender']=="mm")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">&#x2642;&#x2642;</span>';
+    else if($g['gender']=="ff")		echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640;&#x2640;</span>';
+    else if($g['gender']=="group")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">&#x2642;</span><span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640;</span><span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">&#x2642;</span><span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">&#x2640;</span>';
+    else echo $g['gender'];
 }
 //=========================================================================================
 function printGenderString($g)
@@ -330,16 +331,16 @@ function printGenderString($g)
     $genderString = getGenderString($g['gender']);
 
     if($g['gender']=="male")	echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">'.$genderString.'</span>';
-    if($g['gender']=="female")	echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">'.$genderString.'</span>';
-    if($g['gender']=="mtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
-    if($g['gender']=="ftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
-    if($g['gender']=="cdmtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
-    if($g['gender']=="cdftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
-    if($g['gender']=="mf")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">'.$genderString.'</span>';
-    if($g['gender']=="mm")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">'.$genderString.'</span>';
-    if($g['gender']=="ff")		echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">'.$genderString.'</span>';
-    if($g['gender']=="group")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
-
+    else if($g['gender']=="female")	echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">'.$genderString.'</span>';
+    else if($g['gender']=="mtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
+    else if($g['gender']=="ftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
+    else if($g['gender']=="cdmtf")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
+    else if($g['gender']=="cdftm")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
+    else if($g['gender']=="mf")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">'.$genderString.'</span>';
+    else if($g['gender']=="mm")		echo '<span style="color:#0397ff;text-shadow:#339 1px 1px 2px;">'.$genderString.'</span>';
+    else if($g['gender']=="ff")		echo '<span style="color:#ff66cb;text-shadow:#917 1px 1px 2px;">'.$genderString.'</span>';
+    else if($g['gender']=="group")		echo '<span style="color:#84f;text-shadow:#319 1px 1px 2px;">'.$genderString.'</span>';
+    else echo $g['gender'];
 }
 
 //=========================================================================================

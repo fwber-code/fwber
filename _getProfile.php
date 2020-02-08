@@ -19,9 +19,11 @@
 */
 	function getProfile($g, $whichBase)
 	{
+
 		include("_globals.php");
-		
-		$genderString = getGenderString($g['gender']);
+
+		//$genderString = getGenderString($g['gender']);
+		//echo $genderString;
 		
 		$distanceAmt = "";
 		$distanceUnit = "";
@@ -78,6 +80,7 @@
         else if($g['body']=="curvy"){$avatarName.="body_curvy.";$bodyFolder="body4";}
         else if($g['body']=="thick"){$avatarName.="body_thick.";$bodyFolder="body5";}
         else if($g['body']=="bbw"){$avatarName.="body_bbw.";$bodyFolder="body6";}
+        else {$avatarName.="body_small.";$bodyFolder="body0";}
 
         //other light-skinned
         //other medium-skinned
@@ -93,6 +96,7 @@
         else if($g['ethnicity']=="black")$avatarName.="skin_blackLight.";
         //if($g['ethnicity']=="black")$avatarName.="skin_blackDark.";
         else if($g['ethnicity']=="other")$avatarName.="skin_asianDark.";
+        else $avatarName.="skin_whiteTan.";
 
         if($g['gender']=="male")$avatarName.="breastSize_none.";
         else if($g['gender']=="cdmtf")$avatarName.="breastSize_none.";
@@ -102,26 +106,32 @@
         else if($g['breastSize']=="average")$avatarName.="breastSize_medium.";
         else if($g['breastSize']=="large")$avatarName.="breastSize_large.";
         else if($g['breastSize']=="huge")$avatarName.="breastSize_huge.";
+        else $avatarName.="breastSize_none.";
 
 
         if($g['gender']=="female")$avatarName.="penisSize_none.";
         //else if($g['gender']=="mtf")$avatarName.="penisSize_none.";
         //else if($g['gender']=="ftm")$avatarName.="penisSize_none.";
+        else if($g['gender']=="cdmtf")$avatarName.="penisSize_none.";
+        else if($g['gender']=="cdftm")$avatarName.="penisSize_none.";
         else if($g['gender']=="ff")$avatarName.="penisSize_none.";
         else if($g['penisSize']=="tiny")$avatarName.="penisSize_small.";
         else if($g['penisSize']=="skinny")$avatarName.="penisSize_skinny.";
         else if($g['penisSize']=="average")$avatarName.="penisSize_average.";
         else if($g['penisSize']=="thick")$avatarName.="penisSize_large.";
         else if($g['penisSize']=="huge")$avatarName.="penisSize_huge.";
+        else $avatarName.="penisSize_none.";
 
         if($g['gender']=="female")$avatarName.="bodyHair_none.";
         else if($g['gender']=="mtf")$avatarName.="bodyHair_none.";
+        else if($g['gender']=="cdmtf")$avatarName.="bodyHair_none.";
         //else if($g['gender']=="ftm")$avatarName.="bodyHair_none.";
         else if($g['gender']=="ff")$avatarName.="bodyHair_none.";
         //if($g['bodyHair']=="smooth")$avatarName.="bodyHair_none.";
         else if($g['bodyHair']=="smooth")$avatarName.="bodyHair_little.";
         else if($g['bodyHair']=="average")$avatarName.="bodyHair_some.";
         else if($g['bodyHair']=="hairy")$avatarName.="bodyHair_lots.";
+        else $avatarName.="bodyHair_none.";
 
         //if($g['']=="")
         $avatarName.="facialHair_none.";
@@ -133,6 +143,7 @@
         else if($g['hairLength']=="short")$avatarName.="hairLength_buzzed.";
         else if($g['hairLength']=="medium")$avatarName.="hairLength_medium.";
         else if($g['hairLength']=="long")$avatarName.="hairLength_long.";
+        else $avatarName.="hairLength_medium.";
 
         if($g['hairColor']=="light")$avatarName.="hairColor_lightBlonde.";
         //if($g['hairColor']=="light")$avatarName.="hairColor_darkBlonde.";
@@ -143,6 +154,7 @@
         else if($g['hairColor']=="red")$avatarName.="hairColor_red.";
         else if($g['hairColor']=="gray")$avatarName.="hairColor_gray.";
         else if($g['hairColor']=="other")$avatarName.="hairColor_black.";
+        else $avatarName.="hairColor_mediumBrown.";
 
         $avatarName.="png";
 

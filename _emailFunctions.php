@@ -17,6 +17,10 @@
     You should have received a copy of the GNU Affero Public License
     along with FWBer.  If not, see <https://www.gnu.org/licenses/>.
 */
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
     //=========================================================================================
     function doMail($mailFromAddress,$mailFromName,$mailToAddress,$mailSubject,$mailHTMLBody,$mailTextBody)
     {//=========================================================================================
@@ -39,7 +43,13 @@
         */
 
         //phpmailer
-        include('js/PHPMailer-6.1.4/src/PHPMailer.php');
+
+
+        require 'js/PHPMailer-6.1.4/src/Exception.php';
+        require 'js/PHPMailer-6.1.4/src/PHPMailer.php';
+        require 'js/PHPMailer-6.1.4/src/SMTP.php';
+
+        //include('js/PHPMailer-6.1.4/src/PHPMailer.php');
         $mail             = new PHPMailer();
         //$mailHTMLBody   = file_get_contents('contents.html');
         //$mailHTMLBody   = eregi_replace("[\]",'',$mailHTMLBody);
