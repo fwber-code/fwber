@@ -11,7 +11,7 @@ Men, women, couples, groups, transgender, crossdressers, straight, gay, and bise
 
 Find exactly who you are looking for, no matter how kinky.  More fetishes and kinks can be easily added by the community.
 
-## Automatic avatar creation
+## Automatic avatar creation based on your attributes.
 
 You don't need a public picture.  We make one for you.  Create your FWBer avatar by filling out your profile.  This levels the playing field for everyone, gives an idea of what to expect, and discourages bots with fake pictures.
 
