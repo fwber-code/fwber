@@ -66,7 +66,7 @@ include("_debug.php");
             $dbquery = mysqli_query($db,"SELECT email, verifyHash, verified FROM ".$dbname.".users WHERE email='".$email."' AND verifyHash='".$verifyHash."' AND verified='1'");
             $matches  = mysqli_num_rows($dbquery);
 
-            if(matches>0)
+            if($matches>0)
             {
 ?>
 
