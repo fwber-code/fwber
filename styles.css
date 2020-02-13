@@ -917,6 +917,7 @@ background: -moz-linear-gradient(top,  #aaaaaa,  #000000); /* for firefox 3.6+ *
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#c6e8ff'); 
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#c6e8ff)); 
 	background: -moz-linear-gradient(top,  #ffffff,  #c6e8ff);
+	background-attachment:fixed;
 }
 
 
