@@ -62,7 +62,7 @@ include("_getProfile.php");
 		<br>
         <h1 class="h3 mb-3 font-weight-normal text-center"> Your Matches</h1>
         <br>
-        <div class="" style="display:inline-block;">
+        <div class="" style="">
 			<span class="blueToWhite" style="font-size:11pt; padding:6px;">
 			Show:&nbsp;
 			<?php if(!isset($_GET['show'])||$_GET['show']=="all")echo '<span class="sortStyle">'; ?><a href="/matches.php?show=all<?php if(isset($_GET['sort']))echo "&sort=".$_GET['sort']; ?>">All</a><?php if(!isset($_GET['show'])||$_GET['show']=="all")echo '</span>'; ?>&nbsp;
@@ -72,7 +72,8 @@ include("_getProfile.php");
 			<?php if(isset($_GET['show'])&&$_GET['show']=="notmytype")echo '<span class="sortStyle">'; ?><a href="/matches.php?show=notmytype<?php if(isset($_GET['sort']))echo "&sort=".$_GET['sort']; ?>">Not My Type</a><?php if(isset($_GET['show'])&&$_GET['show']=="notmytype")echo '</span>'; ?>&nbsp;
 			</span>
         </div>
-        <div class="" style="display:inline-block;">
+        <br>
+        <div class="" style="">
             &nbsp;
             <span class="blueToWhite" style="font-size:11pt; padding:6px;">
 			Sort:&nbsp;
