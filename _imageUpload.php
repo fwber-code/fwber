@@ -109,25 +109,26 @@
 		mysqli_close($db);
 
 ?>	
-		<img src="/images/success.gif" border="0"/> 
+		<img src="/images/success.gif" border="0" alt="success"/> 
 		Success!<br>
-		<img src="<?php echo "/_getImage?id=".$userid."&img=".$upload_image; ?>" border="0" height="100" />
+		<img src="<?php echo "/_getImage?id=".$userid."&img=".$upload_image; ?>" border="0" height="100"  alt="user image"/>
 <?php
 	}
 	else
 	{
 ?>	
-		<img src="/images/error.gif" border="0"/>
+		<img src="/images/error.gif" border="0" alt="error"/>
 		
 <?php	
 
-		if(count($errorList)>1)echo "Errors: ";
-		if(count($errorList)==1)echo "Error: ";
+		if(!empty($errorList) && count($errorList)>1)echo "Errors: ";
+		if(!empty($errorList) && count($errorList)==1)echo "Error: ";
 
-		foreach($errorList as $value)
-		{
-	    		echo $value.', ';
-		}
+        if(!empty($errorList)) {
+            foreach ($errorList as $value) {
+                echo $value . ', ';
+            }
+        }
 	}
 
 	function uploadImage($formName)
