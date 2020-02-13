@@ -94,7 +94,7 @@ include("_getProfile.php");
     include("_getMatches.php");
     $result_array = getMatches($email);
 
-    if(!empty($result_array) && count($result_array)<1)
+    if(empty($result_array) || count($result_array)<1)
     {
 ?>
         <div class="card p-5 m-2 shadow-sm" style="display:inline-block;">
