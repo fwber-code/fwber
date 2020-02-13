@@ -158,7 +158,7 @@
 				$errorList[] = "File size is too big.";
 			}
 
-			if(count($errorList)<1)
+			if(!empty($errorList) && count($errorList)<1)
 			{
 
 				$file_ext = preg_split("/\./",$filename);
@@ -311,7 +311,7 @@
 		   	$errorList[]= "File type isn't allowed: $filename";
 		}
 		
-		if(sizeof($errorList) == 0)
+		if(empty($errorList) || count($errorList) == 0)
 		{
 			return $imageMD5FileName;
 		}
@@ -319,7 +319,7 @@
 		{
 			$eMessage = array();
 			
-			for ($x=0; $x<sizeof($errorList); $x++)
+			for ($x=0; $x<count($errorList); $x++)
 			{
 				$eMessage[] = $errorList[$x];
 			}
