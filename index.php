@@ -49,8 +49,8 @@
             <h1 class="display-4 font-weight-normal"><img src="/images/fwber_logo_icon.png" alt="fwber" id="fwber_logo_img" align="middle" width="180px" style="vertical-align:bottom; margin-bottom:5px; margin-right:-4px;"/> is a <b>completely new</b> kind of Adult Match site.</h1>
             <p class="lead font-weight-normal">
                 <br>
-                <a href="https://github.com/fwber-code/fwber">Open source</a> and <b>fully transparent</b>.<br>
-                For the people, by the people!<br>
+                Finally, a better replacement<br>
+                for Craigslist and AdultFriendFinder!<br>
                 <br>
                 No fees, <b>totally free</b> forever.<br>
                 No bots, spam, ads, or popups.<br>
@@ -110,8 +110,8 @@
         </div>
         <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
             <div class="my-3 py-3">
-                <h2 class="display-5">Open source and fully transparent.</h2>
-                <p class="lead">Verify your data is stored properly and your secrets are safe. Suggest new features or add them yourself.</p>
+                <h2 class="display-5"><a href="https://github.com/fwber-code/fwber">Open source</a> and <b>fully transparent</b>.</h2>
+                <p class="lead">For the people, by the people! Verify your data is stored properly and your secrets are safe. Suggest new features or add them yourself.</p>
             </div>
 
         </div>

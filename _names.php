@@ -21,7 +21,7 @@
 //=========================================================================================
 function getTitleTagline()
 {//=========================================================================================
-    return ' - The Free Open Source Adult Match Site';
+    return ' - The Best Free Adult Match Site';
     //return ' - The #1 original 100% FREE adult match site to find casual sex hookups and "friends with benefits." Everyone wants to get laid!';
 }
 
