@@ -1104,7 +1104,7 @@
 													<td colspan="2">
 														<div align="left">
 
-															<textarea id="privateText" name="privateText" style="width:90%; height:4em; font-size:8pt; color:#222; font-weight:normal; border-radius:8px; overflow-y:scroll;" readonly><?php echo $g['privateText']; ?></textarea>
+															<textarea id="privateText" name="privateText" style="width:90%; height:8em; font-size:8pt; color:#222; font-weight:normal; border-radius:8px; overflow-y:scroll;" readonly><?php echo $g['privateText']; ?></textarea>
 
 														</div>
 													</td>
