@@ -111,7 +111,7 @@
         <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
             <div class="my-3 py-3">
                 <h2 class="display-5"><a href="https://github.com/fwber-code/fwber">Open source</a> website code.</h2>
-                <p class="lead">For the people, by the people! We don't hide our source code, we share it. Anyone can verify your data is stored securely and your secrets are safe. Anyone can add or suggest new features. The future belongs to us!</p>
+                <p class="lead">For the people, by the people! Anyone can verify your data is stored securely and your secrets are safe. The future belongs to us!</p>
             </div>
 
         </div>
