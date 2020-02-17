@@ -19,8 +19,10 @@
 */
     session_start();
 
-    require_once("_init.php");
-    require_once("_secrets.php");
+include("_debug.php");
+include("_names.php");
+include("_init.php");
+include("_secrets.php");
 
     $db = mysqli_connect($dburl,$dbuser,$dbpass);
     if(!$db)exit(mysqli_connect_error());
@@ -52,6 +54,7 @@
 
 			$dateJoined = $dbresults['dateJoined'];
 
+            include("_emailFunctions.php");
 			$success=true;
 			$success = sendNewPasswordEmail($email,$newPass,$verifyHash);
 			

@@ -19,12 +19,14 @@
 */
     session_start();
 
-    require_once("_init.php");
+include("_debug.php");
+include("_names.php");
+include("_init.php");
+include("_secrets.php");
 	
 	if($_SERVER["REQUEST_METHOD"] != "POST"){header('Location: '.getSiteURL());exit();}
 
     require_once("_profileVars.php");
-    require_once("_dbSettings.php");
     require_once("_globals.php");
 
     //first make sure we are a legit user.
