@@ -82,7 +82,7 @@
                             setTimeout(function()
                             {
                                 $(document.getElementById("requestStatus")).fadeOut('slow');
-                            },10000);
+                            },15000);
                         }
                     }
                 });
